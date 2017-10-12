@@ -15,7 +15,7 @@ namespace Interface
         public Form1()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
+            //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
         }
 
