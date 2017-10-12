@@ -16,7 +16,22 @@ namespace Interface
     String kilograms, String centimeters, String guid, String latitude, String longitude, XmlDocument doc)
         {
             XmlElement Donator = doc.CreateElement("Donator");
-            
+
+            //            XmlAttribute attribute = doc.CreateAttribute("Number");
+            //            attribute.Value = number;
+            //            Donator.Attributes.Append(attribute);
+
+            XmlElement numberElement = doc.CreateElement("Number");
+            numberElement.InnerText = number;
+            Donator.AppendChild(numberElement);
+
+            XmlElement firstNameElement = doc.CreateElement("FirstName");
+            firstNameElement.InnerText = firstName;
+            Donator.AppendChild(firstNameElement);
+
+
+
+            MessageBox.Show(Donator.OuterXml);
             return Donator;
         }
     }
