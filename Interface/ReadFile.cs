@@ -36,7 +36,7 @@ namespace Interface
                    dadosDivididos[9], dadosDivididos[10], Convert.ToInt64(dadosDivididos[11]), dadosDivididos[12], Convert.ToDateTime(dadosDivididos[13]),
                     Convert.ToInt32(dadosDivididos[14]), dadosDivididos[15], dadosDivididos[16], dadosDivididos[17], dadosDivididos[18],
                    float.Parse(dadosDivididos[19]), float.Parse(dadosDivididos[20]), dadosDivididos[21], Convert.ToDouble(dadosDivididos[22]),
-                    Convert.ToDouble(dadosDivididos[23]), doc);
+                    Convert.ToDouble(dadosDivididos[23]),  doc);
                 
                 //Culture info wtf
             }
