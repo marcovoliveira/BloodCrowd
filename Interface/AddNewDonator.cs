@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml;
 
 namespace Interface
@@ -16,7 +15,7 @@ namespace Interface
     float kilograms, float centimeters, String guid, double latitude, double longitude, XmlDocument doc)
         {
             XmlElement Donator = doc.CreateElement("Donator");
-            MessageBox.Show(city);
+
             return Donator;
         }
     }
