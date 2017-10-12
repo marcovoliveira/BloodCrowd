@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Interface
 {
@@ -24,18 +25,20 @@ namespace Interface
             int i;
 
             List<String> dados = new List<String>();
-            
+            XmlDocument doc = new XmlDocument();
 
             for(i=1;i<dadosSize;i++)
             {
              dados.Add(dadosPorEnter[i]);
              dadosDivididos = dados[i].Split(f);
-                AddDonator(dadosDivididos[0], dadosDivididos[1], dadosDivididos[2], dadosDivididos[3],
+                AddNewDonator.AddDonator(Convert.ToInt32(dadosDivididos[0]), dadosDivididos[1], dadosDivididos[2], dadosDivididos[3],
                    dadosDivididos[4], dadosDivididos[5], dadosDivididos[6], dadosDivididos[7], dadosDivididos[8],
-                   dadosDivididos[9], dadosDivididos[10], dadosDivididos[11], dadosDivididos[12], dadosDivididos[13],
-                   dadosDivididos[14], dadosDivididos[15], dadosDivididos[16], dadosDivididos[17], dadosDivididos[18],
-                   dadosDivididos[19], dadosDivididos[20], dadosDivididos[21], dadosDivididos[22], dadosDivididos[23]);
+                   dadosDivididos[9], dadosDivididos[10], Convert.ToInt64(dadosDivididos[11]), dadosDivididos[12], Convert.ToDateTime(dadosDivididos[13]),
+                    Convert.ToInt32(dadosDivididos[14]), dadosDivididos[15], dadosDivididos[16], dadosDivididos[17], dadosDivididos[18],
+                   float.Parse(dadosDivididos[19]), float.Parse(dadosDivididos[20]), dadosDivididos[21], Convert.ToDouble(dadosDivididos[22]),
+                    Convert.ToDouble(dadosDivididos[23]), doc);
                 
+                //Culture info wtf
             }
            
            MessageBox.Show( dados[1]);
