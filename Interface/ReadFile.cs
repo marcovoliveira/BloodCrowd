@@ -21,30 +21,38 @@ namespace Interface
             char f = '|';
             String[] dadosPorEnter = receber.Split(d);
             int dadosSize = dadosPorEnter.Length;
-            String[] dadosDivididos;
+            String[] dado;
             int i;
 
             List<String> dados = new List<String>();
             XmlDocument doc = new XmlDocument();
 
-            for(i=1;i<dadosSize;i++)
+            for (i = 1; i < dadosSize; i++)
             {
-             dados.Add(dadosPorEnter[i]);
-             dadosDivididos = dados[i].Split(f);
-                AddNewDonator.AddDonator(Convert.ToInt32(dadosDivididos[0]), dadosDivididos[1], dadosDivididos[2], dadosDivididos[3],
-                   dadosDivididos[4], dadosDivididos[5], dadosDivididos[6], dadosDivididos[7], dadosDivididos[8],
-                   dadosDivididos[9], dadosDivididos[10], Convert.ToInt64(dadosDivididos[11]), dadosDivididos[12], Convert.ToDateTime(dadosDivididos[13]),
-                    Convert.ToInt32(dadosDivididos[14]), dadosDivididos[15], dadosDivididos[16], dadosDivididos[17], dadosDivididos[18],
-                   float.Parse(dadosDivididos[19]), float.Parse(dadosDivididos[20]), dadosDivididos[21], Convert.ToDouble(dadosDivididos[22]),
-                    Convert.ToDouble(dadosDivididos[23]),  doc);
-                
-                //Culture info wtf
+                dados.Add(dadosPorEnter[i]); //adicionar pessoa
+               
             }
-           
-           MessageBox.Show( dados[1]);
 
+            int dadosSize2 = dados.Count;
+            for (i = 0; i < dadosSize2; i++)
+            {
+                dado = dados[i].Split(f); //dividir pessoa por pipe
+                AddNewDonator.AddDonator(dado[0], dado[1], dado[2], dado[3],
+                       dado[4], dado[5], dado[6], dado[7], dado[8],
+                       dado[9], dado[10], dado[11], dado[12], dado[13],
+                        dado[14], dado[15], dado[16], dado[17], dado[18],
+                       dado[19],dado[20], dado[21], dado[22],
+                        dado[23], doc);
+
+                
+
+
+            }
+            MessageBox.Show(doc.OuterXml);
+           
+
+            }
         }
 
         
     }
-}

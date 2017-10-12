@@ -10,13 +10,13 @@ namespace Interface
 {
     class AddNewDonator
     {
-        public static XmlElement AddDonator(int number, String sexo, String firstName, String lastName, String streetAddress,
-    String city, String statefull, String zipCode, String eMail, String userName, String password, long telephoneNumber,
-    String mothersMaiden, DateTime birthDay, int age, String occupation, String company, String vehicle, String bloodType,
-    float kilograms, float centimeters, String guid, double latitude, double longitude, XmlDocument doc)
+        public static XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,
+    String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
+    String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
+    String kilograms, String centimeters, String guid, String latitude, String longitude, XmlDocument doc)
         {
             XmlElement Donator = doc.CreateElement("Donator");
-            MessageBox.Show(city);
+            
             return Donator;
         }
     }
