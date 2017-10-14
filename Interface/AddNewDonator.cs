@@ -39,7 +39,7 @@ namespace Interface
             donator.AppendChild(cidade);
             cidade.InnerText = city;
 
-            XmlElement distrito = doc.CreateElement("Destrito");
+            XmlElement distrito = doc.CreateElement("Distrito");
             donator.AppendChild(distrito);
             distrito.InnerText = statefull;
 
