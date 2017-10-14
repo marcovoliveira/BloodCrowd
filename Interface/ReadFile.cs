@@ -48,8 +48,9 @@ namespace Interface
                         dado[23], doc);
                 
 
-                dfd
+                
             }
+            doc.AppendChild(doc);
             MessageBox.Show(doc.InnerXml);
            
 
