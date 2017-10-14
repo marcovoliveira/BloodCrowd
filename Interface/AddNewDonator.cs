@@ -74,6 +74,7 @@ namespace Interface
             tipoSanguineo.InnerText = bloodType;
 
             XmlElement peso = doc.CreateElement("Peso");
+
             peso.InnerText = kilograms;
 
             XmlElement altura = doc.CreateElement("Altura");
