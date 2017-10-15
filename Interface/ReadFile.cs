@@ -67,9 +67,10 @@ namespace Interface
 
             }
             
-            MessageBox.Show(doc.OuterXml);
+           // MessageBox.Show(doc.OuterXml);
 
             doc.Save(@"teste2.xml"); //guardar o documento XML
+           exportDonators.ExportDonatorXml(1,"ola","ola",doc); //para testar um export
         }
         }      
     }

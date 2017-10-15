@@ -51,6 +51,7 @@
     <Compile Include="DonatorsControl.Designer.cs">
       <DependentUpon>DonatorsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="exportDonators.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
