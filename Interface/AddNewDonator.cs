@@ -19,6 +19,8 @@ namespace Interface
             donator.SetAttribute("id", number);
             //doc.AppendChild(donator);
 
+            
+
             XmlElement genero = doc.CreateElement("Sexo");
             donator.AppendChild(genero);
             genero.InnerText = sexo;
