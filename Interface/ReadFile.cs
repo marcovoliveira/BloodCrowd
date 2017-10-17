@@ -24,6 +24,8 @@ namespace Interface
             char d = '\n';
             char f = '|';
 
+           
+
             String[] dadosPorEnter = receber.Split(d);
             int dadosPorEnterSize = dadosPorEnter.Length;
 
@@ -71,9 +73,16 @@ namespace Interface
            // MessageBox.Show(doc.OuterXml);
 
             doc.Save(@"teste2.xml"); //guardar o documento XML
-            int[] a = { 1,2,3 };
- 
-            exportDonators.ExportDonatorXml(a,"ola","ola","ficheiroXML",doc); //para testar um export
+            int[] dadores = { 1,74,200,32,10,5 };
+
+            if (ExportDonators.ExportDonatorXml(dadores, "ola", "ola", "ficheiroXML", doc) == true)
+            {
+                MessageBox.Show("Dadores Exportados com sucesso! ");
+            }
+            else
+            {
+                MessageBox.Show("Falha a exportar os dadores! ");
+            }
             
         }
         }      
