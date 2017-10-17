@@ -73,9 +73,9 @@ namespace Interface
            // MessageBox.Show(doc.OuterXml);
 
             doc.Save(@"teste2.xml"); //guardar o documento XML
-            int[] dadores = { 1,74,200,32,10,5 };
-
-            if (ExportDonators.ExportDonatorXml(dadores, "ola", "ola", "ficheiroXML", doc) == true)
+            int[] dadores = { 1,27,4,10 };
+            int type = 1; 
+            if (ExportDonators.ExportDonator(dadores, type, "C:/stremio-cache", "ficheiroXML", doc) == true)
             {
                 MessageBox.Show("Dadores Exportados com sucesso! ");
             }
