@@ -31,7 +31,7 @@ namespace Interface
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             homeControl1.BringToFront();
-            Inicializacoes.Iniciar();
+            
 
 
 

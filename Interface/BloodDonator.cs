@@ -28,18 +28,18 @@ namespace Interface
         public String  Company { get; private set; }
         public String Vehicle { get; private set; }
         public String  BloodType{ get; private set; }
-        public float Kilograms { get; private set; }
-        public float Centimeters;
+        public String Kilograms { get; private set; }
+        public double Centimeters { get; private set; }
         public String Guid { get; private set; }
-        public double Latitude { get; private set; }
-        public Double Longitude  { get; private set; }
+        public String Latitude { get; private set; }
+        public String Longitude  { get; private set; }
 
         public BloodDonator(int number, String sexo, String firstName, String lastName, String streetAddress,
                 String city, String statefull, String zipCode, String eMail, String userName, String password,
                 long telephoneNumber,
                 String mothersMaiden, DateTime birthDay, int age, String occupation, String company, String vehicle,
                 String bloodType,
-                float kilograms, float centimeters, String guid, double latitude, double longitude)
+                String kilograms, double centimeters, String guid, String latitude, String longitude)
 
         {
 

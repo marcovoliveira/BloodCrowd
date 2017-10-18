@@ -15,16 +15,24 @@ namespace Interface
 {
     public partial class DonatorsControl : UserControl
     {
-       
+
+        
+        
+
+        
 
         public DonatorsControl()
         {
             InitializeComponent();
             
-            
+         
+        
+          List<BloodDonator> listar = new List<BloodDonator>();
 
-                
-                
+            listar = CreateListDonators.ListDonators();  // listar recebe a lista completa
+
+            MessageBox.Show(Convert.ToString(listar.Count));  // so para mostrar que tenho todos na lista
+
             listView1.View = View.Details;
             listView1.GridLines = true;
 
@@ -38,9 +46,11 @@ namespace Interface
             listView1.Columns.Add("Cidade");
            // listView1.Sorting = SortOrder.Ascending;
 
+            // Aqui quero que imprimas a lista com o nome "Listar" na list view que ja esta iniciada 
+
             
 
-
+            
 
         }
 
