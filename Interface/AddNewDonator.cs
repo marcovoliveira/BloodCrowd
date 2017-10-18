@@ -10,6 +10,7 @@ namespace Interface
 {
     class AddNewDonator
     {
+        // Metodo que recebe os dados do donator e cria um nood do dador com os dados. 
         public static XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,
                        String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
                        String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,

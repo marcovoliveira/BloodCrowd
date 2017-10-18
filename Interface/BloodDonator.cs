@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
+    //Classe responsavel por receber os dados provenientes do XML e devolver para a inicialização da lista. 
     class BloodDonator
     {
         public int Number { get; private set; }

@@ -10,8 +10,10 @@ using System.Xml;
 
 namespace Interface
 {
+    // Esta é a classe responsavel por exportar os dados tanto para XML como JSON
     class ExportDonators
     {
+        // Este metodo 
         public static bool  ExportDonator(int[] id, int type, String caminho,String nomeFicheiro, XmlDocument doc)
         {
 
