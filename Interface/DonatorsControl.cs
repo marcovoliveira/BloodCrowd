@@ -15,9 +15,13 @@ namespace Interface
 {
     public partial class DonatorsControl : UserControl
     {
+       
+
         public DonatorsControl()
         {
             InitializeComponent();
+            
+            
 
                 
                 
@@ -32,7 +36,7 @@ namespace Interface
             listView1.Columns.Add("Grupo Sanguineo");
             listView1.Columns.Add("Telefone");
             listView1.Columns.Add("Cidade");
-            listView1.Sorting = SortOrder.Ascending;
+           // listView1.Sorting = SortOrder.Ascending;
 
             
 
@@ -40,22 +44,43 @@ namespace Interface
 
         }
 
+       
+           
+        
 
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-    }
+   
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (this.listView1.SelectedItems.Count == 0)
+                return;
+
+            string a = this.listView1.SelectedItems[0].Text;
+            // int donatorsSize = donators.length;
+            XmlDocument documento = new XmlDocument();
+            documento.Load(@"teste2.xml");
+            XmlNodeList donator;
+            XmlNode root = documento.DocumentElement;
+            donator = root.SelectNodes("//Donator[@id = " + a +"]" );
+            foreach (XmlNode item in donator)
+            {
+                MessageBox.Show(item.InnerXml);
+
+            }
+
+
+
+
 
         }
 
         private void listView1_ColumnClick(object sender,System.Windows.Forms.ColumnClickEventArgs e)
         {
             this.listView1.ListViewItemSorter = new ListViewItemComparer(e.Column);
-        }
+           
+        
+    }
 
     }
     class ListViewItemComparer : IComparer
