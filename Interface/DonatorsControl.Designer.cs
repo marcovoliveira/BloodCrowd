@@ -41,7 +41,7 @@
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(682, 479);
+            this.listView1.Size = new System.Drawing.Size(718, 479);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -56,7 +56,7 @@
             this.Controls.Add(this.listView1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DonatorsControl";
-            this.Size = new System.Drawing.Size(682, 479);
+            this.Size = new System.Drawing.Size(718, 479);
             this.ResumeLayout(false);
 
         }
