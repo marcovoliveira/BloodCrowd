@@ -24,7 +24,7 @@ namespace Interface
             XmlElement genero = doc.CreateElement("Sexo");
             donator.AppendChild(genero);
             genero.InnerText = sexo;
-
+            
             XmlElement primeiroNome = doc.CreateElement("Primeiro_Nome");
             donator.AppendChild(primeiroNome);
             primeiroNome.InnerText = firstName;
