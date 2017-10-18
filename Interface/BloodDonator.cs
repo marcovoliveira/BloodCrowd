@@ -9,7 +9,7 @@ namespace Interface
     class BloodDonator
     {
         public int Number { get; private set; }
-        public char Sexo { get; private set; }
+        public String Sexo { get; private set; }
         public String FirstName { get; private set; }
         public String LastName { get; private set; }
         public String StreetAddress { get; private set; }
@@ -33,7 +33,7 @@ namespace Interface
         public double Latitude { get; private set; }
         public Double Longitude  { get; private set; }
 
-        public BloodDonator(int number, char sexo, String firstName, String lastName, String streetAddress,
+        public BloodDonator(int number, String sexo, String firstName, String lastName, String streetAddress,
                 String city, String statefull, String zipCode, String eMail, String userName, String password,
                 long telephoneNumber,
                 String mothersMaiden, DateTime birthDay, int age, String occupation, String company, String vehicle,
