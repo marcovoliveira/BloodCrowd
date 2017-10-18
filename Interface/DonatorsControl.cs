@@ -19,26 +19,8 @@ namespace Interface
         {
             InitializeComponent();
 
-
-            //XmlDocument doc = new XmlDocument();
-            /*
-            XmlNodeList tudo;
-            
-            tudo = doc.SelectNodes("//Donator");
-            XmlNodeList primeiro_nome;
-            XmlNodeList ultimo_nome;
-            XmlNodeList id;
-            XmlNode root = doc.DocumentElement;
-            */
-            //1º e 2º nome na mesma coluna
-
-
-            /*
-            primeiro_nome = root.SelectNodes("//Donator/Primeiro_Nome");
-            ultimo_nome = root.SelectNodes("//Donator/Ultimo_Nome");
-            id = root.SelectNodes("//Donator/@id");
-            */
-
+                
+                
             listView1.View = View.Details;
             listView1.GridLines = true;
 
@@ -52,22 +34,7 @@ namespace Interface
             listView1.Columns.Add("Cidade");
             listView1.Sorting = SortOrder.Ascending;
 
-            XDocument doc = XDocument.Load(@"teste2.xml");
-
-            foreach (var dm in doc.Descendants("Donator"))
-            {
-                ListViewItem item = new ListViewItem(new string[]
-                {
-                dm.Attribute("id").Value,
-                dm.Element("Sexo").Value,
-                dm.Element("Primeiro_Nome").Value +" "+ dm.Element("Ultimo_Nome").Value,
-                dm.Element("Idade").Value,
-                dm.Element("Tipo_Sanguineo").Value,
-                dm.Element("Telefone").Value,
-                dm.Element("Cidade").Value
-                });
-                listView1.Items.Add(item);
-            }
+            
 
 
 

@@ -307,7 +307,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.donatorsControl1);
+          //  this.Controls.Add(this.donatorsControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
