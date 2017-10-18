@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddNewDonator.cs" />
+    <Compile Include="BloodDonator.cs" />
     <Compile Include="DonatorsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
