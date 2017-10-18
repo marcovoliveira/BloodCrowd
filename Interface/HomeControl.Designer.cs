@@ -60,6 +60,7 @@
             this.Controls.Add(this.label1);
             this.Name = "HomeControl";
             this.Size = new System.Drawing.Size(967, 557);
+            this.Load += new System.EventHandler(this.HomeControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
