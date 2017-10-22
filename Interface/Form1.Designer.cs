@@ -192,7 +192,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(256, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1218, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1151, 36);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -208,7 +208,7 @@
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.ForeColor = System.Drawing.Color.Transparent;
             this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
-            this.close.Location = new System.Drawing.Point(1182, 3);
+            this.close.Location = new System.Drawing.Point(1115, 3);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(33, 30);
             this.close.TabIndex = 9;
@@ -221,7 +221,7 @@
             this.maximize.FlatAppearance.BorderSize = 0;
             this.maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maximize.Image = ((System.Drawing.Image)(resources.GetObject("maximize.Image")));
-            this.maximize.Location = new System.Drawing.Point(1152, 3);
+            this.maximize.Location = new System.Drawing.Point(1085, 3);
             this.maximize.Name = "maximize";
             this.maximize.Size = new System.Drawing.Size(24, 30);
             this.maximize.TabIndex = 10;
@@ -234,7 +234,7 @@
             this.hide.FlatAppearance.BorderSize = 0;
             this.hide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hide.Image = ((System.Drawing.Image)(resources.GetObject("hide.Image")));
-            this.hide.Location = new System.Drawing.Point(1120, 3);
+            this.hide.Location = new System.Drawing.Point(1053, 3);
             this.hide.Name = "hide";
             this.hide.Size = new System.Drawing.Size(26, 30);
             this.hide.TabIndex = 11;
@@ -278,7 +278,7 @@
             // 
             this.homeControl1.Location = new System.Drawing.Point(263, 264);
             this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(1199, 545);
+            this.homeControl1.Size = new System.Drawing.Size(1199, 557);
             this.homeControl1.TabIndex = 7;
             this.homeControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.homeControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -287,9 +287,11 @@
             // donatorsControl1
             // 
             this.donatorsControl1.Location = new System.Drawing.Point(256, 287);
+            this.donatorsControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.donatorsControl1.Name = "donatorsControl1";
-            this.donatorsControl1.Size = new System.Drawing.Size(1199, 522);
+            this.donatorsControl1.Size = new System.Drawing.Size(1199, 532);
             this.donatorsControl1.TabIndex = 8;
+            this.donatorsControl1.Load += new System.EventHandler(this.donatorsControl1_Load);
             this.donatorsControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.donatorsControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.donatorsControl1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -298,16 +300,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1474, 821);
+            this.ClientSize = new System.Drawing.Size(1407, 821);
             this.Controls.Add(this.logoName);
             this.Controls.Add(this.subTitle);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.donatorsControl1);
+            this.Controls.Add(this.homeControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";

@@ -161,5 +161,10 @@ namespace Interface
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void donatorsControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

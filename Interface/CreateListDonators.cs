@@ -43,15 +43,16 @@ namespace Interface
                 String empresa = dm.Element("Empresa").Value;
                 String veiculo =  dm.Element("Veiculo").Value;
                 String tipo_sangue = dm.Element("Tipo_Sanguineo").Value;
-                String peso = dm.Element("Peso").Value;
+                double peso = Convert.ToDouble(dm.Element("Peso").Value);
                 double altura = Convert.ToDouble(dm.Element("Altura").Value);
                 String guid = dm.Element("GUID").Value;
                 String latitude = dm.Element("Latitude").Value;
                 String longitude = dm.Element("Longitude").Value;
+                double IMC = CalculateIMC.CalcularIMC(peso, altura); 
 
      ListDonators.Add(new BloodDonator(id, sexo, primeiro_nome, ultimo_nome, rua, cidade, distrito, codigo_postal, email, username,
          password, telefone, nome_mae, data_nascimento, idade, ocupacao, empresa, veiculo, tipo_sangue, peso, altura,
-         guid, latitude, longitude));
+         guid, latitude, longitude, IMC));
                 
                 }
 

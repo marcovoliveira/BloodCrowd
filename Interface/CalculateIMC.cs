@@ -14,7 +14,7 @@ namespace Interface
             double imc;
 
 
-            imc = peso / ((altura * altura)/100);
+            imc = peso / ((altura * altura)/10000);
             if (imc <= 16)
             {
                 return imc;
