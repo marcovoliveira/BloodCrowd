@@ -1,7 +1,9 @@
 ﻿namespace Interface
 {
     partial class HomeControl
+
     {
+        
         /// <summary> 
         /// Variável de designer necessária.
         /// </summary>
