@@ -20,8 +20,7 @@ namespace Interface
 
        
 
-
-
+     
         public Form1()
         {
             InitializeComponent();
@@ -31,32 +30,20 @@ namespace Interface
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             homeControl1.BringToFront();
-            
-
+            timer1.Start();
 
 
         }
+
+  
 
         
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-        }
-      
 
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReadFile.Devolver();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+  
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -83,38 +70,11 @@ namespace Interface
             donatorsControl1.BringToFront();
         }
 
-        private void StatisticsButton_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = StatisticsButton.Height;
-            SidePanel.Top = StatisticsButton.Top;
-        }
-
-        private void ImportButton_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = ImportButton.Height;
-            SidePanel.Top = ImportButton.Top;
-        }
-
-        private void ExportButton_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = ExportButton.Height;
-            SidePanel.Top = ExportButton.Top;
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Close_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void close_Click_1(object sender, EventArgs e)
         {
@@ -164,6 +124,18 @@ namespace Interface
 
         private void donatorsControl1_Load(object sender, EventArgs e)
         {
+           
+        }
+
+        private void exportDataControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            this.DateTimeLabel.Text = dateTime.ToString();
 
         }
     }

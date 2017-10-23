@@ -7,44 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using System.Xml;
-using System.Collections;
 
 namespace Interface
 {
-    public partial class DonatorsControl : UserControl
+    public partial class DonatorsListControl : UserControl
     {
-
         private DataView dv;
         private DataTable dt;
-        private int sortColumn = -1;
 
-        public DonatorsControl()
+        public DonatorsListControl()
         {
             InitializeComponent();
-
-            
         }
 
-        private void DonatorsControl_Load(object sender, EventArgs e)
+        private void DonatorsListControl_Load(object sender, EventArgs e)
         {
-            // Destalhes da listview 
             listView1.View = View.Details;
-            ReloadListView();
-           
-            FilterBox.Items.Add("Nome");
-            FilterBox.Items.Add("Sexo");
-            FilterBox.Items.Add("Idade");
-            FilterBox.Items.Add("GrupoSanguineo");
-            FilterBox.Items.Add("IMC");
-            FilterBox.SelectedIndex = 0;
-
-        }
-
-        private void ReloadListView()
-        {
-            
 
             dt = new DataTable();
             dt.Columns.Add("Nome");
@@ -53,25 +31,19 @@ namespace Interface
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
 
-            List<BloodDonator> donators = new List<BloodDonator>();
-
-            donators = CreateListDonators.ListDonators(); // listar recebe a lista completa
-
-            if (donators.Count == 0)
-            {
-                statusLabel.ForeColor = Color.Red;
-                statusLabel.Text = "Please import data from a source file .txt!";
-            }
-            else
-            {
-                statusLabel.ForeColor = Color.Green;
-                statusLabel.Text = "OK, " + donators.Count + " Donators Load.";
-            }
+            var donators = CreateListDonators.ListDonators(); // listar recebe a lista completa
 
             CarregarDadosTabela(donators);
             dv = new DataView(dt);
 
             CarregarDataProcura(dv);
+
+            comboBoxFilter.Items.Add("Nome");
+            comboBoxFilter.Items.Add("Sexo");
+            comboBoxFilter.Items.Add("Idade");
+            comboBoxFilter.Items.Add("GrupoSanguineo");
+            comboBoxFilter.Items.Add("IMC");
+            comboBoxFilter.SelectedIndex = 0;
         }
 
         private void CarregarDadosTabela(List<BloodDonator> donators)
@@ -92,19 +64,6 @@ namespace Interface
             }
         }
 
-
-        private void SearchBox_TextChanged(object sender, EventArgs e)
-        {
-            dv.RowFilter = string.Format(FilterBox.Text + " Like'%{0}%'", SearchBox.Text);
-            CarregarDataProcura(dv);
-        }
-
-        private void FilterBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dv.RowFilter = string.Format(FilterBox.Text + " Like '%{0}%'", SearchBox.Text);
-            CarregarDataProcura(dv);
-        }
-
         private void CarregarDataProcura(DataView dv)
         {
             listView1.Items.Clear();
@@ -115,9 +74,16 @@ namespace Interface
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
+            dv.RowFilter = string.Format(comboBoxFilter.Text + " Like'%{0}%'", searchTextBox.Text);
+            CarregarDataProcura(dv);
+        }
 
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dv.RowFilter = string.Format(comboBoxFilter.Text + " Like'%{0}%'", searchTextBox.Text);
+            CarregarDataProcura(dv);
         }
 
         private void listView1_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e)
@@ -149,30 +115,9 @@ namespace Interface
 
         }
 
-        
-
-        private void label2_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void importButton_Click(object sender, EventArgs e)
-        {
-            
-            if (ReadFile.Devolver() == false)
-            {
-                MessageBox.Show("Error parsing source file.");
-            }
-            else
-            {
-                ReloadListView();
-                MessageBox.Show("Data successfully load.");
-            }
-           
         }
     }
-
-
-    
 }
-

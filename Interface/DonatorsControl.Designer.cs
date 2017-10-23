@@ -38,6 +38,11 @@
             this.searchLabel = new System.Windows.Forms.Label();
             this.filterLabel = new System.Windows.Forms.Label();
             this.FilterBox = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.importButton = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -128,10 +133,66 @@
             this.FilterBox.TabIndex = 4;
             this.FilterBox.SelectedIndexChanged += new System.EventHandler(this.FilterBox_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.button1.Location = new System.Drawing.Point(718, 162);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(341, 68);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.button2.Location = new System.Drawing.Point(718, 236);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(341, 68);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // importButton
+            // 
+            this.importButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importButton.Location = new System.Drawing.Point(718, 310);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(341, 68);
+            this.importButton.TabIndex = 7;
+            this.importButton.Text = "Import Data";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.button4.Location = new System.Drawing.Point(718, 384);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(341, 68);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.Location = new System.Drawing.Point(682, 485);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(45, 21);
+            this.statusLabel.TabIndex = 10;
+            this.statusLabel.Text = "Error";
+            // 
             // DonatorsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.importButton);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.FilterBox);
             this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.searchLabel);
@@ -139,7 +200,7 @@
             this.Controls.Add(this.listView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DonatorsControl";
-            this.Size = new System.Drawing.Size(1023, 590);
+            this.Size = new System.Drawing.Size(1132, 535);
             this.Load += new System.EventHandler(this.DonatorsControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,5 +219,10 @@
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.ComboBox FilterBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label statusLabel;
     }
 }

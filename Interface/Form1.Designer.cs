@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DateTimeLabel = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.Version = new System.Windows.Forms.Label();
-            this.StatisticsButton = new System.Windows.Forms.Button();
             this.DonatorsButton = new System.Windows.Forms.Button();
-            this.ExportButton = new System.Windows.Forms.Button();
-            this.ImportButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.close = new System.Windows.Forms.Button();
@@ -48,39 +45,19 @@
             this.subTitle = new System.Windows.Forms.Label();
             this.homeControl1 = new Interface.HomeControl();
             this.donatorsControl1 = new Interface.DonatorsControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1197, 88);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1054, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel1.Controls.Add(this.DateTimeLabel);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.Version);
-            this.panel1.Controls.Add(this.StatisticsButton);
             this.panel1.Controls.Add(this.DonatorsButton);
-            this.panel1.Controls.Add(this.ExportButton);
-            this.panel1.Controls.Add(this.ImportButton);
             this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -91,6 +68,17 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            // 
+            // DateTimeLabel
+            // 
+            this.DateTimeLabel.AutoSize = true;
+            this.DateTimeLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimeLabel.ForeColor = System.Drawing.Color.White;
+            this.DateTimeLabel.Location = new System.Drawing.Point(28, 692);
+            this.DateTimeLabel.Name = "DateTimeLabel";
+            this.DateTimeLabel.Size = new System.Drawing.Size(169, 23);
+            this.DateTimeLabel.TabIndex = 9;
+            this.DateTimeLabel.Text = "Date Time Label";
             // 
             // SidePanel
             // 
@@ -112,20 +100,6 @@
             this.Version.TabIndex = 7;
             this.Version.Text = "Version 1.00 2017";
             // 
-            // StatisticsButton
-            // 
-            this.StatisticsButton.FlatAppearance.BorderSize = 0;
-            this.StatisticsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StatisticsButton.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatisticsButton.ForeColor = System.Drawing.Color.White;
-            this.StatisticsButton.Location = new System.Drawing.Point(-3, 314);
-            this.StatisticsButton.Name = "StatisticsButton";
-            this.StatisticsButton.Size = new System.Drawing.Size(256, 107);
-            this.StatisticsButton.TabIndex = 7;
-            this.StatisticsButton.Text = "Statistics";
-            this.StatisticsButton.UseVisualStyleBackColor = true;
-            this.StatisticsButton.Click += new System.EventHandler(this.StatisticsButton_Click);
-            // 
             // DonatorsButton
             // 
             this.DonatorsButton.FlatAppearance.BorderSize = 0;
@@ -139,34 +113,6 @@
             this.DonatorsButton.Text = "Donators List";
             this.DonatorsButton.UseVisualStyleBackColor = true;
             this.DonatorsButton.Click += new System.EventHandler(this.DonnatorsButton_Click);
-            // 
-            // ExportButton
-            // 
-            this.ExportButton.FlatAppearance.BorderSize = 0;
-            this.ExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExportButton.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportButton.ForeColor = System.Drawing.Color.White;
-            this.ExportButton.Location = new System.Drawing.Point(0, 540);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(256, 107);
-            this.ExportButton.TabIndex = 7;
-            this.ExportButton.Text = "Export Data";
-            this.ExportButton.UseVisualStyleBackColor = true;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
-            // 
-            // ImportButton
-            // 
-            this.ImportButton.FlatAppearance.BorderSize = 0;
-            this.ImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ImportButton.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportButton.ForeColor = System.Drawing.Color.White;
-            this.ImportButton.Location = new System.Drawing.Point(-3, 427);
-            this.ImportButton.Name = "ImportButton";
-            this.ImportButton.Size = new System.Drawing.Size(256, 107);
-            this.ImportButton.TabIndex = 7;
-            this.ImportButton.Text = "Import Data";
-            this.ImportButton.UseVisualStyleBackColor = true;
-            this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // HomeButton
             // 
@@ -296,6 +242,10 @@
             this.donatorsControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.donatorsControl1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -306,8 +256,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.donatorsControl1);
             this.Controls.Add(this.homeControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -329,19 +277,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label logoName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label subTitle;
         private System.Windows.Forms.Button HomeButton;
-        private System.Windows.Forms.Button ExportButton;
-        private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.Label Version;
-        private System.Windows.Forms.Button StatisticsButton;
         private System.Windows.Forms.Button DonatorsButton;
         private HomeControl homeControl1;
         private System.Windows.Forms.Panel SidePanel;
@@ -349,6 +291,8 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button maximize;
         private System.Windows.Forms.Button hide;
+        private System.Windows.Forms.Label DateTimeLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
