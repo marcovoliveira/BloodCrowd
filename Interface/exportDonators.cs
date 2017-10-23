@@ -1,4 +1,4 @@
-Ôªøusing Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace Interface
 {
-    // Esta √© a classe responsavel por exportar os dados tanto para XML como JSON
+    // Esta È a classe responsavel por exportar os dados tanto para XML como JSON
     class ExportDonators
     {
         // Este metodo 
@@ -30,25 +30,94 @@ namespace Interface
 
         public static bool exportXML(List<BloodDonator> donators, int[]posicao)
         {
-            int ola;
-            BloodDonator oi;
-            /*XmlDocument docExportar = new XmlDocument();
+            
+            String number;
+            String sexo;
+            String firstName;
+            String lastName;
+            String streetAddress;
+            String city;
+            String statefull;
+            String zipCode;
+            String eMail;
+            String userName;
+            String password;
+            String telephoneNumber;
+            String mothersMaiden;
+            String birthDay;
+            String age;
+            String occupation;
+            String company;
+            String vehicle;
+            String bloodType;
+            String kilograms;
+            String centimeters;
+            String guid;
+            String latitude;
+            String longitude;
+
+            XmlDocument docExportar = new XmlDocument();
             XmlDeclaration decExportar = docExportar.CreateXmlDeclaration("1.0", null, null);
             docExportar.AppendChild(decExportar);
-            XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators ir√£o ser introduzidos
-            docExportar.AppendChild(rootExportar); */
-            for(int i=0;i<posicao.Count();i++)
-            {
-                ola = posicao[i];
-                oi = donators[ola];
-                MessageBox.Show(Convert.ToString(oi));
-            }
+            XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators ir„o ser introduzidos
+            docExportar.AppendChild(rootExportar); 
+            List<BloodDonator> donatorsExportados = new List<BloodDonator>();
+
+           
+
+
+             for (int i=0;i<posicao.Count();i++)
+             {
+                int p = posicao[i] - 1; 
+                number = Convert.ToString(donators[p].Number);
+                sexo = donators[p].Sexo;
+                firstName = donators[p].FirstName;
+                lastName = donators[p].LastName;
+                streetAddress = donators[p].StreetAddress;
+                city = donators[p].City;
+                statefull = donators[p].Statefull;
+                zipCode = donators[p].ZipCode;
+                eMail = donators[p].Email;
+                userName = donators[p].UserName;
+                password = donators[p].Password;
+                telephoneNumber = Convert.ToString(donators[p].TelephoneNumber);
+                mothersMaiden = donators[p].MothersMaiden;
+                birthDay = Convert.ToString(donators[p].BirthDay);
+                age = Convert.ToString(donators[p].Age);
+                occupation = donators[p].Occupation;
+                company = donators[p].Company;
+                vehicle = donators[p].Vehicle;
+                bloodType = donators[p].BloodType;
+                kilograms = Convert.ToString(donators[p].Kilograms);
+                centimeters = Convert.ToString(donators[p].Centimeters);
+                guid = donators[p].Guid;
+                latitude = donators[p].Latitude;
+                longitude = donators[p].Longitude;
+
+                rootExportar.AppendChild(AddNewDonator.AddDonator
+                    (number,sexo,firstName,lastName,streetAddress,city,statefull,zipCode,eMail,userName,password,
+                    telephoneNumber,mothersMaiden,birthDay,age,occupation,company,vehicle,bloodType,kilograms,centimeters,
+                    guid,latitude,longitude,docExportar
+                    
+                    ));
+                //idd = donators[posicao[i]].Age;
+                docExportar.Save(@"DocumentoExportado.xml");
+                
+             } 
+
+
+
+
+
+
 
             return true;
         }
 
         public static bool exportJSON(List<BloodDonator> donators, int[] posicao)
         {
+            /*string jsonText = "";
+            jsonText += JsonConvert.SerializeXmlNode();*/
             return true;
         }
     }

@@ -43,6 +43,8 @@
             this.importButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView1
@@ -50,6 +52,7 @@
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.AllowColumnReorder = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader7,
@@ -59,9 +62,8 @@
             this.listView1.GridLines = true;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(670, 590);
+            this.listView1.Size = new System.Drawing.Size(504, 480);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -96,9 +98,10 @@
             // 
             // SearchBox
             // 
-            this.SearchBox.Location = new System.Drawing.Point(813, 93);
+            this.SearchBox.Location = new System.Drawing.Point(610, 76);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(207, 22);
+            this.SearchBox.Size = new System.Drawing.Size(156, 20);
             this.SearchBox.TabIndex = 1;
             this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
@@ -106,9 +109,10 @@
             // 
             this.searchLabel.AutoSize = true;
             this.searchLabel.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLabel.Location = new System.Drawing.Point(714, 93);
+            this.searchLabel.Location = new System.Drawing.Point(536, 76);
+            this.searchLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(81, 23);
+            this.searchLabel.Size = new System.Drawing.Size(63, 18);
             this.searchLabel.TabIndex = 2;
             this.searchLabel.Text = "Search:";
             // 
@@ -116,9 +120,10 @@
             // 
             this.filterLabel.AutoSize = true;
             this.filterLabel.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterLabel.Location = new System.Drawing.Point(728, 44);
+            this.filterLabel.Location = new System.Drawing.Point(546, 36);
+            this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
-            this.filterLabel.Size = new System.Drawing.Size(67, 23);
+            this.filterLabel.Size = new System.Drawing.Size(51, 18);
             this.filterLabel.TabIndex = 3;
             this.filterLabel.Text = "Filter:";
             this.filterLabel.Click += new System.EventHandler(this.label2_Click);
@@ -127,18 +132,20 @@
             // 
             this.FilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.FilterBox.FormattingEnabled = true;
-            this.FilterBox.Location = new System.Drawing.Point(813, 43);
+            this.FilterBox.Location = new System.Drawing.Point(610, 35);
+            this.FilterBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FilterBox.Name = "FilterBox";
-            this.FilterBox.Size = new System.Drawing.Size(207, 24);
+            this.FilterBox.Size = new System.Drawing.Size(156, 21);
             this.FilterBox.TabIndex = 4;
             this.FilterBox.SelectedIndexChanged += new System.EventHandler(this.FilterBox_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button1.Location = new System.Drawing.Point(718, 162);
+            this.button1.Location = new System.Drawing.Point(538, 132);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(341, 68);
+            this.button1.Size = new System.Drawing.Size(256, 55);
             this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -146,9 +153,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button2.Location = new System.Drawing.Point(718, 236);
+            this.button2.Location = new System.Drawing.Point(538, 192);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(341, 68);
+            this.button2.Size = new System.Drawing.Size(256, 55);
             this.button2.TabIndex = 6;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -156,9 +164,10 @@
             // importButton
             // 
             this.importButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importButton.Location = new System.Drawing.Point(718, 310);
+            this.importButton.Location = new System.Drawing.Point(538, 252);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(341, 68);
+            this.importButton.Size = new System.Drawing.Size(256, 55);
             this.importButton.TabIndex = 7;
             this.importButton.Text = "Import Data";
             this.importButton.UseVisualStyleBackColor = true;
@@ -167,9 +176,10 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button4.Location = new System.Drawing.Point(718, 384);
+            this.button4.Location = new System.Drawing.Point(538, 312);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(341, 68);
+            this.button4.Size = new System.Drawing.Size(256, 55);
             this.button4.TabIndex = 8;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
@@ -178,16 +188,32 @@
             // 
             this.statusLabel.AutoSize = true;
             this.statusLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(682, 485);
+            this.statusLabel.Location = new System.Drawing.Point(512, 394);
+            this.statusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(45, 21);
+            this.statusLabel.Size = new System.Drawing.Size(38, 19);
             this.statusLabel.TabIndex = 10;
             this.statusLabel.Text = "Error";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(566, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            // 
             // DonatorsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.importButton);
@@ -198,9 +224,9 @@
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.listView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DonatorsControl";
-            this.Size = new System.Drawing.Size(1132, 535);
+            this.Size = new System.Drawing.Size(849, 435);
             this.Load += new System.EventHandler(this.DonatorsControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,5 +250,7 @@
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -47,16 +47,19 @@ namespace Interface
             
 
             dt = new DataTable();
+            dt.Columns.Add("ID");
             dt.Columns.Add("Nome");
             dt.Columns.Add("Sexo");
             dt.Columns.Add("Idade");
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
-            int[] posicao = { 0, 1, 2 };
+            int[] posicao = {1,2,3,4 };
             List<BloodDonator> donators = new List<BloodDonator>();
-            ExportDonators.ExportDonator(donators,0,posicao);
+            
 
             donators = CreateListDonators.ListDonators(); // listar recebe a lista completa
+
+            ExportDonators.ExportDonator(donators, 0, posicao);
 
             if (donators.Count == 0)
             {
@@ -80,7 +83,7 @@ namespace Interface
 
             foreach (BloodDonator bd in donators.OrderBy(c => c.Number))
             {
-
+                int id = bd.Number;
                 String p_nome = bd.FirstName + "" + bd.LastName;
                 String sexo = bd.Sexo;
                 int idade = bd.Age;
@@ -89,7 +92,7 @@ namespace Interface
                 String cidade = bd.City;
                 double imc = bd.IMC;
 
-                dt.Rows.Add(p_nome, sexo, idade, g_sangue, String.Format("{0:0.00}", imc));
+                dt.Rows.Add(id, p_nome, sexo, idade, g_sangue, String.Format("{0:0.00}", imc));
             }
         }
 
@@ -119,6 +122,12 @@ namespace Interface
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            
+
+           /* foreach (var b in selectedItemIndexes)
+            {
+                MessageBox.Show(Convert.ToString(b));
+            }*/
         }
 
         private void listView1_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e)
@@ -170,6 +179,16 @@ namespace Interface
                 MessageBox.Show("Data successfully load.");
             }
            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            List<int> selectedItemIndexes = new List<int>();
+            foreach (ListViewItem a in listView1.SelectedItems)
+            {
+                var x = a.Text;
+                label1.Text += (Convert.ToString(x));
+            }
         }
     }
 
