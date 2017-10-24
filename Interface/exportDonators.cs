@@ -152,7 +152,7 @@ namespace Interface
           
 
 
-            String jsonText="";
+           
 
             for (int i = 0; i < posicao.Count(); i++)
             {
@@ -190,6 +190,7 @@ namespace Interface
                     ));
                 
             }
+            String jsonText = "";
             jsonText += JsonConvert.SerializeObject(rootExportar);
             File.WriteAllText(@"DocumentoExportado.json", jsonText);
 

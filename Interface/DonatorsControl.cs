@@ -53,7 +53,7 @@ namespace Interface
             dt.Columns.Add("Idade");
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
-            int[] posicao = { 1 };
+            int[] posicao = {5};
           
             List<BloodDonator> donators = new List<BloodDonator>();
             
