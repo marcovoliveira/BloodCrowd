@@ -53,13 +53,15 @@ namespace Interface
             dt.Columns.Add("Idade");
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
-            int[] posicao = {1,2,3};
+            int[] posicao = { 1 };
+          
             List<BloodDonator> donators = new List<BloodDonator>();
             
 
             donators = CreateListDonators.ListDonators(); // listar recebe a lista completa
 
-            ExportDonators.ExportDonator(donators, 1, posicao);
+            // ExportDonators.ExportDonator(donators, 1, posicao); -> teste para exportar dadores
+           // RemoveDonator.RemoverDonator(posicao);
 
             if (donators.Count == 0)
             {
