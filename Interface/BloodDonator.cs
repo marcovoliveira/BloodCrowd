@@ -14,20 +14,20 @@ namespace Interface
         public String FirstName { get; private set; }
         public String LastName { get; private set; }
         public String StreetAddress { get; private set; }
-        public String  City { get; private set; }
+        public String City { get; private set; }
         public String Statefull { get; private set; }
         public String ZipCode { get; private set; }
-        public String  Email { get; private set; }
-        public String   UserName{ get; private set; }
+        public String Email { get; private set; }
+        public String UserName{ get; private set; }
         public String Password { get; private set; }
         public long TelephoneNumber { get; private set; }
         public String MothersMaiden  { get; private set; }
         public DateTime BirthDay  { get; private set; }
         public int Age { get; private set; }
         public String Occupation { get; private set; }
-        public String  Company { get; private set; }
+        public String Company { get; private set; }
         public String Vehicle { get; private set; }
-        public String  BloodType{ get; private set; }
+        public String BloodType{ get; private set; }
         public double Kilograms { get; private set; }
         public double Centimeters { get; private set; }
         public String Guid { get; private set; }

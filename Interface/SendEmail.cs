@@ -10,16 +10,56 @@ namespace Interface
 {
     class SendEmail
     {
-        public static void SendEmails()
+        public static void BloodTypeEmail(int bloodtype)
+        {
+
+            List<BloodDonator> donators = new List<BloodDonator>();
+
+
+            donators = CreateListDonators.ListDonators();
+
+            
+
+            if (bloodtype == 1)
+            {
+                var listAMore = donators.Where(item => item.BloodType == "A+");
+
+                foreach (var a in listAMore)
+                {
+                     SendEmails(a.Email, "A+");
+                }
+            }
+
+            if (bloodtype == 1)
+            {
+                var listALess = donators.Where(item => item.BloodType == "A-");
+
+                foreach (var a in listALess)
+                {
+                    SendEmails(a.Email, "A-");
+                }
+            }
+
+            if (bloodtype == 1)
+            {
+                var listBMore = donators.Where(item => item.BloodType == "B+");
+
+                foreach (var a in listBMore)
+                {
+                    SendEmails(a.Email, "B+");
+                }
+            }
+        }
+
+        public static void SendEmails(string email, string bloodtype)
         {
             string mailBodyhtml =
-                "<p>If you are reading this email we are experiencing low levels of your blood type.</p>" +
+                "<p>If you are reading this email we are experiencing low levels of "+ bloodtype +", your blood type.</p>" +
                 "<p>Be kind and go to the nearest hospital to make your donation.</p>" +
                 "<p></p><p>Blood Donators Project</p>";
                 
-            var msg = new MailMessage("blooddonatorsproject@gmail.com", "oklahomatmc@gmail.com", "We need your blood!", mailBodyhtml);
-            msg.To.Add("oklahomatmc@gmail.com");
-            msg.To.Add("marcooliveirapias@gmail.com");
+            var msg = new MailMessage("blooddonatorsproject@gmail.com", email, "We need your blood!", mailBodyhtml);
+            msg.To.Add(email);
             msg.IsBodyHtml = true;
             var smtpClient = new SmtpClient("smtp.gmail.com", 587);
             smtpClient.UseDefaultCredentials = true;
