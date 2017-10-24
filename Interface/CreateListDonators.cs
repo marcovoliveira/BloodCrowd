@@ -17,7 +17,7 @@ namespace Interface
 
 
 
-            //            DateTime data_nascimento = new DateTime(12, 21, 1981);
+           
             IFormatProvider culture = new System.Globalization.CultureInfo("en-US", true);
 
             try

@@ -127,10 +127,6 @@ namespace Interface
            
         }
 
-        private void exportDataControl1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

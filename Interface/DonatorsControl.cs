@@ -32,7 +32,7 @@ namespace Interface
             // Destalhes da listview 
             listView1.View = View.Details;
             ReloadListView();
-           
+            
             FilterBox.Items.Add("Nome");
             FilterBox.Items.Add("Sexo");
             FilterBox.Items.Add("Idade");
@@ -80,7 +80,7 @@ namespace Interface
             foreach (BloodDonator bd in donators.OrderBy(c => c.Number))
             {
 
-                String p_nome = bd.FirstName + "" + bd.LastName;
+                String p_nome = bd.FirstName + " " + bd.LastName;
                 String sexo = bd.Sexo;
                 int idade = bd.Age;
                 String g_sangue = bd.BloodType;
