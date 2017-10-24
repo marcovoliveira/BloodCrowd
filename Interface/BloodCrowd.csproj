@@ -74,6 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadFile.cs" />
+    <Compile Include="RemoveDonator.cs" />
     <EmbeddedResource Include="DonatorsControl.resx">
       <DependentUpon>DonatorsControl.cs</DependentUpon>
     </EmbeddedResource>
