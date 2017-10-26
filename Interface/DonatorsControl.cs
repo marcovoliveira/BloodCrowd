@@ -117,7 +117,10 @@ namespace Interface
             foreach (DataRow row in dv.ToTable().Rows)
             {
                 listView1.Items.Add(new ListViewItem(new String[]
-                    {row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString()}));
+                {
+                    row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(),
+                    row[4].ToString(), row[5].ToString()
+                }));
             }
         }
 
