@@ -42,7 +42,15 @@ namespace Interface
 
         }
 
-        private void ReloadListView()
+        public static List<BloodDonator> ListaDonators()
+        {
+            // listar recebe a lista completa
+            List<BloodDonator> donators = new List<BloodDonator>();
+            donators = CreateListDonators.ListDonators();
+            return donators; 
+        }
+
+        public void ReloadListView()
         {
             
 
@@ -54,14 +62,14 @@ namespace Interface
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
             int[] posicao = {5};
-          
-            List<BloodDonator> donators = new List<BloodDonator>();
+
+
+            var donators = ListaDonators();
+
             
 
-            donators = CreateListDonators.ListDonators(); // listar recebe a lista completa
-
             // ExportDonators.ExportDonator(donators, 1, posicao); -> teste para exportar dadores
-           // RemoveDonator.RemoverDonator(posicao);
+            // RemoveDonator.RemoverDonator(posicao);
 
             if (donators.Count == 0)
             {
@@ -188,16 +196,87 @@ namespace Interface
 
         private void label1_Click(object sender, EventArgs e)
         {
-            List<int> selectedItemIndexes = new List<int>();
-            foreach (ListViewItem a in listView1.SelectedItems)
-            {
-                var x = a.Text;
-                label1.Text += (Convert.ToString(x));
-            }
+            
+            
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                if (MessageBox.Show("Are you sure you want to delete " + listView1.SelectedItems.Count +
+                                    " donator(s) from blood donators database ?",
+                        "Delete donator!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in listView1.SelectedItems)
+                    {
+                        RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text));
+                    }
+                    ReloadListView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a donator to delete!");
+            }
     }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            List<int> idSelecionado = new List<int>();
+            int tipo = 3;
 
-    
+            if (xmlCheckBox.Checked && !jsonCheckBox.Checked)
+            {
+                tipo = 0;
+            }
+            else if (!xmlCheckBox.Checked && jsonCheckBox.Checked)
+            {
+                tipo = 1;
+            }
+            else if (xmlCheckBox.Checked && jsonCheckBox.Checked)
+            {
+                tipo = 2;
+            }
+            if (xmlCheckBox.Checked || jsonCheckBox.Checked)
+            {
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    if (MessageBox.Show("Are you sure you want to export " + listView1.SelectedItems.Count +
+                                        " donator(s) from blood donators database ?",
+                            "Export donator!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (ListViewItem item in listView1.SelectedItems)
+                        {
+                            idSelecionado.Add(Convert.ToInt32(item.Text));
+                        }
+                        ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
+
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to export all donators from blood donators database ?",
+                            "Export donators!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < listView1.Items.Count; i++)
+                        {
+                            idSelecionado.Add(i + 1);
+                        }
+                        ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a export format!");
+            }
+        }
+
+        private void xmlCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+    }   
 }
 

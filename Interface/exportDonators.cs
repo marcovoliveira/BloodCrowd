@@ -17,7 +17,7 @@ namespace Interface
     {
         // Este metodo é responsável por decidir que tipo de exportação vai ser utilizada, json ou xml, definindo que utilizadores
         //vai exportar e a lista de donators
-        public static bool ExportDonator(List<BloodDonator> donators, int tipo, int[] posicao)
+        public static bool ExportDonator(List<BloodDonator> donators, int tipo, List<int> posicao)
         {
             if (tipo == 0)
             {
@@ -27,11 +27,16 @@ namespace Interface
             {
                 exportJSON(donators, posicao);
             }
+            if (tipo == 2)
+            {
+                exportXML(donators, posicao);
+                exportJSON(donators, posicao);
+            }
 
             return true;
         }
         //metodo responsável por exportar em xml
-        public static bool exportXML(List<BloodDonator> donators, int[] posicao)
+        private static bool exportXML(List<BloodDonator> donators, List<int> posicao)
         {
 
             String number;
@@ -71,6 +76,7 @@ namespace Interface
 
             for (int i = 0; i < posicao.Count(); i++)
             {
+                
                 int p = posicao[i] - 1;
                 number = Convert.ToString(donators[p].Number);
                 sexo = donators[p].Sexo;
@@ -117,7 +123,7 @@ namespace Interface
             return true;
         }
 
-        public static bool exportJSON(List<BloodDonator> donators, int[] posicao)
+        private static bool exportJSON(List<BloodDonator> donators, List<int> posicao)
         {
             String number;
             String sexo;

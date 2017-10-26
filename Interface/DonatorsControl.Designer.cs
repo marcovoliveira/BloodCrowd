@@ -44,7 +44,8 @@
             this.importButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.xmlCheckBox = new System.Windows.Forms.CheckBox();
+            this.jsonCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -150,7 +151,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(341, 68);
             this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
+            this.button1.Text = "Add Donator";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -161,8 +162,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(341, 68);
             this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
+            this.button2.Text = "Remove Donator";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // importButton
             // 
@@ -184,8 +186,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(341, 68);
             this.button4.TabIndex = 8;
-            this.button4.Text = "button4";
+            this.button4.Text = "Export Data";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // statusLabel
             // 
@@ -197,22 +200,33 @@
             this.statusLabel.TabIndex = 10;
             this.statusLabel.Text = "Error";
             // 
-            // label1
+            // xmlCheckBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(755, 140);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.xmlCheckBox.AutoSize = true;
+            this.xmlCheckBox.Location = new System.Drawing.Point(934, 457);
+            this.xmlCheckBox.Name = "xmlCheckBox";
+            this.xmlCheckBox.Size = new System.Drawing.Size(58, 21);
+            this.xmlCheckBox.TabIndex = 11;
+            this.xmlCheckBox.Text = "XML";
+            this.xmlCheckBox.UseVisualStyleBackColor = true;
+            this.xmlCheckBox.CheckedChanged += new System.EventHandler(this.xmlCheckBox_CheckedChanged);
+            // 
+            // jsonCheckBox
+            // 
+            this.jsonCheckBox.AutoSize = true;
+            this.jsonCheckBox.Location = new System.Drawing.Point(998, 457);
+            this.jsonCheckBox.Name = "jsonCheckBox";
+            this.jsonCheckBox.Size = new System.Drawing.Size(60, 21);
+            this.jsonCheckBox.TabIndex = 11;
+            this.jsonCheckBox.Text = "Json";
+            this.jsonCheckBox.UseVisualStyleBackColor = true;
             // 
             // DonatorsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.jsonCheckBox);
+            this.Controls.Add(this.xmlCheckBox);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.importButton);
@@ -249,7 +263,8 @@
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.CheckBox xmlCheckBox;
+        private System.Windows.Forms.CheckBox jsonCheckBox;
     }
 }

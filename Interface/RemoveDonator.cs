@@ -10,23 +10,18 @@ namespace Interface
 {
     class RemoveDonator
     {
-        public static void RemoverDonator(int[] posicao)
+        public static void RemoverDonator(int id)
         {
             
             XmlDocument doc = new XmlDocument();
             doc.Load(@"BaseDados.xml");
-            XmlNode node;
+            XmlNode node = doc.SelectSingleNode("//Donator[@id=" + id + "]");
             XmlNode root = doc.DocumentElement;
-            
-            for (int i = 0; i < posicao.Count(); i++)
-            {
+            root.RemoveChild(node);
+            doc.Save(@"BaseDados.xml");
 
-                node = doc.SelectSingleNode("//Donator[@id=" + posicao[i] + "]");
-                root.RemoveChild(node);
-                doc.Save(@"BaseDados.xml");
-                
-            }
-           
+            MessageBox.Show("Donator with id "+ id +" Removed.");
+
         }
 
 
