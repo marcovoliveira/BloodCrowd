@@ -39,10 +39,10 @@
             this.searchLabel = new System.Windows.Forms.Label();
             this.filterLabel = new System.Windows.Forms.Label();
             this.FilterBox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addDonatorButton = new System.Windows.Forms.Button();
+            this.removeDonatorButton = new System.Windows.Forms.Button();
             this.importButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.xmlCheckBox = new System.Windows.Forms.CheckBox();
             this.jsonCheckBox = new System.Windows.Forms.CheckBox();
@@ -63,15 +63,13 @@
             this.listView1.GridLines = true;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(671, 535);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.Click += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -130,7 +128,6 @@
             this.filterLabel.Size = new System.Drawing.Size(67, 23);
             this.filterLabel.TabIndex = 3;
             this.filterLabel.Text = "Filter:";
-            this.filterLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // FilterBox
             // 
@@ -143,28 +140,28 @@
             this.FilterBox.TabIndex = 4;
             this.FilterBox.SelectedIndexChanged += new System.EventHandler(this.FilterBox_SelectedIndexChanged);
             // 
-            // button1
+            // addDonatorButton
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button1.Location = new System.Drawing.Point(717, 162);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(341, 68);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add Donator";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addDonatorButton.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.addDonatorButton.Location = new System.Drawing.Point(717, 162);
+            this.addDonatorButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addDonatorButton.Name = "addDonatorButton";
+            this.addDonatorButton.Size = new System.Drawing.Size(341, 68);
+            this.addDonatorButton.TabIndex = 5;
+            this.addDonatorButton.Text = "Add Donator";
+            this.addDonatorButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // removeDonatorButton
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button2.Location = new System.Drawing.Point(717, 236);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(341, 68);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Remove Donator";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.removeDonatorButton.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.removeDonatorButton.Location = new System.Drawing.Point(717, 236);
+            this.removeDonatorButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.removeDonatorButton.Name = "removeDonatorButton";
+            this.removeDonatorButton.Size = new System.Drawing.Size(341, 68);
+            this.removeDonatorButton.TabIndex = 6;
+            this.removeDonatorButton.Text = "Remove Donator";
+            this.removeDonatorButton.UseVisualStyleBackColor = true;
+            this.removeDonatorButton.Click += new System.EventHandler(this.removeDonatorButton_Click);
             // 
             // importButton
             // 
@@ -178,17 +175,17 @@
             this.importButton.UseVisualStyleBackColor = true;
             this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
-            // button4
+            // exportButton
             // 
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button4.Location = new System.Drawing.Point(717, 384);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(341, 68);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Export Data";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.exportButton.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.exportButton.Location = new System.Drawing.Point(717, 384);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(341, 68);
+            this.exportButton.TabIndex = 8;
+            this.exportButton.Text = "Export Data";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // statusLabel
             // 
@@ -209,7 +206,6 @@
             this.xmlCheckBox.TabIndex = 11;
             this.xmlCheckBox.Text = "XML";
             this.xmlCheckBox.UseVisualStyleBackColor = true;
-            this.xmlCheckBox.CheckedChanged += new System.EventHandler(this.xmlCheckBox_CheckedChanged);
             // 
             // jsonCheckBox
             // 
@@ -228,10 +224,10 @@
             this.Controls.Add(this.jsonCheckBox);
             this.Controls.Add(this.xmlCheckBox);
             this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.importButton);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.removeDonatorButton);
+            this.Controls.Add(this.addDonatorButton);
             this.Controls.Add(this.FilterBox);
             this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.searchLabel);
@@ -258,10 +254,10 @@
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.ComboBox FilterBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addDonatorButton;
+        private System.Windows.Forms.Button removeDonatorButton;
         private System.Windows.Forms.Button importButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.CheckBox xmlCheckBox;

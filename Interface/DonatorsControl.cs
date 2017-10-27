@@ -22,9 +22,7 @@ namespace Interface
 
         public DonatorsControl()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();  
         }
 
         private void DonatorsControl_Load(object sender, EventArgs e)
@@ -53,7 +51,6 @@ namespace Interface
         public void ReloadListView()
         {
             
-
             dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Nome");
@@ -61,15 +58,8 @@ namespace Interface
             dt.Columns.Add("Idade");
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
-            int[] posicao = {5};
-
-
-            var donators = ListaDonators();
-
             
-
-            // ExportDonators.ExportDonator(donators, 1, posicao); -> teste para exportar dadores
-            // RemoveDonator.RemoverDonator(posicao);
+            var donators = ListaDonators();
 
             if (donators.Count == 0)
             {
@@ -94,7 +84,7 @@ namespace Interface
             foreach (BloodDonator bd in donators.OrderBy(c => c.Number))
             {
                 int id = bd.Number;
-                String p_nome = bd.FirstName + "" + bd.LastName;
+                String p_nome = bd.FirstName + " " + bd.LastName;
                 String sexo = bd.Sexo;
                 int idade = bd.Age;
                 String g_sangue = bd.BloodType;
@@ -132,17 +122,6 @@ namespace Interface
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            
-
-           /* foreach (var b in selectedItemIndexes)
-            {
-                MessageBox.Show(Convert.ToString(b));
-            }*/
-        }
-
         private void listView1_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e)
         {
             ItemComparer sorter = listView1.ListViewItemSorter as ItemComparer;
@@ -172,13 +151,6 @@ namespace Interface
 
         }
 
-        
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void importButton_Click(object sender, EventArgs e)
         {
             
@@ -194,34 +166,7 @@ namespace Interface
            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                if (MessageBox.Show("Are you sure you want to delete " + listView1.SelectedItems.Count +
-                                    " donator(s) from blood donators database ?",
-                        "Delete donator!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    foreach (ListViewItem item in listView1.SelectedItems)
-                    {
-                        RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text));
-                    }
-                    ReloadListView();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a donator to delete!");
-            }
-    }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void exportButton_Click(object sender, EventArgs e)
         {
             List<int> idSelecionado = new List<int>();
             int tipo = 3;
@@ -248,6 +193,7 @@ namespace Interface
                     {
                         foreach (ListViewItem item in listView1.SelectedItems)
                         {
+                            
                             idSelecionado.Add(Convert.ToInt32(item.Text));
                         }
                         ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
@@ -261,7 +207,7 @@ namespace Interface
                     {
                         for (int i = 0; i < listView1.Items.Count; i++)
                         {
-                            idSelecionado.Add(i + 1);
+                            idSelecionado.Add(i);
                         }
                         ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
                     }
@@ -273,9 +219,26 @@ namespace Interface
             }
         }
 
-        private void xmlCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void removeDonatorButton_Click(object sender, EventArgs e)
         {
-
+            if (listView1.SelectedItems.Count > 0)
+            {
+                if (MessageBox.Show("Are you sure you want to delete " + listView1.SelectedItems.Count +
+                                    " donator(s) from blood donators database ?",
+                        "Delete donator!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in listView1.SelectedItems)
+                    {
+                        
+                        RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text));
+                    }
+                    ReloadListView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a donator to delete!");
+            }
         }
     }   
 }
