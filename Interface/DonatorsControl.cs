@@ -58,7 +58,8 @@ namespace Interface
             dt.Columns.Add("Idade");
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
-            
+
+
             var donators = ListaDonators();
 
             if (donators.Count == 0)

@@ -19,7 +19,7 @@ namespace Interface
 
         private void AddDonatorForm_Load(object sender, EventArgs e)
         {
-            
+            firstNameTextBox.Text = "Joao"; 
         }
 
         private void label2_Click(object sender, EventArgs e)
