@@ -87,19 +87,3 @@ namespace Interface
         }
     }
 }
-
-
-
-
-//guardar o documento XML
-//            int[] dadores = { 1,27,4,10 };
-//            int type = 1; 
-//            if (ExportDonators.ExportDonator(dadores, type, "@", "BaseDados", doc) == true)
-//            {
-//                MessageBox.Show("Dadores Exportados com sucesso! ");
-//            }
-//            else
-//            {
-//                MessageBox.Show("Falha a exportar os dadores! ");
-//            }
-//            

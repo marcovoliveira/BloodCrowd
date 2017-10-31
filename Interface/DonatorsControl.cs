@@ -38,6 +38,19 @@ namespace Interface
             FilterBox.Items.Add("IMC");
             FilterBox.SelectedIndex = 0;
 
+            compatibilityComboBox.Items.Add("All");
+            compatibilityComboBox.Items.Add("A+");
+            compatibilityComboBox.Items.Add("A-");
+            compatibilityComboBox.Items.Add("B+");
+            compatibilityComboBox.Items.Add("B-");
+            compatibilityComboBox.Items.Add("AB+");
+            compatibilityComboBox.Items.Add("AB-");
+            compatibilityComboBox.Items.Add("O+");
+            compatibilityComboBox.Items.Add("O-");
+            compatibilityComboBox.SelectedIndex = 0; 
+
+
+
         }
 
         public static List<BloodDonator> ListaDonators()
@@ -97,6 +110,23 @@ namespace Interface
             }
         }
 
+        private void compatibilityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (compatibilityComboBox.Text == "All")
+            {
+                dv.RowFilter = "";
+                CarregarDataProcura(dv);
+            }
+            if (compatibilityComboBox.Text == "A+")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'AB+')";
+                CarregarDataProcura(dv);
+            }
+
+
+            // CODIGO FUNCIONAL AGORA É REPLICAR !!! 
+            
+        }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
@@ -194,11 +224,15 @@ namespace Interface
                     {
                         foreach (ListViewItem item in listView1.SelectedItems)
                         {
-                            
+
                             idSelecionado.Add(Convert.ToInt32(item.Text));
                         }
                         ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
-
+                        listView1.SelectedItems.Clear();
+                    }
+                    else
+                    {
+                        listView1.SelectedItems.Clear();
                     }
                 }
                 else
@@ -263,6 +297,23 @@ namespace Interface
             AddDonatorForm addDonatorForm = new AddDonatorForm();
             addDonatorForm.ShowDialog();
         }
+
+        private void xmlCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            listView1.SelectedItems.Clear();
+        }
+
+        private void jsonCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            listView1.SelectedItems.Clear();
+        }
+
+        private void DonatorsControl_MouseClick(object sender, MouseEventArgs e)
+        {
+            listView1.SelectedItems.Clear();
+        }
+
+       
     }   
 }
 

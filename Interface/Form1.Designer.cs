@@ -203,7 +203,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(263, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 231);
+            this.pictureBox1.Size = new System.Drawing.Size(219, 207);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -222,9 +222,9 @@
             // 
             // homeControl1
             // 
-            this.homeControl1.Location = new System.Drawing.Point(263, 264);
+            this.homeControl1.Location = new System.Drawing.Point(256, 248);
             this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(1199, 557);
+            this.homeControl1.Size = new System.Drawing.Size(1206, 573);
             this.homeControl1.TabIndex = 7;
             this.homeControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.homeControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -232,10 +232,10 @@
             // 
             // donatorsControl1
             // 
-            this.donatorsControl1.Location = new System.Drawing.Point(256, 287);
+            this.donatorsControl1.Location = new System.Drawing.Point(256, 248);
             this.donatorsControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.donatorsControl1.Name = "donatorsControl1";
-            this.donatorsControl1.Size = new System.Drawing.Size(1199, 532);
+            this.donatorsControl1.Size = new System.Drawing.Size(1199, 571);
             this.donatorsControl1.TabIndex = 8;
             this.donatorsControl1.Load += new System.EventHandler(this.donatorsControl1_Load);
             this.donatorsControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
