@@ -257,6 +257,11 @@ namespace Interface
             }
            
         }
+        private void addDonatorButton_Click(object sender, EventArgs e)
+        {
+            AddDonatorForm addDonatorForm = new AddDonatorForm();
+            addDonatorForm.ShowDialog();
+        }
     }   
 }
 
