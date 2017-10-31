@@ -67,6 +67,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewDonatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDonatorForm.Designer.cs">
+      <DependentUpon>ViewDonatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDonatorForm.resx">
+      <DependentUpon>ViewDonatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeControl.resx">
       <DependentUpon>HomeControl.cs</DependentUpon>

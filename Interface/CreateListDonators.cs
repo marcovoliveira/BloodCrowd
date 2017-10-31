@@ -16,7 +16,7 @@ namespace Interface
             List<BloodDonator> ListDonators = new List<BloodDonator>();
 
 
-
+            
            
             IFormatProvider culture = new System.Globalization.CultureInfo("en-US", true);
 

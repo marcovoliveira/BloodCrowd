@@ -45,9 +45,11 @@ namespace Interface
             decimal x2, y2;
             if (!Decimal.TryParse(itemA.SubItems[Column].Text, out x2))
                 x2 = Decimal.MinValue;
+
             if (!Decimal.TryParse(itemB.SubItems[Column].Text, out y2))
                 y2 = Decimal.MinValue;
             result = Decimal.Compare(x2, y2);
+
             if (x2 != Decimal.MinValue && y2 != Decimal.MinValue)
                 goto done;
             //alphabetic comparison

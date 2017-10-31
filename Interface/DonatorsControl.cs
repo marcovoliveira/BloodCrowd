@@ -229,8 +229,12 @@ namespace Interface
                 {
                     foreach (ListViewItem item in listView1.SelectedItems)
                     {
-                        
-                        RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text));
+
+                        if (!RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text)))
+                        {
+                            MessageBox.Show("Fail to delete donator!");
+
+                        }
                     }
                     ReloadListView();
                 }
@@ -239,6 +243,19 @@ namespace Interface
             {
                 MessageBox.Show("Please select a donator to delete!");
             }
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+              
+                ViewDonatorForm viewDonatorForm = new ViewDonatorForm(item.Text);
+               viewDonatorForm.ShowDialog();
+
+            }
+           
         }
     }   
 }
