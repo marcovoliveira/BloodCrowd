@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDonatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDonatorForm.Designer.cs">
+      <DependentUpon>AddDonatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewDonator.cs" />
     <Compile Include="BloodDonator.cs" />
     <Compile Include="CalculateIMC.cs" />
@@ -80,6 +86,9 @@
     <Compile Include="ReadFile.cs" />
     <Compile Include="RemoveDonator.cs" />
     <Compile Include="SendEmail.cs" />
+    <EmbeddedResource Include="AddDonatorForm.resx">
+      <DependentUpon>AddDonatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DonatorsControl.resx">
       <DependentUpon>DonatorsControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -240,6 +240,12 @@ namespace Interface
                 MessageBox.Show("Please select a donator to delete!");
             }
         }
+
+        private void addDonatorButton_Click(object sender, EventArgs e)
+        {
+            AddDonatorForm addDonatorForm = new AddDonatorForm();
+            addDonatorForm.ShowDialog();
+        }
     }   
 }
 
