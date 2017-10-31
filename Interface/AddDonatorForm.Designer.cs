@@ -64,7 +64,7 @@
             this.centimetersTextBox = new System.Windows.Forms.TextBox();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.bloodTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddDonatorButton = new System.Windows.Forms.Button();
             this.birthDaydateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
@@ -231,9 +231,10 @@
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(12, 9);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 13);
+            this.label19.Size = new System.Drawing.Size(174, 23);
             this.label19.TabIndex = 18;
             this.label19.Text = "Add New Donator";
             // 
@@ -359,6 +360,7 @@
             this.genreComboBox.Name = "genreComboBox";
             this.genreComboBox.Size = new System.Drawing.Size(150, 21);
             this.genreComboBox.TabIndex = 40;
+            this.genreComboBox.SelectedIndexChanged += new System.EventHandler(this.genreComboBox_SelectedIndexChanged);
             // 
             // bloodTypeComboBox
             // 
@@ -368,14 +370,15 @@
             this.bloodTypeComboBox.Size = new System.Drawing.Size(150, 21);
             this.bloodTypeComboBox.TabIndex = 41;
             // 
-            // button1
+            // AddDonatorButton
             // 
-            this.button1.Location = new System.Drawing.Point(461, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddDonatorButton.Location = new System.Drawing.Point(461, 350);
+            this.AddDonatorButton.Name = "AddDonatorButton";
+            this.AddDonatorButton.Size = new System.Drawing.Size(75, 23);
+            this.AddDonatorButton.TabIndex = 42;
+            this.AddDonatorButton.Text = "Add Donator";
+            this.AddDonatorButton.UseVisualStyleBackColor = true;
+            this.AddDonatorButton.Click += new System.EventHandler(this.AddDonatorButton_Click);
             // 
             // birthDaydateTimePicker
             // 
@@ -388,9 +391,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 452);
+            this.ClientSize = new System.Drawing.Size(550, 400);
             this.Controls.Add(this.birthDaydateTimePicker);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddDonatorButton);
             this.Controls.Add(this.bloodTypeComboBox);
             this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.centimetersTextBox);
@@ -473,7 +476,7 @@
         private System.Windows.Forms.TextBox centimetersTextBox;
         private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.ComboBox bloodTypeComboBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddDonatorButton;
         private System.Windows.Forms.DateTimePicker birthDaydateTimePicker;
     }
 }
