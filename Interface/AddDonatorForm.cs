@@ -146,8 +146,10 @@ namespace Interface
                 MessageBox.Show("Donator added with success!");
                 
                 doc.Save(@"BaseDados.xml");
+                DonatorsControl.ListaDonators();
                 
-                
+
+
             }
         }
     }

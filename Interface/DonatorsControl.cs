@@ -296,8 +296,9 @@ namespace Interface
         {
             AddDonatorForm addDonatorForm = new AddDonatorForm();
             addDonatorForm.ShowDialog();
-            CreateListDonators.ListDonators();
-            ReloadListView();
+            
+         
+           
 
         }
 
