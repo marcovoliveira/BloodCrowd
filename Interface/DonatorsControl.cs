@@ -296,10 +296,7 @@ namespace Interface
         {
             AddDonatorForm addDonatorForm = new AddDonatorForm();
             addDonatorForm.ShowDialog();
-            
-         
-           
-
+            ReloadListView();
         }
 
         private void xmlCheckBox_CheckedChanged(object sender, EventArgs e)

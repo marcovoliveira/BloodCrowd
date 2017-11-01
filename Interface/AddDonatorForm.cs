@@ -92,85 +92,98 @@ namespace Interface
         private void AddDonatorButton_Click(object sender, EventArgs e)
         {
             
+            bool resultadoint = int.TryParse(telephoneTextBox.Text, out var n);
+            bool resultadodouble = double.TryParse(kilogramsTextBox.Text, out var p);
+            bool resultaddouble2 = double.TryParse(centimetersTextBox.Text, out var l);
 
-            XmlDocument doc = new XmlDocument();
-            XmlDeclaration decE= doc.CreateXmlDeclaration("1.0", null, null);
-            doc.Load(@"BaseDados.xml");
-            XmlNode root = doc.DocumentElement;
 
-            XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
-            int a = Convert.ToInt32(id.InnerText);
 
-             String number= Convert.ToString((a+1));
-            
-            String genero = genreComboBox.SelectedItem.ToString();
-            String firstName = firstNameTextBox.Text;
-            String lastName = lastNameTextBox.Text;
-            String streetAddress = streetAddressTextBox.Text;
-            String city = cityTextBox.Text;
-            String statefull = stateFullTextBox.Text;
-            String zipCode = zipCodeTextBox.Text;
-            String email = emailTextBox.Text;
-            String username = userNameTextBox.Text;
-            String telephone = telephoneTextBox.Text;
-            String mothersMaiden = mothersMaidenTextBox.Text;
-            String birthday = birthDaydateTimePicker.Text ;
-            String occupation = occupationTextBox.Text;
-            String company = companyTextBox.Text;
-            String vehicle = vehicleTextBox.Text;
-            String bloodType = bloodTypeComboBox.SelectedItem.ToString();
-            String kilograms = kilogramsTextBox.Text;
-            String centimeters = centimetersTextBox.Text;
-            String password = "********";
-            String guid = "*******";
-            String latitude = "";
-            String longitude = "";
-            String vazio = "";
-            //calcular idade
-            var hoje = DateTime.Today;
-            
-            String[] bday = birthday.Split(' ');
-            int bd = Convert.ToInt32(bday[4]);
-
-            int idade = hoje.Year - bd;
-            String age = Convert.ToString(idade);
-
-            //colocar bem a data
-            //  1 / 10 / 1953
-            int b;
-            String dn="";
-            String[] meses = { "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" };
-            for (int k = 0; k < meses.Count(); k++)
-            {
-                if (bday[2].Equals(meses[k]))
-                {
-                    b = k + 1;
-                    dn = bday[0] + "/" + b + "/" + bday[4];
-                }
-
-               
-            }
             //validar campos preenchidos
 
-            if (genero == vazio || firstName == vazio || lastName == vazio || streetAddress == vazio || city == vazio ||
-                statefull == vazio || zipCode == vazio || email == vazio || username == vazio || telephone == vazio ||
-                mothersMaiden == vazio || occupation == vazio || company == vazio || kilograms == vazio || centimeters == vazio)
+            if (genreComboBox.Text == String.Empty || firstNameTextBox.Text == String.Empty || lastNameTextBox.Text == String.Empty ||
+                streetAddressTextBox.Text == String.Empty || cityTextBox.Text == String.Empty || stateFullTextBox.Text == String.Empty ||
+                zipCodeTextBox.Text == String.Empty || emailTextBox.Text == String.Empty || userNameTextBox.Text == String.Empty ||
+                telephoneTextBox.Text == String.Empty || mothersMaidenTextBox.Text == String.Empty || occupationTextBox.Text == String.Empty ||
+                companyTextBox.Text == String.Empty || vehicleTextBox.Text == String.Empty || kilogramsTextBox.Text == String.Empty ||
+                centimetersTextBox.Text == String.Empty || resultadoint == false || resultaddouble2 == false || resultadodouble == false)
             {
-                MessageBox.Show("Fill all the boxes!");
+                MessageBox.Show("Fill all the fields correctly!");
             }
             else
             {
 
-               root.AppendChild(AddNewDonator.AddDonator(number, genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
-                  mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
-                MessageBox.Show("Donator added with success!");
+
+
+                XmlDocument doc = new XmlDocument();
+                XmlDeclaration decE = doc.CreateXmlDeclaration("1.0", null, null);
+                doc.Load(@"BaseDados.xml");
+                XmlNode root = doc.DocumentElement;
+
+                XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
+                int a = Convert.ToInt32(id.InnerText);
+
+                String number = Convert.ToString((a + 1));
+
+                String genero = genreComboBox.SelectedItem.ToString();
+                String firstName = firstNameTextBox.Text;
+                String lastName = lastNameTextBox.Text;
+                String streetAddress = streetAddressTextBox.Text;
+                String city = cityTextBox.Text;
+                String statefull = stateFullTextBox.Text;
+                String zipCode = zipCodeTextBox.Text;
+                String email = emailTextBox.Text;
+                String username = userNameTextBox.Text;
+                String telephone = telephoneTextBox.Text;
+                String mothersMaiden = mothersMaidenTextBox.Text;
+                String birthday = birthDaydateTimePicker.Text;
+                String occupation = occupationTextBox.Text;
+                String company = companyTextBox.Text;
+                String vehicle = vehicleTextBox.Text;
+                String bloodType = bloodTypeComboBox.SelectedItem.ToString();
+                String kilograms = kilogramsTextBox.Text;
+                String centimeters = centimetersTextBox.Text;
+                String password = "********";
+                String guid = "*******";
+                String latitude = "";
+                String longitude = "";
+                String vazio = "";
+                //calcular idade
+                var hoje = DateTime.Today;
+
+                String[] bday = birthday.Split(' ');
+                int bd = Convert.ToInt32(bday[4]);
+
+                int idade = hoje.Year - bd;
+                String age = Convert.ToString(idade);
+
+                //colocar bem a data
+                //  1 / 10 / 1953
+                int b;
+                String dn = "";
+                String[] meses = { "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" };
+                for (int k = 0; k < meses.Count(); k++)
+                {
+                    if (bday[2].Equals(meses[k]))
+                    {
+                        b = k + 1;
+                        dn = bday[0] + "/" + b + "/" + bday[4];
+                    }
+
+
+                }
                 
+
+
+
+                root.AppendChild(AddNewDonator.AddDonator(number, genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
+                   mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
+                MessageBox.Show("Donator added with success!");
+
                 doc.Save(@"BaseDados.xml");
-                                
 
+                 this.Close();
 
+            }
             }
         }
     }
-}
-    
