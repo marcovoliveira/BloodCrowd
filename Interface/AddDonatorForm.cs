@@ -94,12 +94,13 @@ namespace Interface
             
             XmlDocument doc = new XmlDocument();
             doc.Load(@"BaseDados.xml");
+            XmlNode root = doc.DocumentElement;
 
+            XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
+            int a = Convert.ToInt32(id.InnerText);
 
-
-
-            XmlNode person = doc.SelectSingleNode("//Donators[last()]/@id");
-
+             String number= Convert.ToString((a+1));
+            
             String genero = genreComboBox.SelectedItem.ToString();
             String firstName = firstNameTextBox.Text;
             String lastName = lastNameTextBox.Text;
@@ -111,17 +112,43 @@ namespace Interface
             String username = userNameTextBox.Text;
             String telephone = telephoneTextBox.Text;
             String mothersMaiden = mothersMaidenTextBox.Text;
-            String birthday = birthDaydateTimePicker.Text;
+            String birthday = birthDaydateTimePicker.Text ;
             String occupation = occupationTextBox.Text;
             String company = companyTextBox.Text;
             String vehicle = vehicleTextBox.Text;
             String bloodType = bloodTypeComboBox.SelectedItem.ToString();
             String kilograms = kilogramsTextBox.Text;
             String centimeters = centimetersTextBox.Text;
-            MessageBox.Show(Convert.ToString(person.InnerText));
-            // AddNewDonator.AddDonator();
+            String password = "";
+            String guid = "";
+            String latitude = "";
+            String longitude = "";
+            String vazio = "";
+            //calcular idade
+            var hoje = DateTime.Today;
+            
+            String[] bday = birthday.Split(' ');
+            int bd = Convert.ToInt32(bday[4]);
 
-            //doc.Save(@"BaseDados.xml");
+            int idade = hoje.Year - bd;
+            String age = Convert.ToString(idade);
+            if (genero == vazio || firstName == vazio || lastName == vazio || streetAddress == vazio || city == vazio ||
+                statefull == vazio || zipCode == vazio || email == vazio || username == vazio || telephone == vazio ||
+                mothersMaiden == vazio || occupation == vazio || company == vazio || kilograms == vazio || centimeters == vazio)
+            {
+                MessageBox.Show("Fill all the boxes!");
+            }
+            else
+            {
+
+               root.AppendChild(AddNewDonator.AddDonator(number, genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
+                  mothersMaiden, birthday, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
+                MessageBox.Show("Donator added with success!");
+                
+                doc.Save(@"BaseDados.xml");
+                
+                
+            }
         }
     }
 }

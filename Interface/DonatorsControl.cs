@@ -296,6 +296,9 @@ namespace Interface
         {
             AddDonatorForm addDonatorForm = new AddDonatorForm();
             addDonatorForm.ShowDialog();
+            CreateListDonators.ListDonators();
+            ReloadListView();
+
         }
 
         private void xmlCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -313,7 +316,10 @@ namespace Interface
             listView1.SelectedItems.Clear();
         }
 
-       
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }   
 }
 
