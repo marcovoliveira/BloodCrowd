@@ -92,7 +92,9 @@ namespace Interface
         private void AddDonatorButton_Click(object sender, EventArgs e)
         {
             
+
             XmlDocument doc = new XmlDocument();
+            XmlDeclaration decE= doc.CreateXmlDeclaration("1.0", null, null);
             doc.Load(@"BaseDados.xml");
             XmlNode root = doc.DocumentElement;
 
@@ -119,8 +121,8 @@ namespace Interface
             String bloodType = bloodTypeComboBox.SelectedItem.ToString();
             String kilograms = kilogramsTextBox.Text;
             String centimeters = centimetersTextBox.Text;
-            String password = "";
-            String guid = "";
+            String password = "********";
+            String guid = "*******";
             String latitude = "";
             String longitude = "";
             String vazio = "";
@@ -132,6 +134,24 @@ namespace Interface
 
             int idade = hoje.Year - bd;
             String age = Convert.ToString(idade);
+
+            //colocar bem a data
+            //  1 / 10 / 1953
+            int b;
+            String dn="";
+            String[] meses = { "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" };
+            for (int k = 0; k < meses.Count(); k++)
+            {
+                if (bday[2].Equals(meses[k]))
+                {
+                    b = k + 1;
+                    dn = bday[0] + "/" + b + "/" + bday[4];
+                }
+
+               
+            }
+            //validar campos preenchidos
+
             if (genero == vazio || firstName == vazio || lastName == vazio || streetAddress == vazio || city == vazio ||
                 statefull == vazio || zipCode == vazio || email == vazio || username == vazio || telephone == vazio ||
                 mothersMaiden == vazio || occupation == vazio || company == vazio || kilograms == vazio || centimeters == vazio)
@@ -142,12 +162,11 @@ namespace Interface
             {
 
                root.AppendChild(AddNewDonator.AddDonator(number, genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
-                  mothersMaiden, birthday, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
+                  mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
                 MessageBox.Show("Donator added with success!");
                 
                 doc.Save(@"BaseDados.xml");
-                DonatorsControl.ListaDonators();
-                
+                                
 
 
             }
