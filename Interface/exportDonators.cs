@@ -21,22 +21,22 @@ namespace Interface
         {
             if (tipo == 0)
             {
-                exportXML(donators, posicao);
+                exportXML(donators, posicao, ExportDonators.Path("ExportDocumentXML.xml", "XML|*.xml"));
             }
             if (tipo == 1)
             {
-                exportJSON(donators, posicao);
+                exportJSON(donators, posicao, ExportDonators.Path("ExportDocumentJson.json", "JSON|*.json"));
             }
             if (tipo == 2)
             {
-                exportXML(donators, posicao);
-                exportJSON(donators, posicao);
+                exportXML(donators, posicao, ExportDonators.Path("ExportDocumentXML.xml", "XML|*.xml"));
+                exportJSON(donators, posicao, ExportDonators.Path("ExportDocumentJson.json", "JSON|*.json"));
             }
 
             return true;
         }
         //metodo responsável por exportar em xml
-        private static bool exportXML(List<BloodDonator> donators, List<int> id)
+        private static bool exportXML(List<BloodDonator> donators, List<int> id, string path)
         {
 
             String number;
@@ -118,7 +118,7 @@ namespace Interface
 
                     ));
 
-                    docExportar.Save(@"DocumentoExportado.xml");
+                    docExportar.Save(path);
 
                 }
 
@@ -127,7 +127,7 @@ namespace Interface
             return true;
         }
 
-        private static bool exportJSON(List<BloodDonator> donators, List<int> id)
+        private static bool exportJSON(List<BloodDonator> donators, List<int> id, string path)
         {
             String number;
             String sexo;
@@ -207,9 +207,29 @@ namespace Interface
             }
             String jsonText = "";
             jsonText += JsonConvert.SerializeObject(rootExportar);
-            File.WriteAllText(@"DocumentoExportado.json", jsonText);
+            File.WriteAllText(path, jsonText);
 
             return true;
+        }
+
+        public static string Path(string placeholder, string filter)
+        {
+            
+            SaveFileDialog sfd = new SaveFileDialog();
+            string export = placeholder; 
+            sfd.FileName = export;
+            sfd.Filter = filter;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                string path = sfd.InitialDirectory + sfd.FileName;
+                return path;
+            }
+            else
+            {
+                MessageBox.Show("Please chose a valid path!");
+            }
+
+            return null;
         }
     }
 }

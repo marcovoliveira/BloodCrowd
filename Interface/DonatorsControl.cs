@@ -201,6 +201,7 @@ namespace Interface
         {
             List<int> idSelecionado = new List<int>();
             int tipo = 3;
+            
 
             if (xmlCheckBox.Checked && !jsonCheckBox.Checked)
             {
@@ -222,18 +223,23 @@ namespace Interface
                                         " donator(s) from blood donators database ?",
                             "Export donator!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                       
                         foreach (ListViewItem item in listView1.SelectedItems)
                         {
 
                             idSelecionado.Add(Convert.ToInt32(item.Text));
                         }
+                        
+                       
                         ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
+                       
                         listView1.SelectedItems.Clear();
                     }
                     else
                     {
                         listView1.SelectedItems.Clear();
                     }
+
                 }
                 else
                 {
