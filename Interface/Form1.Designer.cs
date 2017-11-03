@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.instructionsButton = new System.Windows.Forms.Button();
             this.DateTimeLabel = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.Version = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.homeControl1 = new Interface.HomeControl();
             this.donatorsControl1 = new Interface.DonatorsControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.instructionControl1 = new Interface.InstructionControl();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,8 +56,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.DateTimeLabel);
             this.panel1.Controls.Add(this.SidePanel);
+            this.panel1.Controls.Add(this.instructionsButton);
+            this.panel1.Controls.Add(this.DateTimeLabel);
             this.panel1.Controls.Add(this.Version);
             this.panel1.Controls.Add(this.DonatorsButton);
             this.panel1.Controls.Add(this.HomeButton);
@@ -68,6 +71,20 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            // 
+            // instructionsButton
+            // 
+            this.instructionsButton.FlatAppearance.BorderSize = 0;
+            this.instructionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructionsButton.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsButton.ForeColor = System.Drawing.Color.White;
+            this.instructionsButton.Location = new System.Drawing.Point(0, 314);
+            this.instructionsButton.Name = "instructionsButton";
+            this.instructionsButton.Size = new System.Drawing.Size(256, 107);
+            this.instructionsButton.TabIndex = 10;
+            this.instructionsButton.Text = "Instructions";
+            this.instructionsButton.UseVisualStyleBackColor = true;
+            this.instructionsButton.Click += new System.EventHandler(this.instructionsButton_Click);
             // 
             // DateTimeLabel
             // 
@@ -246,6 +263,13 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // instructionControl1
+            // 
+            this.instructionControl1.Location = new System.Drawing.Point(256, 249);
+            this.instructionControl1.Name = "instructionControl1";
+            this.instructionControl1.Size = new System.Drawing.Size(1151, 572);
+            this.instructionControl1.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,6 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.donatorsControl1);
             this.Controls.Add(this.homeControl1);
+            this.Controls.Add(this.instructionControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -293,6 +318,8 @@
         private System.Windows.Forms.Button hide;
         private System.Windows.Forms.Label DateTimeLabel;
         private System.Windows.Forms.Timer timer1;
+        private InstructionControl instructionControl1;
+        private System.Windows.Forms.Button instructionsButton;
     }
 }
 

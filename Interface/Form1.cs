@@ -70,6 +70,13 @@ namespace Interface
             donatorsControl1.BringToFront();
         }
 
+        private void instructionsButton_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = instructionsButton.Height;
+            SidePanel.Top = instructionsButton.Top; 
+            instructionControl1.BringToFront();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -134,5 +141,7 @@ namespace Interface
             this.DateTimeLabel.Text = dateTime.ToString();
 
         }
+
+       
     }
 }
