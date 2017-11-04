@@ -34,6 +34,7 @@ namespace Interface
         public String Latitude { get; private set; }
         public String Longitude  { get; private set; }
         public double IMC { get; private set; }
+        public object Convert { get; internal set; }
 
         public BloodDonator(int number, String sexo, String firstName, String lastName, String streetAddress,
                 String city, String statefull, String zipCode, String eMail, String userName, String password,

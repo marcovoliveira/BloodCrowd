@@ -122,10 +122,44 @@ namespace Interface
                 dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'AB+')";
                 CarregarDataProcura(dv);
             }
+            if (compatibilityComboBox.Text == "A-")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'AB-') OR (GrupoSanguineo = 'AB-')";
+                CarregarDataProcura(dv);
+            }
+            if (compatibilityComboBox.Text == "B+")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'B+') OR (GrupoSanguineo = 'AB+')";
+                CarregarDataProcura(dv);
+            }
+            if (compatibilityComboBox.Text == "AB+")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'AB+')";
+                CarregarDataProcura(dv);
+            }
+
+            if (compatibilityComboBox.Text == "AB-")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'AB-')";
+                CarregarDataProcura(dv);
+            }
+            if (compatibilityComboBox.Text == "O+")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo ='A+') OR (GrupoSanguineo ='B+')";
+                CarregarDataProcura(dv);
+            }
+
+            if (compatibilityComboBox.Text == "O-")
+            {
+                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo ='A+') OR (GrupoSanguineo ='B+') OR (GrupoSanguineo ='AB-') OR (GrupoSanguineo ='O-')";
+                CarregarDataProcura(dv);
+            }
+
+
 
 
             // CODIGO FUNCIONAL AGORA É REPLICAR !!! 
-            
+
         }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
