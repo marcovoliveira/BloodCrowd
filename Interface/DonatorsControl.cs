@@ -102,8 +102,6 @@ namespace Interface
                 String sexo = bd.Sexo;
                 int idade = bd.Age;
                 String g_sangue = bd.BloodType;
-                long telefone = bd.TelephoneNumber;
-                String cidade = bd.City;
                 double imc = bd.IMC;
 
                 dt.Rows.Add(id, p_nome, sexo, idade, g_sangue, String.Format("{0:0.00}", imc));
@@ -156,11 +154,6 @@ namespace Interface
                 CarregarDataProcura(dv);
             }
 
-
-
-
-            // CODIGO FUNCIONAL AGORA É REPLICAR !!! 
-
         }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
@@ -190,27 +183,27 @@ namespace Interface
 
         private void listView1_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e)
         {
-            ItemComparer sorter = listView1.ListViewItemSorter as ItemComparer;
-            if (sorter == null)
+            ItemComparer ordernar = listView1.ListViewItemSorter as ItemComparer;
+            if (ordernar == null)
             {
-                sorter = new ItemComparer(e.Column);
-                sorter.Order = SortOrder.Ascending;
-                listView1.ListViewItemSorter = sorter;
+                ordernar = new ItemComparer(e.Column);
+                ordernar.Order = SortOrder.Ascending;
+                listView1.ListViewItemSorter = ordernar;
             }
-            // if clicked column is already the column that is being sorted
-            if (e.Column == sorter.Column)
+                // Se a coluna clicada ja for a que estiver a ser ordenada
+            if (e.Column == ordernar.Column)
             {
-                // Reverse the current sort direction
-                if (sorter.Order == SortOrder.Ascending)
-                    sorter.Order = SortOrder.Descending;
+                // Altera a direção da ordenação
+                if (ordernar.Order == SortOrder.Ascending)
+                    ordernar.Order = SortOrder.Descending;
                 else
-                    sorter.Order = SortOrder.Ascending;
+                    ordernar.Order = SortOrder.Ascending;
             }
             else
             {
-                // Set the column number that is to be sorted; default to ascending.
-                sorter.Column = e.Column;
-                sorter.Order = SortOrder.Ascending;
+                // Altera o numero da coluna que estamos a ordenar e mete por defeito a ordem ascendente. 
+                ordernar.Column = e.Column;
+                ordernar.Order = SortOrder.Ascending;
             }
             listView1.Sort();
 

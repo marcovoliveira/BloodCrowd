@@ -179,19 +179,6 @@ namespace Interface
 
         }
 
-        private void gerarGrafico_Click(object sender, EventArgs e)
-        {
-            
-
-
-
-        }
-
-        private void chartDonatorsBT_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 

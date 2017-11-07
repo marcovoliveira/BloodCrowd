@@ -6,10 +6,10 @@ namespace Interface
 {
     public class ItemComparer : IComparer
     {
-        //column used for comparison
+        // Vai buscar a coluna que vai ordenar
         public int Column { get; set; }
 
-        //Order of sorting
+        // Vai buscar a ordem da ordenação
         public SortOrder Order { get; set; }
 
         public ItemComparer(int colIndex)
@@ -31,9 +31,9 @@ namespace Interface
                 result = 1;
             if (itemA == itemB)
                 result = 0;
-            // datetime comparison
+            // Compara as datas 
             DateTime x1, y1;
-            // Parse the two objects passed as a parameter as a DateTime.
+            // Tenta fazer parse das dos objectos para data 
             if (!DateTime.TryParse(itemA.SubItems[Column].Text, out x1))
                 x1 = DateTime.MinValue;
             if (!DateTime.TryParse(itemB.SubItems[Column].Text, out y1))
@@ -41,7 +41,7 @@ namespace Interface
             result = DateTime.Compare(x1, y1);
             if (x1 != DateTime.MinValue && y1 != DateTime.MinValue)
                 goto done;
-            //numeric comparison
+            //Comparação de numeros
             decimal x2, y2;
             if (!Decimal.TryParse(itemA.SubItems[Column].Text, out x2))
                 x2 = Decimal.MinValue;
@@ -52,13 +52,13 @@ namespace Interface
 
             if (x2 != Decimal.MinValue && y2 != Decimal.MinValue)
                 goto done;
-            //alphabetic comparison
+            //Comparação de duas strings
             result = String.Compare(itemA.SubItems[Column].Text, itemB.SubItems[Column].Text);
 
             done:
-            // if sort order is descending.
+            // Se a ordem for descendente
             if (Order == SortOrder.Descending)
-                // Invert the value returned by Compare.
+                // Vai inverter o valor devolvido na comparaçao
                 result *= -1;
             return result;
         }
