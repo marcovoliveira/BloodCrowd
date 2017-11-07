@@ -20,7 +20,7 @@ namespace Interface
         public HomeControl()
         {
             InitializeComponent();
-            
+            GerarGrafico();
 
             checkedListBox1.Items.Add("A+");
             checkedListBox1.Items.Add("A-");
@@ -30,8 +30,8 @@ namespace Interface
             checkedListBox1.Items.Add("AB-");
             checkedListBox1.Items.Add("O+");
             checkedListBox1.Items.Add("O-");
+            
 
-             
 
         }
 
@@ -75,23 +75,14 @@ namespace Interface
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void gerarGrafico_Click(object sender, EventArgs e)
+        private void GerarGrafico()
         {
             //carrega base de dados
             XmlDocument doc = new XmlDocument();
             doc.Load(@"BaseDados.xml");
 
             //seleciona todos os donators de cada tipo em nodelist
+            XmlNodeList all = doc.SelectNodes("//Donator");
             XmlNodeList nodeListAMais = doc.SelectNodes("//Donator[Tipo_Sanguineo='A+']");
             XmlNodeList nodelistAMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='A-']");
             XmlNodeList nodelistBMais = doc.SelectNodes("//Donator[Tipo_Sanguineo='B+']");
@@ -102,21 +93,22 @@ namespace Interface
             XmlNodeList nodelistOMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='O-']");
 
             //faz a contagem de donators por tipo de sangue
+            
             int numeroAmais = nodeListAMais.Count;
             int numeroAmenos = nodelistAMenos.Count;
             int numeroBmais = nodelistBMais.Count;
             int numeroBMenos = nodelistBMenos.Count;
             int numeroABmais = nodelistABMais.Count;
-            int numeroABMenos= nodelistABMenos.Count;
+            int numeroABMenos = nodelistABMenos.Count;
             int numeroOmais = nodelistOMais.Count;
             int numeroOmenos = nodelistOMenos.Count;
-            
-            
-            
+
             chartDonatorsBT.Series.Clear(); //limpar o grafico
             chartDonatorsBT.Series.Add("GraficoBloodDonors");
             chartDonatorsBT.Series["GraficoBloodDonors"].ChartType = SeriesChartType.Pie;
 
+            chartDonatorsBT.BackImageTransparentColor = Color.Transparent;
+            
             //Adiciono valores ao grafico
             chartDonatorsBT.Series["GraficoBloodDonors"].Points.Add(numeroAmais);
             chartDonatorsBT.Series["GraficoBloodDonors"].Points.Add(numeroAmenos);
@@ -147,7 +139,7 @@ namespace Interface
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].Label = "Tipo O+";
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].Label = "Tipo O-";
 
-            
+
 
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].Color = System.Drawing.Color.Blue;
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].Color = System.Drawing.Color.Red;
@@ -157,6 +149,16 @@ namespace Interface
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[5].Color = System.Drawing.Color.Black;
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].Color = System.Drawing.Color.LightBlue;
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].Color = System.Drawing.Color.PaleVioletRed;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void gerarGrafico_Click(object sender, EventArgs e)
+        {
+            
 
 
 
