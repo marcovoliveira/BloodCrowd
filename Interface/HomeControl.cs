@@ -100,6 +100,7 @@ namespace Interface
             XmlNodeList nodelistABMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='AB-']");
             XmlNodeList nodelistOMais = doc.SelectNodes("//Donator[Tipo_Sanguineo='O+']");
             XmlNodeList nodelistOMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='O-']");
+            XmlNodeList bla = doc.SelectNodes("//Donator");
 
             //faz a contagem de donators por tipo de sangue
             int numeroAmais = nodeListAMais.Count;
@@ -110,6 +111,13 @@ namespace Interface
             int numeroABMenos= nodelistABMenos.Count;
             int numeroOmais = nodelistOMais.Count;
             int numeroOmenos = nodelistOMenos.Count;
+            int todos = bla.Count;
+
+            double ok = (double)numeroAmais/(double)todos*100;
+
+            
+            MessageBox.Show(Convert.ToString(ok));
+            
             
             
             
