@@ -124,9 +124,10 @@ namespace Interface
                 telephoneTextBox.Text == String.Empty || mothersMaidenTextBox.Text == String.Empty || occupationTextBox.Text == String.Empty ||
                 companyTextBox.Text == String.Empty || vehicleTextBox.Text == String.Empty || kilogramsTextBox.Text == String.Empty ||
                  centimetersTextBox.Text == String.Empty || resultadoint == false || resultaddouble2 == false || resultadodouble == false||
-                !Regex.IsMatch(firstNameTextBox.Text, @"^[a-zA-Z"+especiais+"]*$" ) || !Regex.IsMatch(lastNameTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || 
-               !Regex.IsMatch(cityTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(stateFullLabel.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(mothersMaidenTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") ||
-               !Regex.IsMatch(occupationTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(companyTextBox.Text, @"^[a-zA-Z" + especiais + "]*$"))
+                !Regex.IsMatch(firstNameTextBox.Text, @"^[\sa-zA-Z" + especiais+"]*$" ) || !Regex.IsMatch(lastNameTextBox.Text, @"^[\sa-zA-Z" + especiais + "]*$") || 
+               !Regex.IsMatch(cityTextBox.Text, @"^[\sa-zA-Z" + especiais + "]*$") || !Regex.IsMatch(stateFullLabel.Text, @"^[\sa-zA-Z" + especiais + "]*$") || !Regex.IsMatch(mothersMaidenTextBox.Text, @"^[\sa-zA-Z" + especiais + "]*$")  ||
+               !Regex.IsMatch(occupationTextBox.Text, @"^[\sa-zA-Z" + especiais + "]*$") || !Regex.IsMatch(companyTextBox.Text, @"^[\sa-zA-Z" + especiais + "]*$")||
+               !Regex.IsMatch(streetAddressTextBox.Text, @"^[\sa-zA-Z" + especiais + "0-9]*$"))
             {
                 MessageBox.Show("Fill all the fields correctly!");
             }
@@ -136,7 +137,7 @@ namespace Interface
 
 
                 XmlDocument doc = new XmlDocument();
-                XmlDeclaration decE = doc.CreateXmlDeclaration("1.0", null, null);
+                
                 doc.Load(@"BaseDados.xml");
                 XmlNode root = doc.DocumentElement;
 
