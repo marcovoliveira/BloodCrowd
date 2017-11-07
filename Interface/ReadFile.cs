@@ -59,8 +59,10 @@ namespace Interface
 
                     for (int k = 0; k < dado.Length; k++) //remove os espaços e o caracter especial no 1
                     {
-                        dado[k] = Regex.Replace(dado[k], @"\s+", ""); //remove espaços
-                       
+                                 
+                        //dado[k] = Regex.Replace(dado[k], @"\s+", " "); //remove espaços
+
+                        dado[k] = dado[k].Trim(); 
                         dado[0] = Regex.Replace(dado[0], @"§",""); //remove caracter especial que apenas aparece no primeiro elemento
                         dado[19] = dado[19].Replace('.', ',');
                     }

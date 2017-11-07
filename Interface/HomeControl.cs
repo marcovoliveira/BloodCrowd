@@ -168,5 +168,10 @@ namespace Interface
         {
 
         }
+
+        private void chartDonatorsBT_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

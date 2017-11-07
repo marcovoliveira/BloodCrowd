@@ -19,18 +19,86 @@ namespace Interface
         //vai exportar e a lista de donators
         public static bool ExportDonator(List<BloodDonator> donators, int tipo, List<int> posicao)
         {
+            string caminho;
+            string caminho2;
+
+
             if (tipo == 0)
             {
-                exportXML(donators, posicao, ExportDonators.Path("ExportDocumentXML.xml", "XML|*.xml"));
+                 caminho = Path("ExportDocumentXML.xml", "XML|*.xml");
+
+                if (caminho != null)
+                {
+                    if (exportXML(donators, posicao, caminho)) // Metodo ExportXML devolve um bool 
+                    {
+                        MessageBox.Show("Donators successfully exported to XML!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export to XML!");
+                    }
+                }
+
             }
             if (tipo == 1)
             {
-                exportJSON(donators, posicao, ExportDonators.Path("ExportDocumentJson.json", "JSON|*.json"));
+                caminho = Path("ExportDocumentJson.json", "JSON|*.json");
+
+                if (caminho != null)
+                {
+                    if (exportJSON(donators, posicao, caminho))
+                    {
+                        MessageBox.Show("Donators successfully exported to Json!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export to Json!");
+                    }
+                }
+               
             }
             if (tipo == 2)
             {
-                exportXML(donators, posicao, ExportDonators.Path("ExportDocumentXML.xml", "XML|*.xml"));
-                exportJSON(donators, posicao, ExportDonators.Path("ExportDocumentJson.json", "JSON|*.json"));
+                caminho = Path("ExportDocumentXML.xml", "XML|*.xml");
+                caminho2 = Path("ExportDocumentJson.json", "JSON|*.json");
+
+                if (caminho != null && caminho2 == null)
+                {
+                    if (exportXML(donators, posicao, caminho))
+                    {
+                        MessageBox.Show("Donators successfully exported to XML");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export to XML");
+                    }
+                }
+
+                if (caminho == null && caminho2 != null)
+                {
+                    if (exportJSON(donators, posicao, caminho2))
+                    {
+                        MessageBox.Show("Donators successfully exported to Json");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export to Json");
+                    }
+                }
+
+                if (caminho != null && caminho2 != null)
+                {
+                    if (exportXML(donators, posicao, caminho) && exportJSON(donators, posicao, caminho2))
+                    {
+                        MessageBox.Show("Donators successfully exported to XML & Json");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export to XML & Json");
+                    }
+                }
+
+
             }
 
             return true;
@@ -69,18 +137,6 @@ namespace Interface
             docExportar.AppendChild(decExportar);
             XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators irão ser introduzidos
             docExportar.AppendChild(rootExportar);
-
-
-            /*
-             * Aqui é preciso criar um ciclo de forma a poder comparar ID com ID 
-             * 
-             * 
-             * 
-             * 
-             * 
-             * */
-
-            
 
             for (int i = 0; i < id.Count(); i++)
             {
@@ -227,9 +283,8 @@ namespace Interface
             else
             {
                 MessageBox.Show("Please chose a valid path!");
+                return null;
             }
-
-            return null;
         }
     }
 }
