@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -40,7 +41,23 @@ namespace Interface
 
         private void AddDonatorForm_Load(object sender, EventArgs e)
         {
-            firstNameTextBox.Text = "Joao"; 
+            firstNameTextBox.Text = "João";
+            lastNameTextBox.Text = "Ferreira";
+            genreComboBox.SelectedIndex = 1;
+            streetAddressTextBox.Text = "Rua Principal 39";
+            cityTextBox.Text = "Alcobaça";
+            stateFullTextBox.Text = "Leiria";
+            zipCodeTextBox.Text = "2460-611";
+            emailTextBox.Text = "jfa@gmail.com";
+            userNameTextBox.Text = "Jferr";
+            telephoneTextBox.Text = "927068903";
+            mothersMaidenTextBox.Text = "Santos";
+            occupationTextBox.Text = "Operador fabril";
+            companyTextBox.Text = "Frubaça";
+            vehicleTextBox.Text = "BMW 320d";
+            kilogramsTextBox.Text = "92,5";
+            centimetersTextBox.Text = "170,5";
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -98,6 +115,7 @@ namespace Interface
 
 
 
+            string especiais = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
             //validar campos preenchidos
 
             if (genreComboBox.Text == String.Empty || firstNameTextBox.Text == String.Empty || lastNameTextBox.Text == String.Empty ||
@@ -105,13 +123,16 @@ namespace Interface
                 zipCodeTextBox.Text == String.Empty || emailTextBox.Text == String.Empty || userNameTextBox.Text == String.Empty ||
                 telephoneTextBox.Text == String.Empty || mothersMaidenTextBox.Text == String.Empty || occupationTextBox.Text == String.Empty ||
                 companyTextBox.Text == String.Empty || vehicleTextBox.Text == String.Empty || kilogramsTextBox.Text == String.Empty ||
-                centimetersTextBox.Text == String.Empty || resultadoint == false || resultaddouble2 == false || resultadodouble == false)
+                 centimetersTextBox.Text == String.Empty || resultadoint == false || resultaddouble2 == false || resultadodouble == false||
+                !Regex.IsMatch(firstNameTextBox.Text, @"^[a-zA-Z"+especiais+"]*$" ) || !Regex.IsMatch(lastNameTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || 
+               !Regex.IsMatch(cityTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(stateFullLabel.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(mothersMaidenTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") ||
+               !Regex.IsMatch(occupationTextBox.Text, @"^[a-zA-Z" + especiais + "]*$") || !Regex.IsMatch(companyTextBox.Text, @"^[a-zA-Z" + especiais + "]*$"))
             {
                 MessageBox.Show("Fill all the fields correctly!");
             }
             else
             {
-
+                
 
 
                 XmlDocument doc = new XmlDocument();
@@ -142,11 +163,11 @@ namespace Interface
                 String bloodType = bloodTypeComboBox.SelectedItem.ToString();
                 String kilograms = kilogramsTextBox.Text;
                 String centimeters = centimetersTextBox.Text;
-                String password = "********";
-                String guid = "*******";
+                String password ="";
+                String guid = "";
                 String latitude = "";
                 String longitude = "";
-                String vazio = "";
+                
                 //calcular idade
                 var hoje = DateTime.Today;
 
