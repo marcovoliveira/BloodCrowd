@@ -71,16 +71,7 @@ namespace Interface
             Longitude = longitude;
             IMC = imc; 
 
-
-
-
-
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
     }
     
 }

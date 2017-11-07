@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,7 +15,9 @@ namespace Interface
 {
     public partial class ViewDonatorForm : Form
     {
-        public int number; 
+        public int number;
+        private Font printFont;
+        private StreamReader streamToPrint;
 
         public ViewDonatorForm(string id)
         {   
@@ -125,6 +129,21 @@ namespace Interface
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void streetAdressLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

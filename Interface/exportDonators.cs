@@ -17,7 +17,7 @@ namespace Interface
     {
         // Este metodo é responsável por decidir que tipo de exportação vai ser utilizada, json ou xml, definindo que utilizadores
         //vai exportar e a lista de donators
-        public static bool ExportDonator(List<BloodDonator> donators, int tipo, List<int> posicao)
+        public static void ExportDonator(List<BloodDonator> donators, int tipo, List<int> posicao)
         {
             string caminho;
             string caminho2;
@@ -100,8 +100,6 @@ namespace Interface
 
 
             }
-
-            return true;
         }
         //metodo responsável por exportar em xml
         private static bool exportXML(List<BloodDonator> donators, List<int> id, string path)
