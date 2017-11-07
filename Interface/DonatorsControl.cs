@@ -150,22 +150,37 @@ namespace Interface
 
             if (compatibilityComboBox.Text == "O-")
             {
-                dv.RowFilter = "(GrupoSanguineo ='O-')";
-                CarregarDataProcura(dv);
+                
             }
 
         }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
+            if (SearchBox.Text == "male" && FilterBox.Text == "Sexo")
+            {
+                dv.RowFilter = "(Sexo ='Male')";
+                CarregarDataProcura(dv);
+            }
+            else { 
             dv.RowFilter = string.Format(FilterBox.Text + " Like'%{0}%'", SearchBox.Text);
             CarregarDataProcura(dv);
+            }
         }
 
         private void FilterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dv.RowFilter = string.Format(FilterBox.Text + " Like '%{0}%'", SearchBox.Text);
+            if (SearchBox.Text == "male" && FilterBox.Text == "Sexo")
+            {
+                dv.RowFilter = "(Sexo ='Male')";
+                CarregarDataProcura(dv);
+            }
+            else
+            {
+                dv.RowFilter = string.Format(FilterBox.Text + " Like '%{0}%'", SearchBox.Text);
             CarregarDataProcura(dv);
+            }
+
         }
 
         private void CarregarDataProcura(DataView dv)
