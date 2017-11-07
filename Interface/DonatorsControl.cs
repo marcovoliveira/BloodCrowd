@@ -119,39 +119,40 @@ namespace Interface
             }
             if (compatibilityComboBox.Text == "A+")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'AB+')";
+                dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'A-') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo = 'O-')";
                 CarregarDataProcura(dv);
             }
             if (compatibilityComboBox.Text == "A-")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'AB-') OR (GrupoSanguineo = 'AB-')";
+                dv.RowFilter = "(GrupoSanguineo = 'A-') OR (GrupoSanguineo = 'O-')";
                 CarregarDataProcura(dv);
             }
             if (compatibilityComboBox.Text == "B+")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'B+') OR (GrupoSanguineo = 'AB+')";
+                dv.RowFilter = "(GrupoSanguineo = 'B+') OR (GrupoSanguineo = 'B-')  OR (GrupoSanguineo = 'O-')OR (GrupoSanguineo = 'O+')";
                 CarregarDataProcura(dv);
             }
             if (compatibilityComboBox.Text == "AB+")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'AB+')";
+                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'AB-') OR (GrupoSanguineo = 'B+') OR (GrupoSanguineo = 'B-')" +
+                               "OR (GrupoSanguineo = 'A+') OR (GrupoSanguineo = 'A-') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo = 'O-')";
                 CarregarDataProcura(dv);
             }
 
             if (compatibilityComboBox.Text == "AB-")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'AB-')";
+                dv.RowFilter = "(GrupoSanguineo = 'AB-') OR (GrupoSanguineo = 'B-') OR (GrupoSanguineo = 'A-') OR (GrupoSanguineo = 'O-')";
                 CarregarDataProcura(dv);
             }
             if (compatibilityComboBox.Text == "O+")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo ='A+') OR (GrupoSanguineo ='B+')";
+                dv.RowFilter = "(GrupoSanguineo = 'O+') OR (GrupoSanguineo = 'O-')";
                 CarregarDataProcura(dv);
             }
 
             if (compatibilityComboBox.Text == "O-")
             {
-                dv.RowFilter = "(GrupoSanguineo = 'AB+') OR (GrupoSanguineo = 'O+') OR (GrupoSanguineo ='A+') OR (GrupoSanguineo ='B+') OR (GrupoSanguineo ='AB-') OR (GrupoSanguineo ='O-')";
+                dv.RowFilter = "(GrupoSanguineo ='O-')";
                 CarregarDataProcura(dv);
             }
 
@@ -304,9 +305,9 @@ namespace Interface
                 {
                     foreach (ListViewItem item in listView1.SelectedItems)
                     {
-
+                        
                         if (!RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text)))
-                        {
+                        { 
                             MessageBox.Show("Fail to delete donator!");
 
                         }

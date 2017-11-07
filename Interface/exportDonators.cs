@@ -212,7 +212,7 @@ namespace Interface
             return true;
         }
 
-        public static string Path(string placeholder, string filter)
+        private static string Path(string placeholder, string filter)
         {
             
             SaveFileDialog sfd = new SaveFileDialog();
