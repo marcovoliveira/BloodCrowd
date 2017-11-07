@@ -91,6 +91,7 @@ namespace Interface
             XmlNodeList nodelistABMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='AB-']");
             XmlNodeList nodelistOMais = doc.SelectNodes("//Donator[Tipo_Sanguineo='O+']");
             XmlNodeList nodelistOMenos = doc.SelectNodes("//Donator[Tipo_Sanguineo='O-']");
+            
 
             //faz a contagem de donators por tipo de sangue
             
@@ -102,13 +103,35 @@ namespace Interface
             int numeroABMenos = nodelistABMenos.Count;
             int numeroOmais = nodelistOMais.Count;
             int numeroOmenos = nodelistOMenos.Count;
+            int todos = all.Count;
+
+            //calcula percentagem
+            double pnumeroAMais = (double)numeroAmais / (double)todos *100;
+            double pnumeroAmenos = (double)numeroAmenos / (double)todos * 100;
+            double pnumeroBmais = (double)numeroBmais / (double)todos * 100;
+            double pnumeroBmenos = (double)numeroBMenos / (double)todos * 100;
+            double pnumeroABmais = (double)numeroABmais / (double)todos * 100;
+            double pnumeroABmenos = (double)numeroABMenos / (double)todos * 100;
+            double pnumeroOmais = (double)numeroOmais / (double)todos * 100;
+            double pnumeroOmenos = (double)numeroOmenos / (double)todos * 100;
 
             chartDonatorsBT.Series.Clear(); //limpar o grafico
             chartDonatorsBT.Series.Add("GraficoBloodDonors");
             chartDonatorsBT.Series["GraficoBloodDonors"].ChartType = SeriesChartType.Pie;
 
             chartDonatorsBT.BackImageTransparentColor = Color.Transparent;
-            
+
+            //coloca so 1 casa desimal
+            double tirarCasasDecimaisAM = Math.Round(pnumeroAMais, 1);
+            double tirarCasasDecimaisAm = Math.Round(pnumeroAmenos, 1);
+            double tirarCasasDecimaisBM = Math.Round(pnumeroBmais, 1);
+            double tirarCasasDecimaisBm = Math.Round(pnumeroBmenos, 1);
+            double tirarCasasDecimaisABM = Math.Round(pnumeroABmais, 1);
+            double tirarCasasDecimaisABm = Math.Round(pnumeroABmenos, 1);
+            double tirarCasasaDecimaisOM = Math.Round(pnumeroOmais, 1);
+            double tirarCasasDecimaisOm = Math.Round(pnumeroOmenos, 1);
+
+
             //Adiciono valores ao grafico
             chartDonatorsBT.Series["GraficoBloodDonors"].Points.Add(numeroAmais);
             chartDonatorsBT.Series["GraficoBloodDonors"].Points.Add(numeroAmenos);
@@ -120,26 +143,26 @@ namespace Interface
             chartDonatorsBT.Series["GraficoBloodDonors"].Points.Add(numeroOmenos);
 
             //Adiciono legenda
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].LegendText = "A+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].LegendText = "A-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[2].LegendText = "B+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[3].LegendText = "B-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[4].LegendText = "AB+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[5].LegendText = "AB-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].LegendText = "O+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].LegendText = "O-";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].LegendText = "A+" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].LegendText = "A-" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[2].LegendText = "B+" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[3].LegendText = "B-" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[4].LegendText = "AB+" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[5].LegendText = "AB-" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].LegendText = "O+" ;
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].LegendText = "O-" ;
 
             //Adiciono descrição
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].Label = "Tipo A+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].Label = "Tipo A-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[2].Label = "Tipo B+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[3].Label = "Tipo B-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[4].Label = "Tipo AB+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[5].Label = "Tipo AB-";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].Label = "Tipo O+";
-            chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].Label = "Tipo O-";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].Label = Convert.ToString(tirarCasasDecimaisAM)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].Label = Convert.ToString(tirarCasasDecimaisAm)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[2].Label = Convert.ToString(tirarCasasDecimaisBM)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[3].Label = Convert.ToString(tirarCasasDecimaisBm)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[4].Label = Convert.ToString(tirarCasasDecimaisABM)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[5].Label = Convert.ToString(tirarCasasDecimaisABm)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[6].Label = Convert.ToString(tirarCasasaDecimaisOM)+"%";
+            chartDonatorsBT.Series["GraficoBloodDonors"].Points[7].Label = Convert.ToString(tirarCasasDecimaisOm)+"%";
 
-
+            
 
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[0].Color = System.Drawing.Color.Blue;
             chartDonatorsBT.Series["GraficoBloodDonors"].Points[1].Color = System.Drawing.Color.Red;
@@ -169,7 +192,7 @@ namespace Interface
 
         }
 
-        private void chartDonatorsBT_Click_1(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
