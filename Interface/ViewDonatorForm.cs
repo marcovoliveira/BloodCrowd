@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,11 +25,31 @@ namespace Interface
         private void Form2_Load(object sender, EventArgs e)
         {
             var donators = CreateListDonators.ListDonators();
+            string[] a;
+            string []b;
             foreach (var item in donators.Where(item => item.Number == number))
             {
+                a = Regex.Split(item.StreetAddress, @"(?<!^)(?=[A-Z])");
+
+                b = Regex.Split(item.Vehicle, @"(?<!^)(?=[A-Z])");
+
+                
                 firstNameLabel.Text = item.FirstName;
                 lastNameLabel.Text = item.LastName;
-                streetAdressLabel.Text = item.StreetAddress;
+                //colocar bem a morada
+                streetAdressLabel.ResetText();
+                for (int i = 0; i < a.Count(); i++)
+                {
+                    streetAdressLabel.Text = streetAdressLabel.Text + " " + a[i];
+
+                }
+                //colocar bem o veiculo
+                veichleLabel.ResetText();
+                for(int k=0;k<b.Count();k++)
+                {
+                    veichleLabel.Text = veichleLabel.Text + " " + b[k];
+                }
+               
                 cityLabel.Text = item.City;
                 stateFullLabel.Text = item.Statefull;
                 zipcodeLabel.Text = item.ZipCode;
@@ -36,11 +57,12 @@ namespace Interface
                 usernameLabel.Text = item.UserName;
                 telephoneLabel.Text = Convert.ToString(item.TelephoneNumber);
                 motherMaidenLabel.Text = item.MothersMaiden;
-                birthdayLabel.Text = Convert.ToString(item.BirthDay);
+                //colocar data bem
+                birthdayLabel.Text = item.BirthDay.Day +"/" + item.BirthDay.Month + "/" + item.BirthDay.Year;
                 ageLabel.Text = Convert.ToString(item.Age);
                 ocupationLabel.Text = item.Occupation;
                 companyLabel.Text = item.Company;
-                veichleLabel.Text = item.Vehicle;
+              
                 bloodTypeLabel.Text = item.BloodType;
                 kilogramsLabel.Text = Convert.ToString(item.Kilograms);
                 centimetersLabel.Text = Convert.ToString(item.Centimeters);
@@ -50,6 +72,61 @@ namespace Interface
 
 
             }
+        }
+
+        private void lastNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cityLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stateFullLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void telephoneLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ocupationLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

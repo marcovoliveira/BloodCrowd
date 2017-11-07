@@ -33,7 +33,7 @@ namespace Interface
                     String rua = dm.Element("Rua").Value;
                     String cidade = dm.Element("Cidade").Value;
                     String distrito = dm.Element("Distrito").Value;
-                    String codigo_postal = dm.Element("Distrito").Value;
+                    String codigo_postal = dm.Element("Codigo_Postal").Value;
                     String email = dm.Element("Email").Value;
                     String username = dm.Element("Username").Value;
                     String password = dm.Element("Password").Value;
