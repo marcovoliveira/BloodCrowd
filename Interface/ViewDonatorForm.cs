@@ -51,5 +51,10 @@ namespace Interface
 
             }
         }
+
+        private void birthdayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

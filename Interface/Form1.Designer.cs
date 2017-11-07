@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SidePanel = new System.Windows.Forms.Panel();
             this.instructionsButton = new System.Windows.Forms.Button();
             this.DateTimeLabel = new System.Windows.Forms.Label();
-            this.SidePanel = new System.Windows.Forms.Panel();
             this.Version = new System.Windows.Forms.Label();
             this.DonatorsButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
@@ -72,6 +72,15 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             // 
+            // SidePanel
+            // 
+            this.SidePanel.BackColor = System.Drawing.Color.Maroon;
+            this.SidePanel.ForeColor = System.Drawing.Color.Maroon;
+            this.SidePanel.Location = new System.Drawing.Point(1, 90);
+            this.SidePanel.Name = "SidePanel";
+            this.SidePanel.Size = new System.Drawing.Size(24, 85);
+            this.SidePanel.TabIndex = 8;
+            // 
             // instructionsButton
             // 
             this.instructionsButton.FlatAppearance.BorderSize = 0;
@@ -96,15 +105,6 @@
             this.DateTimeLabel.Size = new System.Drawing.Size(169, 23);
             this.DateTimeLabel.TabIndex = 9;
             this.DateTimeLabel.Text = "Date Time Label";
-            // 
-            // SidePanel
-            // 
-            this.SidePanel.BackColor = System.Drawing.Color.Maroon;
-            this.SidePanel.ForeColor = System.Drawing.Color.Maroon;
-            this.SidePanel.Location = new System.Drawing.Point(1, 90);
-            this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(24, 85);
-            this.SidePanel.TabIndex = 8;
             // 
             // Version
             // 
