@@ -50,7 +50,7 @@
             this.Emergency.Location = new System.Drawing.Point(208, 149);
             this.Emergency.Margin = new System.Windows.Forms.Padding(2);
             this.Emergency.Name = "Emergency";
-            this.Emergency.Size = new System.Drawing.Size(223, 54);
+            this.Emergency.Size = new System.Drawing.Size(82, 54);
             this.Emergency.TabIndex = 0;
             this.Emergency.Text = "Emergency Emails";
             this.Emergency.UseVisualStyleBackColor = true;
@@ -59,11 +59,11 @@
             // emergencyLabel
             // 
             this.emergencyLabel.AutoSize = true;
-            this.emergencyLabel.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emergencyLabel.Font = new System.Drawing.Font("Century Gothic", 8.8F);
             this.emergencyLabel.Location = new System.Drawing.Point(50, 112);
             this.emergencyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emergencyLabel.Name = "emergencyLabel";
-            this.emergencyLabel.Size = new System.Drawing.Size(395, 22);
+            this.emergencyLabel.Size = new System.Drawing.Size(257, 17);
             this.emergencyLabel.TabIndex = 1;
             this.emergencyLabel.Text = "Chose the types of blood to sent an email.";
             // 
@@ -93,17 +93,20 @@
             // 
             // chartDonatorsBT
             // 
+            this.chartDonatorsBT.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.chartDonatorsBT.BackImageTransparentColor = System.Drawing.SystemColors.ButtonFace;
+            this.chartDonatorsBT.BorderlineColor = System.Drawing.SystemColors.ButtonFace;
             chartArea1.Name = "ChartArea1";
             this.chartDonatorsBT.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDonatorsBT.Legends.Add(legend1);
-            this.chartDonatorsBT.Location = new System.Drawing.Point(436, 132);
+            this.chartDonatorsBT.Location = new System.Drawing.Point(350, 67);
             this.chartDonatorsBT.Name = "chartDonatorsBT";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartDonatorsBT.Series.Add(series1);
-            this.chartDonatorsBT.Size = new System.Drawing.Size(421, 300);
+            this.chartDonatorsBT.Size = new System.Drawing.Size(479, 345);
             this.chartDonatorsBT.TabIndex = 4;
             this.chartDonatorsBT.Text = "chart1";
             this.chartDonatorsBT.Click += new System.EventHandler(this.chartDonatorsBT_Click);
