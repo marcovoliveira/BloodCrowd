@@ -13,7 +13,7 @@ namespace Interface
     {
         public static bool BloodTypeEmail(List<String>  bloodtype)
         {
-
+          
             List<BloodDonator> donators = new List<BloodDonator>();
 
 
@@ -28,6 +28,7 @@ namespace Interface
 
                     foreach (var a in listAMore)
                     {
+                       
                         SendEmails(a.Email, "A+");
                     }
                 }
@@ -120,7 +121,7 @@ namespace Interface
                 msg.To.Add(email);
                 msg.IsBodyHtml = true;
                 // substituir erro por smtp
-                var smtpClient = new SmtpClient("erro.gmail.com", 587);
+                var smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.UseDefaultCredentials = true;
                 smtpClient.Credentials = Credentials(); //Chamar o metodo com as credensiais 
                 smtpClient.EnableSsl = true;
