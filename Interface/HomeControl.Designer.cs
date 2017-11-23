@@ -99,6 +99,7 @@
             this.chartDonatorsBT.Size = new System.Drawing.Size(639, 425);
             this.chartDonatorsBT.TabIndex = 4;
             this.chartDonatorsBT.Text = "chart1";
+            this.chartDonatorsBT.Click += new System.EventHandler(this.chartDonatorsBT_Click);
             // 
             // bloodDonatorBindingSource
             // 

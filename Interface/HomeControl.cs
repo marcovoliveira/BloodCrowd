@@ -79,7 +79,15 @@ namespace Interface
         {
             //carrega base de dados
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"BaseDados.xml");
+            try
+            {
+                doc.Load(@"BaseDados.xml");
+            }
+            catch (Exception e)
+            {
+                
+            }
+            
 
             //seleciona todos os donators de cada tipo em nodelist
             XmlNodeList all = doc.SelectNodes("//Donator");
@@ -180,6 +188,11 @@ namespace Interface
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartDonatorsBT_Click(object sender, EventArgs e)
         {
 
         }
