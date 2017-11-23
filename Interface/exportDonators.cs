@@ -220,7 +220,10 @@ namespace Interface
 
             for (int i = 0; i < id.Count(); i++)
             {
-                foreach (BloodDonator b in donators.Where(n => n.Number == id[i]).Where(a => a.BloodType.Equals("A+")))
+
+                // Defesa do projeto! 
+                //  foreach (BloodDonator b in donators.Where(n => n.Number == id[i]).Where(a => a.BloodType.Equals("A+")))
+                foreach (BloodDonator b in donators.Where(n => n.Number == id[i]))
                 {
 
                     number = Convert.ToString(b.Number);
