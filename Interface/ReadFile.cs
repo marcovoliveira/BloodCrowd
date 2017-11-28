@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,9 +14,11 @@ namespace Interface
 {
     class ReadFile
     {
+       
+       
         public static bool Devolver()
         {
-            bool sucesso = false;  
+         bool sucesso = false;  
             try
             {
                 OpenFileDialog o = new OpenFileDialog();

@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml;
 using System.Collections;
+using Interface.ServiceReference1;
 
 namespace Interface
 {
     public partial class DonatorsControl : UserControl
     {
+        Service1Client client;
+
 
         private DataView dv;
         private DataTable dt;
@@ -23,8 +26,9 @@ namespace Interface
         public DonatorsControl()
         {
             InitializeComponent();  
-        }
 
+        }
+       
         private void DonatorsControl_Load(object sender, EventArgs e)
         {
             // Destalhes da listview 
@@ -341,8 +345,12 @@ namespace Interface
             }
            
         }
+        
         private void addDonatorButton_Click(object sender, EventArgs e)
         {
+           
+           
+
             AddDonatorForm addDonatorForm = new AddDonatorForm();
             addDonatorForm.ShowDialog();
             ReloadListView();
