@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Interface.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Interface
@@ -22,9 +24,35 @@ namespace Interface
 
             try
             {
-                XDocument doc = XDocument.Load(@"BaseDados.xml");
+                
+                
+                Service1Client client = new Service1Client();
 
-                foreach (var dm in doc.Descendants("Donator"))
+                /*XmlDocument xmldoc= new XmlDocument();
+                
+               var a = client.DevolverXml();
+                MessageBox.Show("lol" + a.ToString() );
+
+                // doc.Load(client.DevolverXml());
+                string str = "lol;";
+                //  doc = client.DevolverXml();
+                MessageBox.Show("fds");
+                */
+
+               
+                
+                XmlElement ficheiroxml = client.DevolverXml();
+
+
+                XDocument doc = null;
+                XDocument xdoc = XDocument.Parse(ficheiroxml.OuterXml);
+
+
+               
+
+
+
+                foreach (var dm in xdoc.Descendants("Donator"))
                 {
                     int id = Convert.ToInt32(dm.Attribute("id").Value);
                     String sexo = dm.Element("Sexo").Value;
@@ -55,12 +83,12 @@ namespace Interface
                     ListDonators.Add(new BloodDonator(id, sexo, primeiro_nome, ultimo_nome, rua, cidade, distrito, codigo_postal, email, username,
                         password, telefone, nome_mae, data_nascimento, idade, ocupacao, empresa, veiculo, tipo_sangue, peso, altura,
                         guid, latitude, longitude, IMC));
-
+                    client.Close();
                 }
             }
             catch (Exception e)
             {
-                
+                MessageBox.Show(e.ToString());
 
             }
 

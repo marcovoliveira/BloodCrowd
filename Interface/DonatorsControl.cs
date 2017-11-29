@@ -60,10 +60,10 @@ namespace Interface
         //teste
          public static List<BloodDonator> ListaDonators()
             {
-
-
-                // listar recebe a lista completa
-                List<BloodDonator> donators = new List<BloodDonator>();
+           
+           // Service1Client client = new Service1Client();
+            // listar recebe a lista completa
+            List<BloodDonator> donators = new List<BloodDonator>();
                 donators = CreateListDonators.ListDonators();
                 return donators; 
             }
@@ -72,7 +72,7 @@ namespace Interface
 
         public void ReloadListView()
         {
-            
+           
             dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Nome");
@@ -81,10 +81,11 @@ namespace Interface
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
 
-            Service1Client client = new Service1Client();
+          //  Service1Client client = new Service1Client();
             
             var donators = ListaDonators();
 
+            
             if (donators.Count == 0)
             {
                 statusLabel.ForeColor = Color.Red;
@@ -104,7 +105,7 @@ namespace Interface
 
         private void CarregarDadosTabela(List<BloodDonator> donators)
         {
-
+            MessageBox.Show("CarregasDadosTabela");
             foreach (BloodDonator bd in donators.OrderBy(c => c.Number))
             {
                 int id = bd.Number;
@@ -254,6 +255,7 @@ namespace Interface
             else
             {
                 MessageBox.Show("Data successfully load.");
+                ReloadListView();
             }
             
         }

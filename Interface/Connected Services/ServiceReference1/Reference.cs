@@ -22,14 +22,14 @@ namespace Interface.ServiceReference1 {
         System.Threading.Tasks.Task<bool> DevolverAsync(string textotxt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolverXml", ReplyAction="http://tempuri.org/IService1/DevolverXmlResponse")]
-        string DevolverXml();
+        System.Xml.XmlElement DevolverXml();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolverXml", ReplyAction="http://tempuri.org/IService1/DevolverXmlResponse")]
-        System.Threading.Tasks.Task<string> DevolverXmlAsync();
+        System.Threading.Tasks.Task<System.Xml.XmlElement> DevolverXmlAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDonator", ReplyAction="http://tempuri.org/IService1/AddDonatorResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        System.Xml.Linq.XElement AddDonator(
+        System.Xml.XmlElement AddDonator(
                     string number, 
                     string sexo, 
                     string firstName, 
@@ -57,7 +57,7 @@ namespace Interface.ServiceReference1 {
                     object[] doc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDonator", ReplyAction="http://tempuri.org/IService1/AddDonatorResponse")]
-        System.Threading.Tasks.Task<System.Xml.Linq.XElement> AddDonatorAsync(
+        System.Threading.Tasks.Task<System.Xml.XmlElement> AddDonatorAsync(
                     string number, 
                     string sexo, 
                     string firstName, 
@@ -120,15 +120,15 @@ namespace Interface.ServiceReference1 {
             return base.Channel.DevolverAsync(textotxt);
         }
         
-        public string DevolverXml() {
+        public System.Xml.XmlElement DevolverXml() {
             return base.Channel.DevolverXml();
         }
         
-        public System.Threading.Tasks.Task<string> DevolverXmlAsync() {
+        public System.Threading.Tasks.Task<System.Xml.XmlElement> DevolverXmlAsync() {
             return base.Channel.DevolverXmlAsync();
         }
         
-        public System.Xml.Linq.XElement AddDonator(
+        public System.Xml.XmlElement AddDonator(
                     string number, 
                     string sexo, 
                     string firstName, 
@@ -157,7 +157,7 @@ namespace Interface.ServiceReference1 {
             return base.Channel.AddDonator(number, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc);
         }
         
-        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> AddDonatorAsync(
+        public System.Threading.Tasks.Task<System.Xml.XmlElement> AddDonatorAsync(
                     string number, 
                     string sexo, 
                     string firstName, 

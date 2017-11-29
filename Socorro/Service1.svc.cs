@@ -26,14 +26,19 @@ namespace Socorro
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
         }
 
-        public string DevolverXml()
+        public XmlElement DevolverXml()
         {
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
-            XDocument doc = XDocument.Load(FILEPATH);
-            return doc.ToString();
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(FILEPATH);
+            // MessageBox.Show(doc.InnerXml);
+            XmlElement xmle = doc.DocumentElement;
+         
+            return xmle;
 
         }
-
+        
         public bool Devolver(String textotxt)
         {
 

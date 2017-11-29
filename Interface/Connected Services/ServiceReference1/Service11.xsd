@@ -23,7 +23,13 @@
   <xs:element name="DevolverXmlResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DevolverXmlResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DevolverXmlResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

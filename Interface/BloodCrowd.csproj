@@ -202,6 +202,7 @@
     <None Include="Properties\DataSources\RemoveDonator.datasource" />
     <None Include="Properties\DataSources\SendEmail.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
+    <None Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
     <None Include="Properties\DataSources\ViewDonatorForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

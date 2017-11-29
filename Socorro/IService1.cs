@@ -18,7 +18,7 @@ namespace Socorro
         bool Devolver(String textotxt);
 
         [OperationContract]
-        string DevolverXml();
+        XmlElement DevolverXml();
 
         [OperationContract]
         XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,
