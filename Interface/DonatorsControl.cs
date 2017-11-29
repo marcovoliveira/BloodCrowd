@@ -239,15 +239,7 @@ namespace Interface
         {
             Service1Client client = new Service1Client();
 
-            /* if (client.Devolver() == false)
-             {
-                 MessageBox.Show("Error parsing source file.");
-             }
-             else
-             {
-                 ReloadListView();
-                 MessageBox.Show("Data successfully load.");
-             }*/
+     
             OpenFileDialog o = new OpenFileDialog();
             o.ShowDialog();
             o.DefaultExt = "*.txt";
@@ -255,13 +247,13 @@ namespace Interface
 
 
 
-          if( client.Devolver(nomefile)==true)
+          if( client.Devolver(nomefile)==false)
             {
-                MessageBox.Show("TRUE");
+                MessageBox.Show("Error parsing source file.");
             }
             else
             {
-                MessageBox.Show("FOGO");
+                MessageBox.Show("Data successfully load.");
             }
             
         }

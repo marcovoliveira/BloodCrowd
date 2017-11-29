@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Socorro" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Socorro" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfBloodDonator">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfanyType">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="BloodDonator" nillable="true" type="tns:BloodDonator" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfBloodDonator" nillable="true" type="tns:ArrayOfBloodDonator" />
-  <xs:complexType name="BloodDonator">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Age" type="xs:int" />
-      <xs:element minOccurs="0" name="BirthDay" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="BloodType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Centimeters" type="xs:double" />
-      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IMC" type="xs:double" />
-      <xs:element minOccurs="0" name="Kilograms" type="xs:double" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MothersMaiden" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Number" type="xs:int" />
-      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Statefull" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelephoneNumber" type="xs:long" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Vehicle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="BloodDonator" nillable="true" type="tns:BloodDonator" />
+  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
 </xs:schema>

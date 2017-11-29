@@ -4,27 +4,20 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Socorro" />
-      <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService1_ListDonators_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListDonators" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListDonators_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListDonatorsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListaDonators_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaDonators" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListaDonators_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaDonatorsResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_Devolver_InputMessage">
     <wsdl:part name="parameters" element="tns:Devolver" />
   </wsdl:message>
   <wsdl:message name="IService1_Devolver_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DevolverXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverXml" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DevolverXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverXmlResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_AddDonator_InputMessage">
     <wsdl:part name="parameters" element="tns:AddDonator" />
@@ -33,17 +26,13 @@
     <wsdl:part name="parameters" element="tns:AddDonatorResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
-    <wsdl:operation name="ListDonators">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListDonators" message="tns:IService1_ListDonators_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListDonatorsResponse" message="tns:IService1_ListDonators_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ListaDonators">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaDonators" message="tns:IService1_ListaDonators_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaDonatorsResponse" message="tns:IService1_ListaDonators_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Devolver">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Devolver" message="tns:IService1_Devolver_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DevolverResponse" message="tns:IService1_Devolver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DevolverXml" message="tns:IService1_DevolverXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DevolverXmlResponse" message="tns:IService1_DevolverXml_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddDonator">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDonator" message="tns:IService1_AddDonator_InputMessage" />
@@ -52,26 +41,17 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ListDonators">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListDonators" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListaDonators">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListaDonators" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Devolver">
       <soap:operation soapAction="http://tempuri.org/IService1/Devolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverXml">
+      <soap:operation soapAction="http://tempuri.org/IService1/DevolverXml" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
