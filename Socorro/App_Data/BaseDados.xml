@@ -1,30 +1,5 @@
 <?xml version="1.0"?>
 <DonatorsList>
-  <Donator id="	1">
-    <Sexo>male</Sexo>
-    <Primeiro_Nome>Estevan</Primeiro_Nome>
-    <Ultimo_Nome>Rodrigues</Ultimo_Nome>
-    <Rua>Avenida 25 Abril 74</Rua>
-    <Cidade>Viseu</Cidade>
-    <Distrito>Viseu</Distrito>
-    <Codigo_Postal>3510-150</Codigo_Postal>
-    <Email>EstevanRibeiroRodrigues@cuvox.de</Email>
-    <Username>Forenot</Username>
-    <Password>EighahN5ei</Password>
-    <Telefone>2325827898</Telefone>
-    <Nome_da_mae>Correia</Nome_da_mae>
-    <Data_Nascimento>1/10/1953</Data_Nascimento>
-    <Idade>64</Idade>
-    <Ocupaçao>Home appliance repairer</Ocupaçao>
-    <Empresa>Maxaprofit</Empresa>
-    <Veiculo>2005 Lancia Lybra</Veiculo>
-    <Tipo_Sanguineo>A+</Tipo_Sanguineo>
-    <Peso>71,3</Peso>
-    <Altura>169</Altura>
-    <GUID>d4f8d88d-afe1-4c63-821a-278883d6bb49</GUID>
-    <Latitude>41.010337</Latitude>
-    <Longitude>-7.923389</Longitude>
-  </Donator>
   <Donator id="	2">
     <Sexo>male</Sexo>
     <Primeiro_Nome>Joao</Primeiro_Nome>

@@ -25,6 +25,27 @@ namespace Socorro
         {
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
         }
+
+        public bool RemoverDonator(int id)
+        {
+            bool sucesso = true;
+            try
+            {
+                FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
+                XmlDocument doc = new XmlDocument();
+                doc.Load(FILEPATH);
+                XmlNode node = doc.SelectSingleNode("//Donator[@id=" + id + "]");
+                XmlNode root = doc.DocumentElement;
+                root.RemoveChild(node);
+                doc.Save(FILEPATH);
+            }
+            catch (Exception e)
+            {
+                sucesso = false;
+            }
+           return sucesso;
+        }
+
         public bool AddNewDonator(String sexo, String firstName, String lastName, String streetAddress,
                          String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
                          String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,

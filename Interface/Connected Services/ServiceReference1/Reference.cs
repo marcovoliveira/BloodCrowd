@@ -79,6 +79,12 @@ namespace Interface.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolverXml", ReplyAction="http://tempuri.org/IService1/DevolverXmlResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> DevolverXmlAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoverDonator", ReplyAction="http://tempuri.org/IService1/RemoverDonatorResponse")]
+        bool RemoverDonator(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoverDonator", ReplyAction="http://tempuri.org/IService1/RemoverDonatorResponse")]
+        System.Threading.Tasks.Task<bool> RemoverDonatorAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDonator", ReplyAction="http://tempuri.org/IService1/AddDonatorResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         System.Xml.XmlElement AddDonator(
@@ -232,6 +238,14 @@ namespace Interface.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> DevolverXmlAsync() {
             return base.Channel.DevolverXmlAsync();
+        }
+        
+        public bool RemoverDonator(int id) {
+            return base.Channel.RemoverDonator(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoverDonatorAsync(int id) {
+            return base.Channel.RemoverDonatorAsync(id);
         }
         
         public System.Xml.XmlElement AddDonator(

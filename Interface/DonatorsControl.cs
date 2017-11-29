@@ -325,6 +325,7 @@ namespace Interface
 
         private void removeDonatorButton_Click(object sender, EventArgs e)
         {
+            Service1Client client = new Service1Client();
             if (listView1.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show("Are you sure you want to delete " + listView1.SelectedItems.Count +
@@ -334,7 +335,7 @@ namespace Interface
                     foreach (ListViewItem item in listView1.SelectedItems)
                     {
                         
-                        if (!RemoveDonator.RemoverDonator(Convert.ToInt32(item.Text)))
+                        if (!client.RemoverDonator(Convert.ToInt32(item.Text)))
                         { 
                             MessageBox.Show("Fail to delete donator!");
 
