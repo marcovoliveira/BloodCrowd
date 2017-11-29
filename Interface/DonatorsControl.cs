@@ -11,12 +11,13 @@ using System.Xml.Linq;
 using System.Xml;
 using System.Collections;
 using Interface.ServiceReference1;
+using System.IO;
 
 namespace Interface
 {
     public partial class DonatorsControl : UserControl
     {
-        Service1Client client;
+        
 
 
         private DataView dv;
@@ -56,14 +57,18 @@ namespace Interface
 
 
         }
+        //teste
+         public static List<BloodDonator> ListaDonators()
+            {
 
-        public static List<BloodDonator> ListaDonators()
-        {
-            // listar recebe a lista completa
-            List<BloodDonator> donators = new List<BloodDonator>();
-            donators = CreateListDonators.ListDonators();
-            return donators; 
-        }
+
+                // listar recebe a lista completa
+                List<BloodDonator> donators = new List<BloodDonator>();
+                donators = CreateListDonators.ListDonators();
+                return donators; 
+            }
+       
+       
 
         public void ReloadListView()
         {
@@ -76,7 +81,8 @@ namespace Interface
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
 
-
+            Service1Client client = new Service1Client();
+            
             var donators = ListaDonators();
 
             if (donators.Count == 0)
@@ -231,17 +237,33 @@ namespace Interface
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            
-            if (ReadFile.Devolver() == false)
+            Service1Client client = new Service1Client();
+
+            /* if (client.Devolver() == false)
+             {
+                 MessageBox.Show("Error parsing source file.");
+             }
+             else
+             {
+                 ReloadListView();
+                 MessageBox.Show("Data successfully load.");
+             }*/
+            OpenFileDialog o = new OpenFileDialog();
+            o.ShowDialog();
+            o.DefaultExt = "*.txt";
+            String nomefile = o.FileName;
+
+
+
+          if( client.Devolver(nomefile)==true)
             {
-                MessageBox.Show("Error parsing source file.");
+                MessageBox.Show("TRUE");
             }
             else
             {
-                ReloadListView();
-                MessageBox.Show("Data successfully load.");
+                MessageBox.Show("FOGO");
             }
-           
+            
         }
 
         private void exportButton_Click(object sender, EventArgs e)

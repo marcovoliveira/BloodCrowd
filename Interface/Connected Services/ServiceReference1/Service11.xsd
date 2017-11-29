@@ -1,17 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="CalcularIMC">
+  <xs:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Socorro" />
+  <xs:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="ListDonators">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListDonatorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="peso" type="xs:double" />
-        <xs:element minOccurs="0" name="altura" type="xs:double" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListDonatorsResult" nillable="true" type="q1:ArrayOfBloodDonator" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CalcularIMCResponse">
+  <xs:element name="ListaDonators">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaDonatorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="CalcularIMCResult" type="xs:double" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListaDonatorsResult" nillable="true" type="q2:ArrayOfBloodDonator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Devolver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="textotxt" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DevolverResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDonator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="streetAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statefull" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eMail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mothersMaiden" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="birthDay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="age" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="occupation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bloodType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="kilograms" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="centimeters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="doc" nillable="true" type="q3:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDonatorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDonatorResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
