@@ -15,6 +15,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddNewDonator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="streetAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statefull" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eMail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mothersMaiden" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="birthDay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="age" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="occupation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bloodType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="kilograms" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="centimeters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewDonatorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewDonatorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DevolverXml">
     <xs:complexType>
       <xs:sequence />

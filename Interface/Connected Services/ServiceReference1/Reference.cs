@@ -21,6 +21,58 @@ namespace Interface.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Devolver", ReplyAction="http://tempuri.org/IService1/DevolverResponse")]
         System.Threading.Tasks.Task<bool> DevolverAsync(string textotxt);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewDonator", ReplyAction="http://tempuri.org/IService1/AddNewDonatorResponse")]
+        bool AddNewDonator(
+                    string sexo, 
+                    string firstName, 
+                    string lastName, 
+                    string streetAddress, 
+                    string city, 
+                    string statefull, 
+                    string zipCode, 
+                    string eMail, 
+                    string userName, 
+                    string password, 
+                    string telephoneNumber, 
+                    string mothersMaiden, 
+                    string birthDay, 
+                    string age, 
+                    string occupation, 
+                    string company, 
+                    string vehicle, 
+                    string bloodType, 
+                    string kilograms, 
+                    string centimeters, 
+                    string guid, 
+                    string latitude, 
+                    string longitude);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewDonator", ReplyAction="http://tempuri.org/IService1/AddNewDonatorResponse")]
+        System.Threading.Tasks.Task<bool> AddNewDonatorAsync(
+                    string sexo, 
+                    string firstName, 
+                    string lastName, 
+                    string streetAddress, 
+                    string city, 
+                    string statefull, 
+                    string zipCode, 
+                    string eMail, 
+                    string userName, 
+                    string password, 
+                    string telephoneNumber, 
+                    string mothersMaiden, 
+                    string birthDay, 
+                    string age, 
+                    string occupation, 
+                    string company, 
+                    string vehicle, 
+                    string bloodType, 
+                    string kilograms, 
+                    string centimeters, 
+                    string guid, 
+                    string latitude, 
+                    string longitude);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolverXml", ReplyAction="http://tempuri.org/IService1/DevolverXmlResponse")]
         System.Xml.XmlElement DevolverXml();
         
@@ -118,6 +170,60 @@ namespace Interface.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> DevolverAsync(string textotxt) {
             return base.Channel.DevolverAsync(textotxt);
+        }
+        
+        public bool AddNewDonator(
+                    string sexo, 
+                    string firstName, 
+                    string lastName, 
+                    string streetAddress, 
+                    string city, 
+                    string statefull, 
+                    string zipCode, 
+                    string eMail, 
+                    string userName, 
+                    string password, 
+                    string telephoneNumber, 
+                    string mothersMaiden, 
+                    string birthDay, 
+                    string age, 
+                    string occupation, 
+                    string company, 
+                    string vehicle, 
+                    string bloodType, 
+                    string kilograms, 
+                    string centimeters, 
+                    string guid, 
+                    string latitude, 
+                    string longitude) {
+            return base.Channel.AddNewDonator(sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddNewDonatorAsync(
+                    string sexo, 
+                    string firstName, 
+                    string lastName, 
+                    string streetAddress, 
+                    string city, 
+                    string statefull, 
+                    string zipCode, 
+                    string eMail, 
+                    string userName, 
+                    string password, 
+                    string telephoneNumber, 
+                    string mothersMaiden, 
+                    string birthDay, 
+                    string age, 
+                    string occupation, 
+                    string company, 
+                    string vehicle, 
+                    string bloodType, 
+                    string kilograms, 
+                    string centimeters, 
+                    string guid, 
+                    string latitude, 
+                    string longitude) {
+            return base.Channel.AddNewDonatorAsync(sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
         }
         
         public System.Xml.XmlElement DevolverXml() {

@@ -13,6 +13,12 @@
   <wsdl:message name="IService1_Devolver_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolverResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddNewDonator_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewDonator" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddNewDonator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewDonatorResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DevolverXml_InputMessage">
     <wsdl:part name="parameters" element="tns:DevolverXml" />
   </wsdl:message>
@@ -30,6 +36,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Devolver" message="tns:IService1_Devolver_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DevolverResponse" message="tns:IService1_Devolver_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddNewDonator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddNewDonator" message="tns:IService1_AddNewDonator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddNewDonatorResponse" message="tns:IService1_AddNewDonator_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DevolverXml">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DevolverXml" message="tns:IService1_DevolverXml_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DevolverXmlResponse" message="tns:IService1_DevolverXml_OutputMessage" />
@@ -43,6 +53,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Devolver">
       <soap:operation soapAction="http://tempuri.org/IService1/Devolver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDonator">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddNewDonator" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -25,7 +25,26 @@ namespace Socorro
         {
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
         }
+        public bool AddNewDonator(String sexo, String firstName, String lastName, String streetAddress,
+                         String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
+                         String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
+                         String kilograms, String centimeters, String guid, String latitude, String longitude)
+        {
+            XmlDocument doc = new XmlDocument();
+            FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
+            doc.Load(FILEPATH);
+            XmlNode root = doc.DocumentElement;
+            XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
+            int idU = Convert.ToInt32(id.InnerText);
+            String idUltimo = Convert.ToString(idU + 1);
 
+            root.AppendChild(AddDonator(idUltimo, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden
+                , birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
+            doc.Save(FILEPATH);
+
+
+            return true;
+        }
         public XmlElement DevolverXml()
         {
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");

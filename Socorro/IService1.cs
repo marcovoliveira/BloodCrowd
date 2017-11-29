@@ -18,13 +18,19 @@ namespace Socorro
         bool Devolver(String textotxt);
 
         [OperationContract]
+        bool AddNewDonator(String sexo, String firstName, String lastName, String streetAddress,
+                         String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
+                         String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
+                         String kilograms, String centimeters, String guid, String latitude, String longitude);
+
+        [OperationContract]
         XmlElement DevolverXml();
 
         [OperationContract]
         XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,
                          String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
                          String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
-                         String kilograms, String centimeters, String guid, String latitude, String longitude, XmlDocument doc);
+                         String kilograms, String centimeters, String guid, String latitude, String longitude,XmlDocument doc);
 
     }
     }

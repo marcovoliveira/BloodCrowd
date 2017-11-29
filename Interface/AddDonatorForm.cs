@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,7 +109,8 @@ namespace Interface
 
         private void AddDonatorButton_Click(object sender, EventArgs e)
         {
-            
+            Service1Client client = new Service1Client();
+
             bool resultadoint = int.TryParse(telephoneTextBox.Text, out var n);
             bool resultadodouble = double.TryParse(kilogramsTextBox.Text, out var p);
             bool resultaddouble2 = double.TryParse(centimetersTextBox.Text, out var l);
@@ -133,19 +135,6 @@ namespace Interface
             }
             else
             {
-                
-
-
-                XmlDocument doc = new XmlDocument();
-                
-                doc.Load(@"BaseDados.xml");
-                XmlNode root = doc.DocumentElement;
-
-                XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
-                int a = Convert.ToInt32(id.InnerText);
-
-                String number = Convert.ToString((a + 1));
-
                 String genero = genreComboBox.SelectedItem.ToString();
                 String firstName = firstNameTextBox.Text;
                 String lastName = lastNameTextBox.Text;
@@ -190,21 +179,14 @@ namespace Interface
                         b = k + 1;
                         dn = bday[0] + "/" + b + "/" + bday[4];
                     }
+          }
 
+                client.AddNewDonator(genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
+                   mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
 
-                }
-                
-
-
-
-                root.AppendChild(AddNewDonator.AddDonator(number, genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
-                   mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
-                MessageBox.Show("Donator added with success!");
-
-                doc.Save(@"BaseDados.xml");
+                client.Close();
 
                  this.Close();
-
             }
             }
         }
