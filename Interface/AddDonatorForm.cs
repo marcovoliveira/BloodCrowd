@@ -168,7 +168,7 @@ namespace Interface
                 String age = Convert.ToString(idade);
 
                 //colocar bem a data
-                //  1 / 10 / 1953
+                //  mes / dia / ano
                 int b;
                 String dn = "";
                 String[] meses = { "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" };
@@ -177,7 +177,7 @@ namespace Interface
                     if (bday[2].Equals(meses[k]))
                     {
                         b = k + 1;
-                        dn = bday[0] + "/" + b + "/" + bday[4];
+                        dn = b + "/" + bday[0] + "/" + bday[4];
                     }
           }
 

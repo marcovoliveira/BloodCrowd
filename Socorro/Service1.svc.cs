@@ -31,7 +31,7 @@ namespace Socorro
             bool sucesso = true;
             try
             {
-                FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
+               
                 XmlDocument doc = new XmlDocument();
                 doc.Load(FILEPATH);
                 XmlNode node = doc.SelectSingleNode("//Donator[@id=" + id + "]");
@@ -52,7 +52,7 @@ namespace Socorro
                          String kilograms, String centimeters, String guid, String latitude, String longitude)
         {
             XmlDocument doc = new XmlDocument();
-            FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
+           
             doc.Load(FILEPATH);
             XmlNode root = doc.DocumentElement;
             XmlNode id = root.SelectSingleNode("Donator[last()]/@id");
@@ -68,7 +68,7 @@ namespace Socorro
         }
         public XmlElement DevolverXml()
         {
-            FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "BaseDados.xml");
+            
 
             XmlDocument doc = new XmlDocument();
             doc.Load(FILEPATH);

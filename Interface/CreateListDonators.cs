@@ -27,24 +27,11 @@ namespace Interface
                 
                 
                 Service1Client client = new Service1Client();
-
-                /*XmlDocument xmldoc= new XmlDocument();
-                
-               var a = client.DevolverXml();
-                MessageBox.Show("lol" + a.ToString() );
-
-                // doc.Load(client.DevolverXml());
-                string str = "lol;";
-                //  doc = client.DevolverXml();
-                MessageBox.Show("fds");
-                */
-
-               
                 
                 XmlElement ficheiroxml = client.DevolverXml();
 
 
-                XDocument doc = null;
+              
                 XDocument xdoc = XDocument.Parse(ficheiroxml.OuterXml);
 
 
