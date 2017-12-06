@@ -67,7 +67,7 @@ namespace Interface
                 donators = CreateListDonators.ListDonators();
                 return donators; 
             }
-
+            
 
 
         public void ReloadListView()
@@ -266,6 +266,7 @@ namespace Interface
 
         private void exportButton_Click(object sender, EventArgs e)
         {
+
             List<int> idSelecionado = new List<int>();
             int tipo = 3;
             
@@ -298,7 +299,7 @@ namespace Interface
                         }
                         
                        
-                        ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
+                        ExportDonators.ExportDonator(tipo, idSelecionado);
                        
                         listView1.SelectedItems.Clear();
                     }
@@ -317,7 +318,7 @@ namespace Interface
                         {
                             idSelecionado.Add(i);
                         }
-                        ExportDonators.ExportDonator(ListaDonators(), tipo, idSelecionado);
+                        ExportDonators.ExportDonator(tipo, idSelecionado);
                     }
                 }
             }

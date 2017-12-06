@@ -1,3 +1,4 @@
+using Interface.ServiceReference1;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -17,11 +18,13 @@ namespace Interface
     {
         // Este metodo é responsável por decidir que tipo de exportação vai ser utilizada, json ou xml, definindo que utilizadores
         //vai exportar e a lista de donators
-        public static void ExportDonator(List<BloodDonator> donators, int tipo, List<int> posicao)
+        public static void ExportDonator(int tipo, List<int> posicao)
         {
             string caminho;
             string caminho2;
-
+            
+            Service1Client client = new Service1Client();
+            
 
             if (tipo == 0)
             {
@@ -29,7 +32,7 @@ namespace Interface
 
                 if (caminho != null)
                 {
-                    if (exportXML(donators, posicao, caminho)) // Metodo ExportXML devolve um bool 
+                    if (client.ExportarXML(posicao.ToArray(), caminho)) // Metodo ExportXML devolve um bool 
                     {
                         MessageBox.Show("Donators successfully exported to XML!");
                     }
@@ -46,7 +49,7 @@ namespace Interface
 
                 if (caminho != null)
                 {
-                    if (exportJSON(donators, posicao, caminho))
+                    if (client.ExportJSON(posicao.ToArray(), caminho))
                     {
                         MessageBox.Show("Donators successfully exported to Json!");
                     }
@@ -64,7 +67,7 @@ namespace Interface
 
                 if (caminho != null && caminho2 == null)
                 {
-                    if (exportXML(donators, posicao, caminho))
+                    if (client.ExportarXML(posicao.ToArray(), caminho))
                     {
                         MessageBox.Show("Donators successfully exported to XML");
                     }
@@ -76,7 +79,7 @@ namespace Interface
 
                 if (caminho == null && caminho2 != null)
                 {
-                    if (exportJSON(donators, posicao, caminho2))
+                    if (client.ExportJSON(posicao.ToArray(), caminho2))
                     {
                         MessageBox.Show("Donators successfully exported to Json");
                     }
@@ -88,7 +91,7 @@ namespace Interface
 
                 if (caminho != null && caminho2 != null)
                 {
-                    if (exportXML(donators, posicao, caminho) && exportJSON(donators, posicao, caminho2))
+                    if (client.ExportarXML(posicao.ToArray(), caminho) && client.ExportJSON(posicao.ToArray(), caminho2))
                     {
                         MessageBox.Show("Donators successfully exported to XML & Json");
                     }
@@ -102,173 +105,9 @@ namespace Interface
             }
         }
         //metodo responsável por exportar em xml
-        private static bool exportXML(List<BloodDonator> donators, List<int> id, string path)
-        {
+        
 
-            String number;
-            String sexo;
-            String firstName;
-            String lastName;
-            String streetAddress;
-            String city;
-            String statefull;
-            String zipCode;
-            String eMail;
-            String userName;
-            String password;
-            String telephoneNumber;
-            String mothersMaiden;
-            String birthDay;
-            String age;
-            String occupation;
-            String company;
-            String vehicle;
-            String bloodType;
-            String kilograms;
-            String centimeters;
-            String guid;
-            String latitude;
-            String longitude;
-
-            XmlDocument docExportar = new XmlDocument();
-            XmlDeclaration decExportar = docExportar.CreateXmlDeclaration("1.0", null, null);
-            docExportar.AppendChild(decExportar);
-            XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators irão ser introduzidos
-            docExportar.AppendChild(rootExportar);
-
-            for (int i = 0; i < id.Count(); i++)
-            {
-                foreach (BloodDonator b in donators.Where(n => n.Number == id[i]))
-                {
-                    number = Convert.ToString(b.Number);
-                    sexo = b.Sexo;
-                    firstName = b.FirstName;
-                    lastName = b.LastName;
-                    streetAddress = b.StreetAddress;
-                    city = b.City;
-                    statefull = b.Statefull;
-                    zipCode = b.ZipCode;
-                    eMail = b.Email;
-                    userName = b.UserName;
-                    password = b.Password;
-                    telephoneNumber = Convert.ToString(b.TelephoneNumber);
-                    mothersMaiden = b.MothersMaiden;
-                    birthDay = Convert.ToString(b.BirthDay);
-                    age = Convert.ToString(b.Age);
-                    occupation = b.Occupation;
-                    company = b.Company;
-                    vehicle = b.Vehicle;
-                    bloodType = b.BloodType;
-                    kilograms = Convert.ToString(b.Kilograms);
-                    centimeters = Convert.ToString(b.Centimeters);
-                    guid = b.Guid;
-                    latitude = b.Latitude;
-                    longitude = b.Longitude;
-
-                    rootExportar.AppendChild(AddNewDonator.AddDonator
-                    (number, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password,
-                        telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters,
-                        guid, latitude, longitude, docExportar
-
-                    ));
-
-                    docExportar.Save(path);
-
-                }
-
-              
-            }
-            return true;
-        }
-
-        private static bool exportJSON(List<BloodDonator> donators, List<int> id, string path)
-        {
-            String number;
-            String sexo;
-            String firstName;
-            String lastName;
-            String streetAddress;
-            String city;
-            String statefull;
-            String zipCode;
-            String eMail;
-            String userName;
-            String password;
-            String telephoneNumber;
-            String mothersMaiden;
-            String birthDay;
-            String age;
-            String occupation;
-            String company;
-            String vehicle;
-            String bloodType;
-            String kilograms;
-            String centimeters;
-            String guid;
-            String latitude;
-            String longitude;
-
-            XmlDocument docExportar = new XmlDocument();
-           
-            
-            XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators irão ser introduzidos
-            docExportar.AppendChild(rootExportar);
-          
-
-
-           
-
-            for (int i = 0; i < id.Count(); i++)
-            {
-
-                // Defesa do projeto! 
-                //  foreach (BloodDonator b in donators.Where(n => n.Number == id[i]).Where(a => a.BloodType.Equals("A+")))
-                foreach (BloodDonator b in donators.Where(n => n.Number == id[i]))
-                {
-
-                    number = Convert.ToString(b.Number);
-                    sexo = b.Sexo;
-                    firstName = b.FirstName;
-                    lastName = b.LastName;
-                    streetAddress = b.StreetAddress;
-                    city = b.City;
-                    statefull = b.Statefull;
-                    zipCode = b.ZipCode;
-                    eMail = b.Email;
-                    userName = b.UserName;
-                    password = b.Password;
-                    telephoneNumber = Convert.ToString(b.TelephoneNumber);
-                    mothersMaiden = b.MothersMaiden;
-                    birthDay = Convert.ToString(b.BirthDay);
-                    age = Convert.ToString(b.Age);
-                    occupation = b.Occupation;
-                    company = b.Company;
-                    vehicle = b.Vehicle;
-                    bloodType = b.BloodType;
-                    kilograms = Convert.ToString(b.Kilograms);
-                    centimeters = Convert.ToString(b.Centimeters);
-                    guid = b.Guid;
-                    latitude = b.Latitude;
-                    longitude = b.Longitude;
-
-                    rootExportar.AppendChild(AddNewDonator.AddDonator
-                    (number, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName,
-                        password,
-                        telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType,
-                        kilograms, centimeters,
-                        guid, latitude, longitude, docExportar
-
-                    ));
-                }
-
-            }
-            String jsonText = "";
-            jsonText += JsonConvert.SerializeObject(rootExportar);
-            File.WriteAllText(path, jsonText);
-
-            return true;
-        }
-
+        
         private static string Path(string placeholder, string filter)
         {
             

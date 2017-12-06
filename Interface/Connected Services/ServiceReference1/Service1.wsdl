@@ -56,6 +56,18 @@
   <wsdl:message name="IService1_AddDonator_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddDonatorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ExportarXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExportarXML" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExportarXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportarXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExportJSON_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExportJSON" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExportJSON_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportJSONResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Devolver">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Devolver" message="tns:IService1_Devolver_InputMessage" />
@@ -88,6 +100,14 @@
     <wsdl:operation name="AddDonator">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDonator" message="tns:IService1_AddDonator_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDonatorResponse" message="tns:IService1_AddDonator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportarXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExportarXML" message="tns:IService1_ExportarXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExportarXMLResponse" message="tns:IService1_ExportarXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportJSON">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExportJSON" message="tns:IService1_ExportJSON_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExportJSONResponse" message="tns:IService1_ExportJSON_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -157,6 +177,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddDonator">
       <soap:operation soapAction="http://tempuri.org/IService1/AddDonator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportarXML">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExportarXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportJSON">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExportJSON" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

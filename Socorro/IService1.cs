@@ -48,8 +48,14 @@ namespace Socorro
                          String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
                          String kilograms, String centimeters, String guid, String latitude, String longitude,XmlDocument doc);
 
-        
-       
+        [OperationContract]
+        bool ExportarXML(List<int> posicao, string caminhoGuardar);
+
+        [OperationContract]
+        bool ExportJSON(List<int> posicao, string path);
+
+
+
     }
     //Criação da classe BloodDonator
     [DataContract]

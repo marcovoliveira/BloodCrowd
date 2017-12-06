@@ -538,6 +538,7 @@ namespace Interface.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
         System.Xml.XmlElement AddDonator(
                     string number, 
                     string sexo, 
@@ -592,6 +593,18 @@ namespace Interface.ServiceReference1 {
                     string latitude, 
                     string longitude, 
                     object[] doc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExportarXML", ReplyAction="http://tempuri.org/IService1/ExportarXMLResponse")]
+        bool ExportarXML(int[] posicao, string caminhoGuardar);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExportarXML", ReplyAction="http://tempuri.org/IService1/ExportarXMLResponse")]
+        System.Threading.Tasks.Task<bool> ExportarXMLAsync(int[] posicao, string caminhoGuardar);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExportJSON", ReplyAction="http://tempuri.org/IService1/ExportJSONResponse")]
+        bool ExportJSON(int[] posicao, string path);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExportJSON", ReplyAction="http://tempuri.org/IService1/ExportJSONResponse")]
+        System.Threading.Tasks.Task<bool> ExportJSONAsync(int[] posicao, string path);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -779,6 +792,22 @@ namespace Interface.ServiceReference1 {
                     string longitude, 
                     object[] doc) {
             return base.Channel.AddDonatorAsync(number, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc);
+        }
+        
+        public bool ExportarXML(int[] posicao, string caminhoGuardar) {
+            return base.Channel.ExportarXML(posicao, caminhoGuardar);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExportarXMLAsync(int[] posicao, string caminhoGuardar) {
+            return base.Channel.ExportarXMLAsync(posicao, caminhoGuardar);
+        }
+        
+        public bool ExportJSON(int[] posicao, string path) {
+            return base.Channel.ExportJSON(posicao, path);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExportJSONAsync(int[] posicao, string path) {
+            return base.Channel.ExportJSONAsync(posicao, path);
         }
     }
 }
