@@ -32,6 +32,15 @@ namespace Socorro
         [OperationContract]
         bool RemoverDonator(int id);
 
+        [OperationContract]
+        List<BloodDonator> ListDonators();
+
+        [OperationContract]
+        double CalcularIMC(double peso, double altura);
+
+        [OperationContract]
+        List<BloodDonator> ListaDonators();
+
         //Método responsável no auxílio da listagem correta do ficheiro xml(para a lista) e para adicionar novos dadores
         [OperationContract]
         XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,

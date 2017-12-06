@@ -1,30 +1,5 @@
 <?xml version="1.0"?>
 <DonatorsList>
-  <Donator id="	1">
-    <Sexo>male</Sexo>
-    <Primeiro_Nome>Estevan</Primeiro_Nome>
-    <Ultimo_Nome>Rodrigues</Ultimo_Nome>
-    <Rua>Avenida 25 Abril 74</Rua>
-    <Cidade>Viseu</Cidade>
-    <Distrito>Viseu</Distrito>
-    <Codigo_Postal>3510-150</Codigo_Postal>
-    <Email>EstevanRibeiroRodrigues@cuvox.de</Email>
-    <Username>Forenot</Username>
-    <Password>EighahN5ei</Password>
-    <Telefone>2325827898</Telefone>
-    <Nome_da_mae>Correia</Nome_da_mae>
-    <Data_Nascimento>1/10/1953</Data_Nascimento>
-    <Idade>64</Idade>
-    <Ocupaçao>Home appliance repairer</Ocupaçao>
-    <Empresa>Maxaprofit</Empresa>
-    <Veiculo>2005 Lancia Lybra</Veiculo>
-    <Tipo_Sanguineo>A+</Tipo_Sanguineo>
-    <Peso>71,3</Peso>
-    <Altura>169</Altura>
-    <GUID>d4f8d88d-afe1-4c63-821a-278883d6bb49</GUID>
-    <Latitude>41.010337</Latitude>
-    <Longitude>-7.923389</Longitude>
-  </Donator>
   <Donator id="	2">
     <Sexo>male</Sexo>
     <Primeiro_Nome>Joao</Primeiro_Nome>
@@ -99,31 +74,6 @@
     <GUID>58e2e6a4-f813-4e05-8154-eafcd657e0bc</GUID>
     <Latitude>38.376437</Latitude>
     <Longitude>-7.897821</Longitude>
-  </Donator>
-  <Donator id="	5">
-    <Sexo>male</Sexo>
-    <Primeiro_Nome>Bruno</Primeiro_Nome>
-    <Ultimo_Nome>Carvalho</Ultimo_Nome>
-    <Rua>R Cruzes 79</Rua>
-    <Cidade>Barcelos</Cidade>
-    <Distrito>Braga</Distrito>
-    <Codigo_Postal>4750-327</Codigo_Postal>
-    <Email>BrunoPintoCarvalho@fleckens.hu</Email>
-    <Username>Hersten</Username>
-    <Password>Ed6Aes2a</Password>
-    <Telefone>2538047922</Telefone>
-    <Nome_da_mae>Ferreira</Nome_da_mae>
-    <Data_Nascimento>4/4/1984</Data_Nascimento>
-    <Idade>33</Idade>
-    <Ocupaçao>Financial analyst</Ocupaçao>
-    <Empresa>Sportmart</Empresa>
-    <Veiculo>2001 Suzuki EV Sport</Veiculo>
-    <Tipo_Sanguineo>A-</Tipo_Sanguineo>
-    <Peso>72,9</Peso>
-    <Altura>179</Altura>
-    <GUID>553f575d-bc0d-4f6c-a0af-96888330aef5</GUID>
-    <Latitude>41.555383</Latitude>
-    <Longitude>-8.676334</Longitude>
   </Donator>
   <Donator id="	6">
     <Sexo>male</Sexo>
@@ -4974,34 +4924,5 @@
     <GUID>55566aa9-aad1-4c7c-93dd-be0fdc43a247</GUID>
     <Latitude>41.234407</Latitude>
     <Longitude>-8.590185</Longitude>
-  </Donator>
-  <Donator id="200">
-    <Sexo>female</Sexo>
-    <Primeiro_Nome>João</Primeiro_Nome>
-    <Ultimo_Nome>Ferreira</Ultimo_Nome>
-    <Rua>Rua Principal 39</Rua>
-    <Cidade>Alcobaça</Cidade>
-    <Distrito>Leiria</Distrito>
-    <Codigo_Postal>2460-611</Codigo_Postal>
-    <Email>jfa@gmail.com</Email>
-    <Username>Jferr</Username>
-    <Password>
-    </Password>
-    <Telefone>927068903</Telefone>
-    <Nome_da_mae>Santos</Nome_da_mae>
-    <Data_Nascimento>12/5/2017</Data_Nascimento>
-    <Idade>0</Idade>
-    <Ocupaçao>Operador fabril</Ocupaçao>
-    <Empresa>Frubaça</Empresa>
-    <Veiculo>BMW 320d</Veiculo>
-    <Tipo_Sanguineo>A+</Tipo_Sanguineo>
-    <Peso>92,5</Peso>
-    <Altura>170,5</Altura>
-    <GUID>
-    </GUID>
-    <Latitude>
-    </Latitude>
-    <Longitude>
-    </Longitude>
   </Donator>
 </DonatorsList>

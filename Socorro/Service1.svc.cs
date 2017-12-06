@@ -252,6 +252,143 @@ namespace Socorro
             return donator;
         }
 
+        public List<BloodDonator> ListDonators()
+        {
+            List<BloodDonator> ListDonators = new List<BloodDonator>();
+
+            IFormatProvider culture = new System.Globalization.CultureInfo("en-US", true);
+
+            try
+            {
+                XDocument xdoc = XDocument.Load(FILEPATH);
+
+                foreach (var dm in xdoc.Descendants("Donator"))
+                {
+                    int id = Convert.ToInt32(dm.Attribute("id").Value);
+                    String sexo = dm.Element("Sexo").Value;
+                    String primeiro_nome = dm.Element("Primeiro_Nome").Value;
+                    String ultimo_nome = dm.Element("Ultimo_Nome").Value;
+                    String rua = dm.Element("Rua").Value;
+                    String cidade = dm.Element("Cidade").Value;
+                    String distrito = dm.Element("Distrito").Value;
+                    String codigo_postal = dm.Element("Codigo_Postal").Value;
+                    String email = dm.Element("Email").Value;
+                    String username = dm.Element("Username").Value;
+                    String password = dm.Element("Password").Value;
+                    long telefone = Convert.ToInt64(dm.Element("Telefone").Value);
+                    String nome_mae = dm.Element("Nome_da_mae").Value;
+                    DateTime data_nascimento = DateTime.Parse(dm.Element("Data_Nascimento").Value, culture, DateTimeStyles.AssumeLocal);
+                    int idade = Convert.ToInt32(dm.Element("Idade").Value);
+                    String ocupacao = dm.Element("Ocupaçao").Value;
+                    String empresa = dm.Element("Empresa").Value;
+                    String veiculo = dm.Element("Veiculo").Value;
+                    String tipo_sangue = dm.Element("Tipo_Sanguineo").Value;
+                    double peso = Convert.ToDouble(dm.Element("Peso").Value);
+                    double altura = Convert.ToDouble(dm.Element("Altura").Value);
+                    String guid = dm.Element("GUID").Value;
+                    String latitude = dm.Element("Latitude").Value;
+                    String longitude = dm.Element("Longitude").Value;
+                    double IMC = CalcularIMC(peso, altura);
+
+                    ListDonators.Add(new BloodDonator(id, sexo, primeiro_nome, ultimo_nome, rua, cidade, distrito, codigo_postal, email, username,
+                        password, telefone, nome_mae, data_nascimento, idade, ocupacao, empresa, veiculo, tipo_sangue, peso, altura,
+                        guid, latitude, longitude, IMC));
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+
+            }
+
+            return ListDonators;
+        }
+        public List<BloodDonator> ListaDonators()
+        {
+            List<BloodDonator> donators = new List<BloodDonator>();
+            donators = ListDonators();
+            return donators;
+        }
+
+        public double CalcularIMC(double peso, double altura)
+        {
+            double imc;
+            imc = peso / ((altura * altura) / 10000);
+            return imc;
+        }
+
+        public bool ExportarXML(List<int> posicao, string caminhoGuardar)
+        {
+            String number;
+            String sexo;
+            String firstName;
+            String lastName;
+            String streetAddress;
+            String city;
+            String statefull;
+            String zipCode;
+            String eMail;
+            String userName;
+            String password;
+            String telephoneNumber;
+            String mothersMaiden;
+            String birthDay;
+            String age;
+            String occupation;
+            String company;
+            String vehicle;
+            String bloodType;
+            String kilograms;
+            String centimeters;
+            String guid;
+            String latitude;
+            String longitude;
+
+            XmlDocument docExportar = new XmlDocument();
+            XmlDeclaration decExportar = docExportar.CreateXmlDeclaration("1.0", null, null);
+            docExportar.AppendChild(decExportar);
+            XmlElement rootExportar = docExportar.CreateElement("DonatorsList"); // Criar um root onde os Elementos Donators irão ser introduzidos
+            docExportar.AppendChild(rootExportar);
+
+            for (int i = 0; i < posicao.Count(); i++)
+            {
+                foreach (BloodDonator b in ListaDonators().Where(n => n.Number == posicao[i]))
+                {
+                    number = Convert.ToString(b.Number);
+                    sexo = b.Sexo;
+                    firstName = b.FirstName;
+                    lastName = b.LastName;
+                    streetAddress = b.StreetAddress;
+                    city = b.City;
+                    statefull = b.Statefull;
+                    zipCode = b.ZipCode;
+                    eMail = b.EMail;
+                    userName = b.UserName;
+                    password = b.Password;
+                    telephoneNumber = Convert.ToString(b.TelephoneNumber);
+                    mothersMaiden = b.MothersMaiden;
+                    birthDay = Convert.ToString(b.BirthDay);
+                    age = Convert.ToString(b.Age);
+                    occupation = b.Occupation;
+                    company = b.Company;
+                    vehicle = b.Vehicle;
+                    bloodType = b.BloodType;
+                    kilograms = Convert.ToString(b.Kilograms);
+                    centimeters = Convert.ToString(b.Centimeters);
+                    guid = b.Guid;
+                    latitude = b.Latitude;
+                    longitude = b.Longitude;
+
+                    rootExportar.AppendChild(AddDonator(number, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password,
+                        telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters,
+                        guid, latitude, longitude, docExportar));
+                    docExportar.Save(caminhoGuardar);
+                }
+            }
+            return true;
+        }
+
 
     }
     }

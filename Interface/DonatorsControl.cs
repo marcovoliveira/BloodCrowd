@@ -67,12 +67,12 @@ namespace Interface
                 donators = CreateListDonators.ListDonators();
                 return donators; 
             }
-       
-       
+
+
 
         public void ReloadListView()
         {
-           
+
             dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Nome");
@@ -81,12 +81,14 @@ namespace Interface
             dt.Columns.Add("GrupoSanguineo");
             dt.Columns.Add("IMC");
 
-          //  Service1Client client = new Service1Client();
-            
-            var donators = ListaDonators();
+            Service1Client client = new Service1Client();
 
-            
-            if (donators.Count == 0)
+
+            var donators = client.ListaDonators();
+
+            int numeroDadores = donators.Count();
+
+            if (numeroDadores == 0)
             {
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "Please import data from a source file .txt!";
@@ -94,7 +96,7 @@ namespace Interface
             else
             {
                 statusLabel.ForeColor = Color.Green;
-                statusLabel.Text = "OK, " + donators.Count + " Donators Load.";
+                statusLabel.Text = "OK, " + numeroDadores + " Donators Load.";
             }
 
             CarregarDadosTabela(donators);
@@ -103,17 +105,19 @@ namespace Interface
             CarregarDataProcura(dv);
         }
 
-        private void CarregarDadosTabela(List<BloodDonator> donators)
+
+
+        private void CarregarDadosTabela(ServiceReference1.BloodDonator[] donators)
         {
-            MessageBox.Show("CarregasDadosTabela");
-            foreach (BloodDonator bd in donators.OrderBy(c => c.Number))
+
+            foreach (var bd in donators.OrderBy(c => c.Number))
             {
                 int id = bd.Number;
                 String p_nome = bd.FirstName + " " + bd.LastName;
                 String sexo = bd.Sexo;
                 int idade = bd.Age;
                 String g_sangue = bd.BloodType;
-                double imc = bd.IMC;
+                double imc = bd.Imc;
 
                 dt.Rows.Add(id, p_nome, sexo, idade, g_sangue, String.Format("{0:0.00}", imc));
             }
