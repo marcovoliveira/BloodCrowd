@@ -57,16 +57,7 @@ namespace Interface
 
 
         }
-        //teste
-         public static List<BloodDonator> ListaDonators()
-            {
-           
-           // Service1Client client = new Service1Client();
-            // listar recebe a lista completa
-            List<BloodDonator> donators = new List<BloodDonator>();
-                donators = CreateListDonators.ListDonators();
-                return donators; 
-            }
+       
             
 
 

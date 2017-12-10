@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,10 +29,11 @@ namespace Interface
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            var donators = CreateListDonators.ListDonators();
+            Service1Client client = new Service1Client();
+           
             string[] a;
             string []b;
-            foreach (var item in donators.Where(item => item.Number == number))
+            foreach (var item in client.ListaDonators().Where(item => item.Number == number))
             {
                 a = Regex.Split(item.StreetAddress, @"(?<!^)(?=[A-Z])");
 
@@ -57,7 +59,7 @@ namespace Interface
                 cityLabel.Text = item.City;
                 stateFullLabel.Text = item.Statefull;
                 zipcodeLabel.Text = item.ZipCode;
-                emailLabel.Text = item.Email;
+                emailLabel.Text = item.EMail;
                 usernameLabel.Text = item.UserName;
                 telephoneLabel.Text = Convert.ToString(item.TelephoneNumber);
                 motherMaidenLabel.Text = item.MothersMaiden;
@@ -76,6 +78,7 @@ namespace Interface
 
 
             }
+            client.Close();
         }
 
         private void lastNameLabel_Click(object sender, EventArgs e)

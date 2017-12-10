@@ -305,6 +305,7 @@ namespace Socorro
 
             return ListDonators;
         }
+
         public List<BloodDonator> ListaDonators()
         {
             List<BloodDonator> donators = new List<BloodDonator>();
