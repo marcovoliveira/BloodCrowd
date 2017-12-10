@@ -104,10 +104,7 @@ namespace Interface
 
             }
         }
-        //metodo responsável por exportar em xml
-        
 
-        
         private static string Path(string placeholder, string filter)
         {
             

@@ -6,6 +6,8 @@
       <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Socorro" />
       <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+      <xsd:import schemaLocation="http://localhost:54611/Service1.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Security" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_Devolver_InputMessage">
@@ -68,6 +70,18 @@
   <wsdl:message name="IService1_ExportJSON_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExportJSONResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SendEmails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmails" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendEmails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Credentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:Credentials" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Credentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CredentialsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Devolver">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Devolver" message="tns:IService1_Devolver_InputMessage" />
@@ -108,6 +122,14 @@
     <wsdl:operation name="ExportJSON">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExportJSON" message="tns:IService1_ExportJSON_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExportJSONResponse" message="tns:IService1_ExportJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SendEmails" message="tns:IService1_SendEmails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SendEmailsResponse" message="tns:IService1_SendEmails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Credentials">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Credentials" message="tns:IService1_Credentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CredentialsResponse" message="tns:IService1_Credentials_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -195,6 +217,24 @@
     </wsdl:operation>
     <wsdl:operation name="ExportJSON">
       <soap:operation soapAction="http://tempuri.org/IService1/ExportJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmails">
+      <soap:operation soapAction="http://tempuri.org/IService1/SendEmails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Credentials">
+      <soap:operation soapAction="http://tempuri.org/IService1/Credentials" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

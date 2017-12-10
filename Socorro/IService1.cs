@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -53,6 +54,13 @@ namespace Socorro
 
         [OperationContract]
         bool ExportJSON(List<int> posicao, string path);
+
+        [OperationContract]
+        void SendEmails(string email, string bloodtype);
+
+        [OperationContract]
+        NetworkCredential Credentials();
+
 
 
 

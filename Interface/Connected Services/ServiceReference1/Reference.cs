@@ -442,6 +442,128 @@ namespace Interface.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SecureString", Namespace="http://schemas.datacontract.org/2004/07/System.Security")]
+    [System.SerializableAttribute()]
+    public partial class SecureString : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NetworkCredential", Namespace="http://schemas.datacontract.org/2004/07/System.Net")]
+    [System.SerializableAttribute()]
+    public partial class NetworkCredential : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DomainField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Interface.ServiceReference1.SecureString SecurePasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Domain {
+            get {
+                return this.DomainField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DomainField, value) != true)) {
+                    this.DomainField = value;
+                    this.RaisePropertyChanged("Domain");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Interface.ServiceReference1.SecureString SecurePassword {
+            get {
+                return this.SecurePasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SecurePasswordField, value) != true)) {
+                    this.SecurePasswordField = value;
+                    this.RaisePropertyChanged("SecurePassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -535,6 +657,8 @@ namespace Interface.ServiceReference1 {
         System.Threading.Tasks.Task<Interface.ServiceReference1.BloodDonator[]> ListaDonatorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDonator", ReplyAction="http://tempuri.org/IService1/AddDonatorResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.SecureString))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.NetworkCredential))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
@@ -605,6 +729,18 @@ namespace Interface.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExportJSON", ReplyAction="http://tempuri.org/IService1/ExportJSONResponse")]
         System.Threading.Tasks.Task<bool> ExportJSONAsync(int[] posicao, string path);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendEmails", ReplyAction="http://tempuri.org/IService1/SendEmailsResponse")]
+        void SendEmails(string email, string bloodtype);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendEmails", ReplyAction="http://tempuri.org/IService1/SendEmailsResponse")]
+        System.Threading.Tasks.Task SendEmailsAsync(string email, string bloodtype);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Credentials", ReplyAction="http://tempuri.org/IService1/CredentialsResponse")]
+        Interface.ServiceReference1.NetworkCredential Credentials();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Credentials", ReplyAction="http://tempuri.org/IService1/CredentialsResponse")]
+        System.Threading.Tasks.Task<Interface.ServiceReference1.NetworkCredential> CredentialsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -808,6 +944,22 @@ namespace Interface.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> ExportJSONAsync(int[] posicao, string path) {
             return base.Channel.ExportJSONAsync(posicao, path);
+        }
+        
+        public void SendEmails(string email, string bloodtype) {
+            base.Channel.SendEmails(email, bloodtype);
+        }
+        
+        public System.Threading.Tasks.Task SendEmailsAsync(string email, string bloodtype) {
+            return base.Channel.SendEmailsAsync(email, bloodtype);
+        }
+        
+        public Interface.ServiceReference1.NetworkCredential Credentials() {
+            return base.Channel.Credentials();
+        }
+        
+        public System.Threading.Tasks.Task<Interface.ServiceReference1.NetworkCredential> CredentialsAsync() {
+            return base.Channel.CredentialsAsync();
         }
     }
 }

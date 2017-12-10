@@ -13,6 +13,8 @@ using System.Web.Hosting;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using System.Net.Mail;
+using System.Net;
 
 namespace Socorro
 {
@@ -472,6 +474,39 @@ namespace Socorro
                 }
             }
             return true;
+        }
+
+        public void SendEmails(string email, string bloodtype)
+        {
+            try
+            {
+                string mailBodyhtml =
+                    "<p>If you are reading this email we are experiencing low levels of " + bloodtype +
+                    ", your blood type.</p>" +
+                    "<p>Be kind and go to the nearest hospital to make your donation.</p>" +
+                    "<p></p><p>Blood Donators Project</p>";
+
+                var msg = new MailMessage("blooddonatorsproject@gmail.com", email, "We need your blood!", mailBodyhtml);
+                msg.To.Add(email);
+                msg.IsBodyHtml = true;
+                // substituir erro por smtp
+                var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.UseDefaultCredentials = true;
+                smtpClient.Credentials = Credentials(); //Chamar o metodo com as credensiais 
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(msg);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e));
+            }
+        }
+
+        public NetworkCredential Credentials()
+        {
+            NetworkCredential credential = new NetworkCredential("blooddonatorsproject@gmail.com", "blooddonatorsproject123");
+
+            return credential;
         }
 
 
