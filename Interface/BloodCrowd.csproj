@@ -102,7 +102,6 @@
       <DependentUpon>AddDonatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddNewDonator.cs" />
-    <Compile Include="BloodDonator.cs" />
     <Compile Include="CalculateIMC.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>

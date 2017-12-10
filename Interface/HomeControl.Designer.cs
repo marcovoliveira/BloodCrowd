@@ -101,9 +101,6 @@
             this.chartDonatorsBT.Text = "chart1";
             this.chartDonatorsBT.Click += new System.EventHandler(this.chartDonatorsBT_Click);
             // 
-            // bloodDonatorBindingSource
-            // 
-            this.bloodDonatorBindingSource.DataSource = typeof(Interface.BloodDonator);
             // 
             // label1
             // 
