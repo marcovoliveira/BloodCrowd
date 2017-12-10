@@ -101,7 +101,6 @@
     <Compile Include="AddDonatorForm.Designer.cs">
       <DependentUpon>AddDonatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CalculateIMC.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
