@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
@@ -20,6 +21,9 @@ namespace Socorro
 
         //Método responsável por adicionar um novo dador
         [OperationContract]
+        //deve devolver true
+        [WebInvoke(Method ="POST", UriTemplate = "/addDonator")]
+        [Description("Gets all the Books from the Bookstore.")]
         bool AddNewDonator(BloodDonator bd);
 
         //Método responsável por garantir acesso à bd nas listagens
