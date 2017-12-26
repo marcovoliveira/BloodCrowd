@@ -22,8 +22,8 @@ namespace Socorro
         //Método responsável por adicionar um novo dador
         [OperationContract]
         //deve devolver true
-        [WebInvoke(Method ="POST", UriTemplate = "/addDonator")]
-        [Description("Gets all the Books from the Bookstore.")]
+        [WebInvoke(Method ="POST", UriTemplate = "/donator/AddDonator/{bd}")]
+        [Description("Posts a donator at xml file")]
         bool AddNewDonator(BloodDonator bd);
 
         //Método responsável por garantir acesso à bd nas listagens
