@@ -26,7 +26,7 @@ namespace Interface.ServiceReference1 {
         private int AgeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime BirthDayField;
+        private string BirthDayField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BloodTypeField;
@@ -121,12 +121,12 @@ namespace Interface.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime BirthDay {
+        public string BirthDay {
             get {
                 return this.BirthDayField;
             }
             set {
-                if ((this.BirthDayField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.BirthDayField, value) != true)) {
                     this.BirthDayField = value;
                     this.RaisePropertyChanged("BirthDay");
                 }
@@ -575,56 +575,10 @@ namespace Interface.ServiceReference1 {
         System.Threading.Tasks.Task<bool> DevolverAsync(string textotxt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewDonator", ReplyAction="http://tempuri.org/IService1/AddNewDonatorResponse")]
-        bool AddNewDonator(
-                    string sexo, 
-                    string firstName, 
-                    string lastName, 
-                    string streetAddress, 
-                    string city, 
-                    string statefull, 
-                    string zipCode, 
-                    string eMail, 
-                    string userName, 
-                    string password, 
-                    string telephoneNumber, 
-                    string mothersMaiden, 
-                    string birthDay, 
-                    string age, 
-                    string occupation, 
-                    string company, 
-                    string vehicle, 
-                    string bloodType, 
-                    string kilograms, 
-                    string centimeters, 
-                    string guid, 
-                    string latitude, 
-                    string longitude);
+        bool AddNewDonator(Interface.ServiceReference1.BloodDonator bd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewDonator", ReplyAction="http://tempuri.org/IService1/AddNewDonatorResponse")]
-        System.Threading.Tasks.Task<bool> AddNewDonatorAsync(
-                    string sexo, 
-                    string firstName, 
-                    string lastName, 
-                    string streetAddress, 
-                    string city, 
-                    string statefull, 
-                    string zipCode, 
-                    string eMail, 
-                    string userName, 
-                    string password, 
-                    string telephoneNumber, 
-                    string mothersMaiden, 
-                    string birthDay, 
-                    string age, 
-                    string occupation, 
-                    string company, 
-                    string vehicle, 
-                    string bloodType, 
-                    string kilograms, 
-                    string centimeters, 
-                    string guid, 
-                    string latitude, 
-                    string longitude);
+        System.Threading.Tasks.Task<bool> AddNewDonatorAsync(Interface.ServiceReference1.BloodDonator bd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolverXml", ReplyAction="http://tempuri.org/IService1/DevolverXmlResponse")]
         System.Xml.XmlElement DevolverXml();
@@ -659,8 +613,8 @@ namespace Interface.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDonator", ReplyAction="http://tempuri.org/IService1/AddDonatorResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.SecureString))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.NetworkCredential))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Interface.ServiceReference1.BloodDonator[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
         System.Xml.XmlElement AddDonator(
@@ -778,58 +732,12 @@ namespace Interface.ServiceReference1 {
             return base.Channel.DevolverAsync(textotxt);
         }
         
-        public bool AddNewDonator(
-                    string sexo, 
-                    string firstName, 
-                    string lastName, 
-                    string streetAddress, 
-                    string city, 
-                    string statefull, 
-                    string zipCode, 
-                    string eMail, 
-                    string userName, 
-                    string password, 
-                    string telephoneNumber, 
-                    string mothersMaiden, 
-                    string birthDay, 
-                    string age, 
-                    string occupation, 
-                    string company, 
-                    string vehicle, 
-                    string bloodType, 
-                    string kilograms, 
-                    string centimeters, 
-                    string guid, 
-                    string latitude, 
-                    string longitude) {
-            return base.Channel.AddNewDonator(sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
+        public bool AddNewDonator(Interface.ServiceReference1.BloodDonator bd) {
+            return base.Channel.AddNewDonator(bd);
         }
         
-        public System.Threading.Tasks.Task<bool> AddNewDonatorAsync(
-                    string sexo, 
-                    string firstName, 
-                    string lastName, 
-                    string streetAddress, 
-                    string city, 
-                    string statefull, 
-                    string zipCode, 
-                    string eMail, 
-                    string userName, 
-                    string password, 
-                    string telephoneNumber, 
-                    string mothersMaiden, 
-                    string birthDay, 
-                    string age, 
-                    string occupation, 
-                    string company, 
-                    string vehicle, 
-                    string bloodType, 
-                    string kilograms, 
-                    string centimeters, 
-                    string guid, 
-                    string latitude, 
-                    string longitude) {
-            return base.Channel.AddNewDonatorAsync(sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden, birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
+        public System.Threading.Tasks.Task<bool> AddNewDonatorAsync(Interface.ServiceReference1.BloodDonator bd) {
+            return base.Channel.AddNewDonatorAsync(bd);
         }
         
         public System.Xml.XmlElement DevolverXml() {

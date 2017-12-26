@@ -20,29 +20,7 @@
   <xs:element name="AddNewDonator">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="streetAddress" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="statefull" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="eMail" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="mothersMaiden" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="birthDay" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="age" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="occupation" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="bloodType" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="kilograms" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="centimeters" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="bd" nillable="true" type="q1:BloodDonator" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,7 +71,7 @@
   <xs:element name="ListDonatorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListDonatorsResult" nillable="true" type="q1:ArrayOfBloodDonator" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListDonatorsResult" nillable="true" type="q2:ArrayOfBloodDonator" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +98,7 @@
   <xs:element name="ListaDonatorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListaDonatorsResult" nillable="true" type="q2:ArrayOfBloodDonator" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Socorro" minOccurs="0" name="ListaDonatorsResult" nillable="true" type="q3:ArrayOfBloodDonator" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -151,7 +129,7 @@
         <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="doc" nillable="true" type="q3:ArrayOfanyType" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="doc" nillable="true" type="q4:ArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -171,7 +149,7 @@
   <xs:element name="ExportarXML">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="posicao" nillable="true" type="q4:ArrayOfint" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="posicao" nillable="true" type="q5:ArrayOfint" />
         <xs:element minOccurs="0" name="caminhoGuardar" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -186,7 +164,7 @@
   <xs:element name="ExportJSON">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="posicao" nillable="true" type="q5:ArrayOfint" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="posicao" nillable="true" type="q6:ArrayOfint" />
         <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -219,7 +197,7 @@
   <xs:element name="CredentialsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="CredentialsResult" nillable="true" type="q6:NetworkCredential" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="CredentialsResult" nillable="true" type="q7:NetworkCredential" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

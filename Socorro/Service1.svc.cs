@@ -49,10 +49,7 @@ namespace Socorro
            return sucesso;
         }
 
-        public bool AddNewDonator(String sexo, String firstName, String lastName, String streetAddress,
-                         String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
-                         String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
-                         String kilograms, String centimeters, String guid, String latitude, String longitude)
+        public bool AddNewDonator(BloodDonator bd)
         {
             XmlDocument doc = new XmlDocument();
            
@@ -62,8 +59,8 @@ namespace Socorro
             int idU = Convert.ToInt32(id.InnerText);
             String idUltimo = Convert.ToString(idU + 1);
 
-            root.AppendChild(AddDonator(idUltimo, sexo, firstName, lastName, streetAddress, city, statefull, zipCode, eMail, userName, password, telephoneNumber, mothersMaiden
-                , birthDay, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude, doc));
+            root.AppendChild(AddDonator(idUltimo, bd.Sexo, bd.FirstName, bd.LastName, bd.StreetAddress, bd.City, bd.Statefull, bd.ZipCode, bd.EMail, bd.UserName, bd.Password, Convert.ToString(bd.TelephoneNumber), bd.MothersMaiden
+                , Convert.ToString(bd.BirthDay), Convert.ToString(bd.Age), bd.Occupation, bd.Company, bd.Vehicle, bd.BloodType, Convert.ToString(bd.Kilograms), Convert.ToString(bd.Centimeters), bd.Guid, bd.Latitude, bd.Longitude, doc));
             doc.Save(FILEPATH);
 
 
@@ -281,6 +278,7 @@ namespace Socorro
                     long telefone = Convert.ToInt64(dm.Element("Telefone").Value);
                     String nome_mae = dm.Element("Nome_da_mae").Value;
                     DateTime data_nascimento = DateTime.Parse(dm.Element("Data_Nascimento").Value, culture, DateTimeStyles.AssumeLocal);
+                    String dn = Convert.ToString(data_nascimento);
                     int idade = Convert.ToInt32(dm.Element("Idade").Value);
                     String ocupacao = dm.Element("Ocupaçao").Value;
                     String empresa = dm.Element("Empresa").Value;
@@ -294,7 +292,7 @@ namespace Socorro
                     double IMC = CalcularIMC(peso, altura);
 
                     ListDonators.Add(new BloodDonator(id, sexo, primeiro_nome, ultimo_nome, rua, cidade, distrito, codigo_postal, email, username,
-                        password, telefone, nome_mae, data_nascimento, idade, ocupacao, empresa, veiculo, tipo_sangue, peso, altura,
+                        password, telefone, nome_mae, dn, idade, ocupacao, empresa, veiculo, tipo_sangue, peso, altura,
                         guid, latitude, longitude, IMC));
 
                 }

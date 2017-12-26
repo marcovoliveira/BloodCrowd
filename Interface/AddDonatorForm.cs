@@ -114,7 +114,7 @@ namespace Interface
             bool resultadoint = int.TryParse(telephoneTextBox.Text, out var n);
             bool resultadodouble = double.TryParse(kilogramsTextBox.Text, out var p);
             bool resultaddouble2 = double.TryParse(centimetersTextBox.Text, out var l);
-
+            BloodDonator bd1 = new BloodDonator();
 
 
             string especiais = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
@@ -135,28 +135,28 @@ namespace Interface
             }
             else
             {
-                String genero = genreComboBox.SelectedItem.ToString();
-                String firstName = firstNameTextBox.Text;
-                String lastName = lastNameTextBox.Text;
-                String streetAddress = streetAddressTextBox.Text;
-                String city = cityTextBox.Text;
-                String statefull = stateFullTextBox.Text;
-                String zipCode = zipCodeTextBox.Text;
-                String email = emailTextBox.Text;
-                String username = userNameTextBox.Text;
-                String telephone = telephoneTextBox.Text;
-                String mothersMaiden = mothersMaidenTextBox.Text;
+                bd1.Sexo = genreComboBox.SelectedItem.ToString();
+                bd1.FirstName = firstNameTextBox.Text;
+                bd1.LastName = lastNameTextBox.Text;
+                bd1.StreetAddress = streetAddressTextBox.Text;
+                bd1.City = cityTextBox.Text;
+                bd1.Statefull = stateFullTextBox.Text;
+                bd1.ZipCode = zipCodeTextBox.Text;
+                bd1.EMail = emailTextBox.Text;
+                bd1.UserName = userNameTextBox.Text;
+                bd1.TelephoneNumber = Convert.ToInt64(telephoneTextBox.Text);
+                bd1.MothersMaiden = mothersMaidenTextBox.Text;
                 String birthday = birthDaydateTimePicker.Text;
-                String occupation = occupationTextBox.Text;
-                String company = companyTextBox.Text;
-                String vehicle = vehicleTextBox.Text;
-                String bloodType = bloodTypeComboBox.SelectedItem.ToString();
-                String kilograms = kilogramsTextBox.Text;
-                String centimeters = centimetersTextBox.Text;
-                String password ="";
-                String guid = "";
-                String latitude = "";
-                String longitude = "";
+                bd1.Occupation = occupationTextBox.Text;
+                bd1.Company = companyTextBox.Text;
+                bd1.Vehicle = vehicleTextBox.Text;
+                bd1.BloodType = bloodTypeComboBox.SelectedItem.ToString();
+                bd1.Kilograms = Convert.ToDouble(kilogramsTextBox.Text);
+                bd1.Centimeters = Convert.ToDouble(centimetersTextBox.Text);
+                bd1.Password ="";
+                bd1.Guid = "";
+                bd1.Latitude = "";
+                bd1.Longitude = "";
                 
                 //calcular idade
                 var hoje = DateTime.Today;
@@ -180,9 +180,12 @@ namespace Interface
                         dn = b + "/" + bday[0] + "/" + bday[4];
                     }
           }
-
-                client.AddNewDonator(genero, firstName, lastName, streetAddress, city, statefull, zipCode, email, username, password, telephone,
-                   mothersMaiden, dn, age, occupation, company, vehicle, bloodType, kilograms, centimeters, guid, latitude, longitude);
+                bd1.BirthDay = dn;
+                // BloodDonator bd1 = new BloodDonator();
+              
+                
+                
+                client.AddNewDonator(bd1);
 
                 client.Close();
 

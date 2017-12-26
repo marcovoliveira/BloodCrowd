@@ -20,10 +20,7 @@ namespace Socorro
 
         //Método responsável por adicionar um novo dador
         [OperationContract]
-        bool AddNewDonator(String sexo, String firstName, String lastName, String streetAddress,
-                         String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
-                         String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
-                         String kilograms, String centimeters, String guid, String latitude, String longitude);
+        bool AddNewDonator(BloodDonator bd);
 
         //Método responsável por garantir acesso à bd nas listagens
         [OperationContract]
@@ -72,7 +69,7 @@ namespace Socorro
         public BloodDonator(int number, String sexo, String firstName, String lastName, String streetAddress,
                 String city, String statefull, String zipCode, String eMail, String userName, String password,
                 long telephoneNumber,
-                String mothersMaiden, DateTime birthDay, int age, String occupation, String company, String vehicle,
+                String mothersMaiden, String birthDay, int age, String occupation, String company, String vehicle,
                 String bloodType,
                 double kilograms, double centimeters, String guid, String latitude, String longitude, double imc)
         {
@@ -143,7 +140,7 @@ namespace Socorro
         public String MothersMaiden { get; private set; }
 
         [DataMember]
-        public DateTime BirthDay { get; private set; }
+        public String BirthDay { get; private set; }
 
         [DataMember]
         public int Age { get; private set; }

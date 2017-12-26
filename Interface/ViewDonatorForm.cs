@@ -64,7 +64,7 @@ namespace Interface
                 telephoneLabel.Text = Convert.ToString(item.TelephoneNumber);
                 motherMaidenLabel.Text = item.MothersMaiden;
                 //colocar data bem
-                birthdayLabel.Text = item.BirthDay.Day +"/" + item.BirthDay.Month + "/" + item.BirthDay.Year;
+                birthdayLabel.Text = item.BirthDay;
                 ageLabel.Text = Convert.ToString(item.Age);
                 ocupationLabel.Text = item.Occupation;
                 companyLabel.Text = item.Company;
