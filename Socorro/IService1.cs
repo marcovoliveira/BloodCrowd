@@ -32,12 +32,17 @@ namespace Socorro
 
         //Método responsável por remover dadores
         [OperationContract]
+        //deve vevolver true se eliminar
+        [WebInvoke(Method = "DELETE", UriTemplate = "/donator/RemoveDonator/{id}")]
+        [Description("Removes a donator/list of donators at xml file")]
         bool RemoverDonator(int id);
 
         [OperationContract]
         List<BloodDonator> ListDonators();
 
         [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/donator/CalcularImc")]
+        [Description("Calculates IMC.")]
         double CalcularIMC(double peso, double altura);
 
         [OperationContract]
@@ -45,15 +50,22 @@ namespace Socorro
 
         //Método responsável no auxílio da listagem correta do ficheiro xml(para a lista) e para adicionar novos dadores
         [OperationContract]
+        //diz que nao funciona pq é do tipo Xml
+        [WebInvoke(Method = "POST", UriTemplate = "/donator/Add")]
+        [Description("Add a donator to list")]
         XmlElement AddDonator(String number, String sexo, String firstName, String lastName, String streetAddress,
                          String city, String statefull, String zipCode, String eMail, String userName, String password, String telephoneNumber,
                          String mothersMaiden, String birthDay, String age, String occupation, String company, String vehicle, String bloodType,
                          String kilograms, String centimeters, String guid, String latitude, String longitude,XmlDocument doc);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/donator/ExportXml")]
+        [Description("Gets a list of donators in xml file")]
         bool ExportarXML(List<int> posicao, string caminhoGuardar);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/donator/ExportJson")]
+        [Description("Gets a list of donators in json file")]
         bool ExportJSON(List<int> posicao, string path);
 
         [OperationContract]
